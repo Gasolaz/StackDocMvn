@@ -1,0 +1,30 @@
+[
+  {
+    "Id": 2,
+    "DocTagId": 2,
+    "Name": "1.0.0",
+    "CreationDate": "\/Date(1446695376637-0500)\/",
+    "LastEditDate": "\/Date(1446756563007-0500)\/",
+    "LastEditUserId": 105971,
+    "ReleaseDate": "\/Date(1302753600000-0400)\/"
+  },
+  {
+    "Id": 3,
+    "DocTagId": 1,
+    "Name": "1.0.187",
+    "CreationDate": "\/Date(1446698021910-0500)\/",
+    "LastEditUserId": 105971,
+    "ReleaseDate": "\/Date(1395115200000-0400)\/"
+  },
+  {
+    "Id": 4,
+    "DocTagId": 2,
+    "Name": "1.42.0",
+    "CreationDate": "\/Date(1446756563007-0500)\/",
+    "LastEditUserId": 105971,
+    "ReleaseDate": "\/Date(1430884800000-0400)\/"
+  }
+]
+
+
+
