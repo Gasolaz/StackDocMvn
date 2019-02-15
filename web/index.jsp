@@ -1,4 +1,6 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="TestPack.Package" %><%--
   Created by IntelliJ IDEA.
   User: sarunas
   Date: 19.2.14
@@ -11,6 +13,16 @@
     <title>Test</title>
 </head>
 <body>
-    <h1>First test</h1>
+    <%--<h3> String Information </h3>--%>
+    <%--<% List<String> strings = (ArrayList<String>)request.getAttribute("strings");--%>
+
+        <%--for(String string : strings){--%>
+            <%--out.print(string);--%>
+            <%--out.print("<br>");--%>
+        <%--}--%>
+
+    <%--%>--%>
+
+    <h3> <%= request.getParameter("smth") %></h3>
 </body>
 </html>
