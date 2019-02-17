@@ -13,11 +13,11 @@ import java.sql.SQLException;
 
 public class JsonParser extends DatabaseConnection{
 
-    public static void jsonToDb() {
+    public static void jsonToDb(String json) {
         JSONParser parser = new JSONParser();
         try {
 
-            Object obj = parser.parse(new FileReader("/home/sarunas/Codebaker/StackDocMvn/src/main/Json/topics.json"));
+            Object obj = parser.parse(new FileReader("/home/sarunas/Codebaker/StackDocMvn/src/main/Json/" + json +".json"));
             JSONArray jsonArray = (JSONArray) obj;
             for (Object ms : jsonArray) {
                 JSONObject element = (JSONObject) ms;
