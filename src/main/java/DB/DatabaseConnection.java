@@ -1,8 +1,10 @@
 package DB;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import models.Topic;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseConnection {
     public static final String TABLE_TOPICS = "topics";
@@ -20,9 +22,33 @@ public class DatabaseConnection {
     public static final String INSERT_INTO_DESCRIPTION = "INSER INTO description(" + DESCRIPTION_TOPIC_ID + ", " +
             DESCRIPTION_SUB_TOPIC_ID + ", " + DESCRIPTION_DESCRIPTION + ") VALUES(?, ?, ?)";
 
-    static Connection conn;
-    static String url = "jdbc:sqlite:/home/sarunas/Codebaker/StackDocMvn/src/StackDoc.db";
-    static Connection connect() throws SQLException {
+    public static Connection conn;
+    public static String url = "jdbc:sqlite:/home/sarunas/Codebaker/StackDocMvn/TempStackDoc.db";
+
+    public static void main(String[] args) {
+        System.out.println(themes());
+    }
+
+    public static List<Topic> themes() {
+        List<Topic> topics = new ArrayList<>();
+        try {
+            conn = connect();
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM Topics");
+
+            while (rs.next()) {
+                long id = (rs.getLong("_id"));
+                String str = (rs.getString("topic"));
+                Topic topic = new Topic(id, str);
+                topics.add(topic);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return topics;
+    }
+
+    public static Connection connect() throws SQLException {
         Connection conn = null;
         conn = DriverManager.getConnection(url);
         return conn;

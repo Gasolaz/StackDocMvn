@@ -1,3 +1,4 @@
+import models.Topic;
 import org.json.simple.JSONObject;
 
 import java.io.FileNotFoundException;
@@ -7,6 +8,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static DB.DatabaseConnection.connect;
+import static DB.DatabaseConnection.conn;
 
 
 public class Main {
@@ -19,15 +23,19 @@ public class Main {
 
     public static void main(String[] args) {
 
-        List<String> strings = new ArrayList<String>();
-        String smth = "*";
-        for (int i = 0; i < 4; i++) {
-            strings.add(smth);
-            smth += smth;
-        }
-        System.out.println(strings);
+
+//        List<String> strings = new ArrayList<String>();
+//        String smth = "*";
+//        for (int i = 0; i < 4; i++) {
+//            strings.add(smth);
+//            smth += smth;
+//        }
+//        System.out.println(strings);
     }
 
+
+
 }
+
 
 

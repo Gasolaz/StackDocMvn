@@ -7,23 +7,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-    @WebServlet(description = "Package")
-    public class Package extends HttpServlet {
-        private static final long serialVersionUID = 1L;
+// description = "Package",
 
-        public String[] method(){
-            String[] strings = new String[6];
-            String mark = "*";
-            for(int i = 0; i < strings.length; i++){
-                strings[i] = mark;
-                mark += mark;
-            }
-            return strings;
+    @WebServlet("/test")
+    public class Package extends HttpServlet{
+
+        public ObjectRnd method(){
+            String[] strings = {"a", "b", "c", "d"};
+            String[] strings1 = {"asd", "sd", "sad"};
+
+            ObjectRnd rnd = new ObjectRnd(strings, strings1);
+            return rnd;
         }
+
+        public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            PrintWriter out = response.getWriter();
+            ObjectRnd rnd = method();
+            for(String str : rnd.getStr()){
+                out.println(str);
+            }
+            out.println("**************");
+            for(String str : rnd.getStr1()){
+                out.println(str);
+            }
+        }
+
+
 
 
 //        public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
