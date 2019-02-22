@@ -83,7 +83,7 @@ public class JsonParser extends DatabaseConnection{
 //                    ps.setString(17, HelloWorldVersionsHtml);
 //                    ps.executeUpdate();
 
-                } catch (SQLException e) {
+                } catch (SQLException | ClassNotFoundException e) {
                     e.printStackTrace();
                 }
             }

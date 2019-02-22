@@ -12,7 +12,7 @@ public class TableCreations extends DatabaseConnection {
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS " + TABLE_SUB_TOPICS + "(" + ID + " INTEGER PRIMARY KEY, " + SUB_TOPICS_SUB_TOPIC + " TEXT NOT NULL)");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS " + TABLE_DESCRIPTION + "(" + ID + " INTEGER PRIMARY KEY, topic_id INTEGER NOT NULL, " +
                     "sub_topic_id INTEGER NOT NULL, header TEXT NOT NULL, description TEXT NOT NULL)");
-        } catch (SQLException e){
+        } catch (SQLException | ClassNotFoundException e){
             e.printStackTrace();
         }
     }

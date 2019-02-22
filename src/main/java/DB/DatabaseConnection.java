@@ -23,12 +23,13 @@ public class DatabaseConnection {
             DESCRIPTION_SUB_TOPIC_ID + ", " + DESCRIPTION_DESCRIPTION + ") VALUES(?, ?, ?)";
 
     public static Connection conn;
-    public static String url = "jdbc:sqlite:/home/sarunas/Codebaker/StackDocMvn/src/TempStackDoc.db";
+    public static String url = "jdbc:sqlite:../../TempStackDoc.db";
 
     public static void main(String[] args) {
     }
 
-    public static Connection connect() throws SQLException {
+    public static Connection connect() throws SQLException, ClassNotFoundException {
+        Class.forName("org.sqlite.JDBC");
         Connection conn = null;
         conn = DriverManager.getConnection(url);
         return conn;

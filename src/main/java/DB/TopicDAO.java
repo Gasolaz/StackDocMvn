@@ -43,7 +43,7 @@ public class TopicDAO extends DatabaseConnection {
         List<Topic> topics = new ArrayList<>();
         try (Connection conn = connect()){
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM Topics");
+            ResultSet rs = statement.executeQuery("SELECT * FROM topics");
 
             while (rs.next()) {
                 long id = (rs.getLong("_id"));
@@ -51,7 +51,7 @@ public class TopicDAO extends DatabaseConnection {
                 Topic topic = new Topic(id, str);
                 topics.add(topic);
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return topics;

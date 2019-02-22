@@ -21,7 +21,7 @@ public class SubTopic {
             while(rs.next()){
                 this.topicId = rs.getString("topic");
             }
-        } catch (SQLException e){
+        } catch (SQLException | ClassNotFoundException e){
             e.printStackTrace();
         }
 //        this.topicId = topicId;

@@ -17,7 +17,7 @@ public class DescriptionInsertion extends DatabaseConnection {
             ps.setLong(2, 2);
             ps.setString(3, "description");
             ps.executeUpdate();
-        } catch (SQLException e){
+        } catch (SQLException | ClassNotFoundException e){
             e.printStackTrace();
         }
     }
@@ -29,7 +29,7 @@ public class DescriptionInsertion extends DatabaseConnection {
             PreparedStatement ps = conn.prepareStatement(INSERT_INTO_TOPICS);
             ps.setString(1, "topicText");
             ps.executeUpdate();
-        } catch (SQLException e){
+        } catch (SQLException | ClassNotFoundException e){
             e.printStackTrace();
         }
     }
@@ -41,7 +41,7 @@ public class DescriptionInsertion extends DatabaseConnection {
             PreparedStatement ps = conn.prepareStatement(INSERT_INTO_SUB_TOPICS);
             ps.setString(1, "subTopicText");
             ps.executeUpdate();
-        } catch (SQLException e){
+        } catch (SQLException | ClassNotFoundException e){
             e.printStackTrace();
         }
     }

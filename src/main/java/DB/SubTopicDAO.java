@@ -21,7 +21,7 @@ public class SubTopicDAO {
 //            int limitend = 5+(5*(pagenr-1))
             ResultSet rs = statement.executeQuery("SELECT * FROM subtopics LIMIT 0, 5");
             searchingForSt(rs, subTopics);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return subTopics;
@@ -52,7 +52,7 @@ public class SubTopicDAO {
                 searchingForSt(rs, subTopics);
             }
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return subTopics;

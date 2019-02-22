@@ -20,7 +20,9 @@ function clicked(e) {
             "Content-Type": "application/x-www-form-urlencoded",
             "Access-Control-Origin": "*"
         },
-        body: `pageNumber=${e.target.textContent},
-               search=${input_Value}`
+        body: `pageNumber=${e.target.textContent}`
+               
     })
 }
+
+

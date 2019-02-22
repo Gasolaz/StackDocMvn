@@ -24,7 +24,7 @@
 <div class="container">
 
     <form action="" class="topics_form" method="post">
-        <select name="topics">
+        <select class="select_topics" name="topics">
         <option selected="selected" value=0></option>
         <%
             List<Topic> topics = (List<Topic>) request.getAttribute("topics");
@@ -44,12 +44,12 @@
             }
         %>
     </select>
-        <input name="subtopicsearch" type="text" class="search" placeholder="Search...">
+        <input autofocus name="subtopicsearch" type="text" class="search" placeholder="Search...">
         <input type="hidden" name="pageNumber" value="1">
-        <button type="submit">Search</button>
+        <button class="search_button" type="submit">Search</button>
     </form>
 
-    <table cellpadding="5px">
+    <table cellpadding="20px">
         <%
             List<SubTopic> subTopics;
             if(request.getAttribute("filteredSt") == null) {
@@ -62,16 +62,15 @@
         <tr>
             <th>Topic</th>
             <th>Subtopic</th>
-        <tr>
-            <% for(SubTopic subTopic : subTopics){ %>
-        <tr>
-            <td>
-                <%= subTopic.getTopicId()%>
-            </td>
-            <td>
-                <%= subTopic.getSubTopic() %>
-            </td>
         </tr>
+
+            <% for(SubTopic subTopic : subTopics){ %>
+
+        <tr onclick="location.href='https://google.com'; this.target='_blank'">
+            <td><%= subTopic.getTopicId()%></td>
+            <td><%= subTopic.getSubTopic() %></td>
+        </tr>
+
         <%
             }
         %>
@@ -89,7 +88,7 @@
             <input name="topics" type="hidden" value="<%=searchObject.getTopicId()%>">
             <input name="subtopicsearch" type="hidden" value="<%=searchObject.getSearch()%>">
             <input type="hidden" value="<%=i%>" name="pageNumber">
-            <button type="submit"><%=i%></button>
+            <button class="page" type="submit"><%=i%></button>
         </form>
         <%
 
@@ -99,8 +98,6 @@
     </div>
 
 </div>
-
-
 
 </body>
 </html>
