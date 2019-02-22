@@ -6,43 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7546b152-ce5e-4a9a-955b-112c7d9d0c68" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TempStackDoc.db" beforeDir="false" afterPath="$PROJECT_DIR$/TempStackDoc.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/DatabaseConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/JsonParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/JsonParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/TopicDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/TopicDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/TestPack/Package.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/TestPack/Package.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/controllers/TopicsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/controllers/TopicsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/models/SubTopic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/models/SubTopic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/services/SubTopicService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/services/SubTopicService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/services/TopicService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/services/TopicService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DB/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DB/JsonParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/JsonParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DB/TopicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/TopicDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TestPack/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TestPack/Package.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/TopicsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/TopicsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/SubTopic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/SubTopic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/SubTopicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/SubTopicService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/TopicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/TopicService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DB/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DB/DatabaseConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DB/JsonParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DB/JsonParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DB/TopicDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DB/TopicDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TestPack/Package.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TestPack/Package.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/TopicsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/TopicsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/SubTopic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/SubTopic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/SubTopicService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/SubTopicService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/TopicService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/TopicService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="7546b152-ce5e-4a9a-955b-112c7d9d0c68" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -95,7 +59,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controllers/TopicsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
+            <state relative-caret-position="375">
               <caret line="39" column="33" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -107,8 +71,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/DB/DatabaseConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="30" column="60" lean-forward="true" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
+            <state relative-caret-position="495">
+              <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,7 +95,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
+            <state relative-caret-position="1245">
               <caret line="83" column="13" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
             </state>
           </provider>
@@ -534,6 +498,8 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DatabaseConnection" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.DatabaseConnection" />
       </list>
@@ -582,7 +548,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106935000" />
+    <option name="totallyTimeSpent" value="106963000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -595,9 +561,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1853" height="1053" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25456557" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25456557" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -608,7 +573,7 @@
       <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.48976204" weight="0.2704471" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.4991699" weight="0.3293348" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.64748204" visible="true" weight="0.3642312" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.64748204" weight="0.3642312" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -619,7 +584,7 @@
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" weight="0.32715377" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.352518" side_tool="true" weight="0.3977813" />
       <window_info active="true" anchor="bottom" id="Database Console" order="13" visible="true" weight="0.3293348" />
-      <window_info anchor="bottom" id="Application Servers" order="14" weight="0.3293348" />
+      <window_info anchor="bottom" id="Application Servers" order="14" visible="true" weight="0.3293348" />
       <window_info anchor="bottom" id="Java Enterprise" order="15" weight="0.3293348" />
       <window_info anchor="bottom" id="Dependency Viewer" order="16" weight="0.3293348" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -874,6 +839,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DB/DAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/TopicsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="39" column="33" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DB/TopicDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
@@ -881,6 +866,13 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1245">
+          <caret line="83" column="13" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -928,37 +920,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="83" column="13" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/TopicsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="33" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DB/DAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DB/DatabaseConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="30" column="60" lean-forward="true" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
+        <state relative-caret-position="495">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
