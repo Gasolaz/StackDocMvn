@@ -19,33 +19,13 @@ public class DatabaseConnection {
 
     public static final String INSERT_INTO_TOPICS = "INSERT INTO topics(" + TOPICS_TOPIC + ") VALUES(?)";
     public static final String INSERT_INTO_SUB_TOPICS = "INSERT INTO sub_topics(" + SUB_TOPICS_SUB_TOPIC + ") VALUES(?)";
-    public static final String INSERT_INTO_DESCRIPTION = "INSER INTO description(" + DESCRIPTION_TOPIC_ID + ", " +
+    public static final String INSERT_INTO_DESCRIPTION = "INSERT INTO description(" + DESCRIPTION_TOPIC_ID + ", " +
             DESCRIPTION_SUB_TOPIC_ID + ", " + DESCRIPTION_DESCRIPTION + ") VALUES(?, ?, ?)";
 
     public static Connection conn;
-    public static String url = "jdbc:sqlite:/home/sarunas/Codebaker/StackDocMvn/TempStackDoc.db";
+    public static String url = "jdbc:sqlite:/home/sarunas/Codebaker/StackDocMvn/src/TempStackDoc.db";
 
     public static void main(String[] args) {
-        System.out.println(themes());
-    }
-
-    public static List<Topic> themes() {
-        List<Topic> topics = new ArrayList<>();
-        try {
-            conn = connect();
-            Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM Topics");
-
-            while (rs.next()) {
-                long id = (rs.getLong("_id"));
-                String str = (rs.getString("topic"));
-                Topic topic = new Topic(id, str);
-                topics.add(topic);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return topics;
     }
 
     public static Connection connect() throws SQLException {

@@ -1,0 +1,54 @@
+body {
+    text-align: center;
+}
+.container {
+    margin: auto;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-top: -300px;
+    width: 50%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: aqua;
+    transition: 3s;;
+}
+/*table td {*/
+/*border: 1px solid black;*/
+/*}*/
+
+
+table tr {
+    border: 1px solid black;
+}
+
+.pages {
+    display: flex;
+    justify-content: space-between;
+}
+
+ .page {
+    background-color: red;
+    border: 1px solid black;
+    padding: 5px;
+    width: 5%;
+    cursor: pointer;
+    user-select: none;
+}
+
+.page:hover {
+    background-color: white;
+    color: red;
+}
+
+.page:active {
+    transform: scale(.9);
+}

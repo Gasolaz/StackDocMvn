@@ -7,49 +7,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7546b152-ce5e-4a9a-955b-112c7d9d0c68" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/DatabaseConnection.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/DescriptionInsertion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/JsonParser.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/TableCreations.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/TopicDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/create_table_test.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/models/Description.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/models/SubTopic.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/models/Topic.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/services/DescriptionService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/services/SubTopicService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/services/TopicService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DB/DAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DB/DatabaseConnection.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DB/DescriptionInsertion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DB/JsonParser.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DB/TableCreations.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DB/TopicDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/create_table_test.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/models/Description.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/models/SubTopic.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/models/Topic.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/services/DescriptionService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/services/SubTopicService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/services/TopicService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TempStackDoc.db" beforeDir="false" afterPath="$PROJECT_DIR$/TempStackDoc.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/DatabaseConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/JsonParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/JsonParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/TopicDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/TopicDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/TestPack/Package.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/TestPack/Package.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/controllers/TopicsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/controllers/TopicsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/models/SubTopic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/models/SubTopic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/services/SubTopicService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/services/SubTopicService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/services/TopicService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/services/TopicService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/servletExample.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/servletExample.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DB/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DB/JsonParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/JsonParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DB/TopicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/TopicDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TestPack/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TestPack/Package.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Topic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/TopicsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/TopicsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/SubTopic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/SubTopic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/SubTopicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/SubTopicService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/TopicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/TopicService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DB/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DB/DatabaseConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DB/JsonParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DB/JsonParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DB/TopicDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DB/TopicDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/TestPack/Package.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TestPack/Package.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/TopicsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/TopicsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/SubTopic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/SubTopic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/SubTopicService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/SubTopicService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/TopicService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/TopicService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/servletExample.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/servletExample.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -101,70 +93,25 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/DB/JsonParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="35" column="81" selection-start-line="35" selection-start-column="81" selection-end-line="35" selection-end-column="81" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/servletExample.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="26" column="40" lean-forward="true" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controllers/TopicsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/models/Topic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+            <state relative-caret-position="585">
+              <caret line="39" column="33" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/index.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DB/DatabaseConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="39" column="28" lean-forward="true" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+            <state relative-caret-position="351">
+              <caret line="30" column="60" lean-forward="true" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -172,35 +119,74 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/DB/TopicDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="59" column="36" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
+            <state relative-caret-position="705">
+              <caret line="55" column="9" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#350#357#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/DB/DatabaseConnection.java">
+        <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+            <state relative-caret-position="612">
+              <caret line="83" column="13" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/reset.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="585">
+              <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/models/SearchObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/TestPack/Servlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1318#1319#0" expanded="true" />
-                <element signature="e#1362#1363#0" expanded="true" />
+                <element signature="e#0#469#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/CommentsClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+            <state relative-caret-position="1230">
+              <caret line="82" column="172" selection-start-line="82" selection-start-column="172" selection-end-line="82" selection-end-column="172" />
+              <folding>
+                <element signature="e#0#2837#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -212,6 +198,8 @@
       <list>
         <option value="Jsp File" />
         <option value="Interface" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
         <option value="Class" />
       </list>
     </option>
@@ -239,22 +227,40 @@
         <option value="$PROJECT_DIR$/src/main/java/create_table_test.java" />
         <option value="$PROJECT_DIR$/src/main/java/DB/TableCreations.java" />
         <option value="$PROJECT_DIR$/src/main/java/DB/DescriptionInsertion.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DB/JsonParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/TestPack/ObjectRnd.java" />
-        <option value="$PROJECT_DIR$/src/main/java/TestPack/Package.java" />
-        <option value="$PROJECT_DIR$/web/servletExample.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/DB/DAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/DB/JpaTopicDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/Topic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DB/TopicDAO.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/web/servletExample.jsp" />
+        <option value="$PROJECT_DIR$/web/Script.js" />
+        <option value="$PROJECT_DIR$/src/main/java/services/SubTopicService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TestPack/Package.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TestPack/Servlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/Json/subTopic.json" />
+        <option value="$PROJECT_DIR$/src/main/java/DB/JsonParser.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/DB/TopicDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/services/TopicService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/SubTopic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/CommentsClass.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/web/script.js" />
+        <option value="$PROJECT_DIR$/src/main/java/models/SearchObject.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/TopicsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DB/DatabaseConnection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DB/SubTopicDAO.java" />
+        <option value="$PROJECT_DIR$/web/reset.css" />
+        <option value="$PROJECT_DIR$/web/styles.css" />
         <option value="$PROJECT_DIR$/web/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/DB/DatabaseConnection.java" />
       </list>
     </option>
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -282,8 +288,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="650" />
-    <option name="y" value="27" />
+    <option name="x" value="314" />
+    <option name="y" value="66" />
     <option name="width" value="1270" />
     <option name="height" value="806" />
   </component>
@@ -293,8 +299,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -383,29 +387,29 @@
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="StackDocMvn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550493457495" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550776048085" />
     <property name="database.console.LAST_STATE" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/JavaPrograms/Html5 Boilerplate" />
+    <property name="last_opened_file_path" value="$USER_HOME$/JavaPrograms/Kata2" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2850575" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -525,13 +529,13 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Tomcat Server.Tomcat 9.0.161" />
       <item itemvalue="Application.DatabaseConnection" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.161" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DatabaseConnection" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.DatabaseConnection" />
       </list>
     </recent_temporary>
   </component>
@@ -557,12 +561,28 @@
       <workItem from="1550400302745" duration="7000" />
       <workItem from="1550414063545" duration="1740000" />
       <workItem from="1550439533308" duration="1349000" />
-      <workItem from="1550472202744" duration="18145000" />
+      <workItem from="1550472202744" duration="19289000" />
+      <workItem from="1550515800006" duration="595000" />
+      <workItem from="1550558336976" duration="4269000" />
+      <workItem from="1550576949279" duration="1351000" />
+      <workItem from="1550580683356" duration="435000" />
+      <workItem from="1550587502696" duration="1254000" />
+      <workItem from="1550602246742" duration="100000" />
+      <workItem from="1550602585519" duration="609000" />
+      <workItem from="1550644791205" duration="11308000" />
+      <workItem from="1550731209983" duration="1563000" />
+      <workItem from="1550739112657" duration="9910000" />
+      <workItem from="1550753427390" duration="671000" />
+      <workItem from="1550757982797" duration="2611000" />
+      <workItem from="1550761269857" duration="372000" />
+      <workItem from="1550774823757" duration="1268000" />
+      <workItem from="1550776123563" duration="2845000" />
+      <workItem from="1550817520751" duration="1667000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64963000" />
+    <option name="totallyTimeSpent" value="106935000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -577,7 +597,7 @@
     <frame x="67" y="27" width="1853" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21195352" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25456557" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -585,7 +605,6 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Dependency Viewer" weight="0.3293348" />
       <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.48976204" weight="0.2704471" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.4991699" weight="0.3293348" />
@@ -602,6 +621,7 @@
       <window_info active="true" anchor="bottom" id="Database Console" order="13" visible="true" weight="0.3293348" />
       <window_info anchor="bottom" id="Application Servers" order="14" weight="0.3293348" />
       <window_info anchor="bottom" id="Java Enterprise" order="15" weight="0.3293348" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="16" weight="0.3293348" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24958494" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -610,7 +630,7 @@
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Database" order="7" weight="0.32982844" />
-      <window_info anchor="right" id="Maven" order="8" visible="true" weight="0.030990591" />
+      <window_info anchor="right" id="Maven" order="8" weight="0.030990591" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -652,61 +672,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/zdsa" />
     <entry file="file://$PROJECT_DIR$/src/main/java/index.jsp" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Services.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/SubTopic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-          <folding>
-            <element signature="e#239#240#0" expanded="true" />
-            <element signature="e#272#273#0" expanded="true" />
-            <element signature="e#300#301#0" expanded="true" />
-            <element signature="e#336#337#0" expanded="true" />
-            <element signature="e#368#369#0" expanded="true" />
-            <element signature="e#418#419#0" expanded="true" />
-            <element signature="e#460#461#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/DescriptionService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/SubTopicService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/StackDocMvn.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/Description.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#290#291#0" expanded="true" />
-            <element signature="e#315#316#0" expanded="true" />
-            <element signature="e#348#349#0" expanded="true" />
-            <element signature="e#376#377#0" expanded="true" />
-            <element signature="e#408#409#0" expanded="true" />
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#484#485#0" expanded="true" />
-            <element signature="e#524#525#0" expanded="true" />
-            <element signature="e#560#561#0" expanded="true" />
-            <element signature="e#595#596#0" expanded="true" />
-            <element signature="e#648#649#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -720,43 +689,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/TopicService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TestPack/ObjectRnd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding>
-            <element signature="e#247#248#0" expanded="true" />
-            <element signature="e#281#282#0" expanded="true" />
-            <element signature="e#318#319#0" expanded="true" />
-            <element signature="e#353#354#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TestPack/Package.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/topic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/topic.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/create_table_test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -781,10 +714,231 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Description.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#290#291#0" expanded="true" />
+            <element signature="e#315#316#0" expanded="true" />
+            <element signature="e#348#349#0" expanded="true" />
+            <element signature="e#376#377#0" expanded="true" />
+            <element signature="e#408#409#0" expanded="true" />
+            <element signature="e#439#440#0" expanded="true" />
+            <element signature="e#484#485#0" expanded="true" />
+            <element signature="e#524#525#0" expanded="true" />
+            <element signature="e#560#561#0" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="e#696#697#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/Script.js" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/DescriptionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/servletExample.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DB/DescriptionInsertion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+        <state relative-caret-position="165">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TestPack/Package.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TestPack/ObjectRnd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Json/subTopic.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Json/subTopicNoQuotes.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/SubTopicService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="75" selection-start-line="6" selection-start-column="75" selection-end-line="6" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Topic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/TopicService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DB/JsonParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="19" column="120" selection-start-line="19" selection-start-column="120" selection-end-line="19" selection-end-column="120" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/SubTopic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+          <folding>
+            <element signature="e#856#857#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
+            <element signature="e#915#916#0" expanded="true" />
+            <element signature="e#945#946#0" expanded="true" />
+            <element signature="e#980#981#0" expanded="true" />
+            <element signature="e#1011#1012#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DB/SubTopicDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="18" column="57" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DB/TopicDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="55" column="9" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/reset.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/SearchObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TestPack/Servlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#0#469#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CommentsClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1230">
+          <caret line="82" column="172" selection-start-line="82" selection-start-column="172" selection-end-line="82" selection-end-column="172" />
+          <folding>
+            <element signature="e#0#2837#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="83" column="13" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/TopicsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="33" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -801,88 +955,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/Topic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DB/TopicDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="59" column="36" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#350#357#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DB/JsonParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="35" column="81" selection-start-line="35" selection-start-column="81" selection-end-line="35" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/TopicsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DB/DatabaseConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        <state relative-caret-position="351">
+          <caret line="30" column="60" lean-forward="true" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1318#1319#0" expanded="true" />
-            <element signature="e#1362#1363#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/servletExample.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="26" column="40" lean-forward="true" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="39" column="28" lean-forward="true" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -953,7 +1032,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: com.oracle:ojdbc14:10.2.0.3.0</last-edited>
+          <last-edited>Maven: com.googlecode.json-simple:json-simple:1.1.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

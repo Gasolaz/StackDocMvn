@@ -8,6 +8,7 @@ import org.json.simple.parser.ParseException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class JsonParser extends DatabaseConnection{
@@ -16,10 +17,12 @@ public class JsonParser extends DatabaseConnection{
         JSONParser parser = new JSONParser();
         try {
 
-            Object obj = parser.parse(new FileReader("/home/sarunas/Codebaker/StackDocMvn/src/main/Json/" + json +".json"));
+            Object obj = parser.parse(new FileReader("/home/sarunas/Codebaker/StackDocMvn/src/main/Json/subTopicNoQuotes.json"));
             JSONArray jsonArray = (JSONArray) obj;
             for (Object ms : jsonArray) {
                 JSONObject element = (JSONObject) ms;
+                long topicId = (Long) element.get("topic_id");
+                String subTopic = (String) element.get("sub_topic");
 //                long id = (Long) element.get("Id");
 //                long docTagId = (Long) element.get("DocTagId");
 //                String title = (String) element.get("Title");
@@ -41,7 +44,7 @@ public class JsonParser extends DatabaseConnection{
 
                 try {
                     conn = connect();
-                    System.out.println(conn);
+//                    System.out.println(conn);
 
 //                    Statement stmt = conn.createStatement();
 //                    ResultSet rs = stmt.executeQuery("SELECT * FROM Topics");
@@ -54,6 +57,11 @@ public class JsonParser extends DatabaseConnection{
 //                    while(rs.next()){
 //                        System.out.println(rs.getString("Title"));
 //                    }
+
+                    PreparedStatement ps = conn.prepareStatement("INSERT INTO subtopics(topic_id, sub_topic) VALUES(?, ?)");
+                    ps.setLong(1, topicId);
+                    ps.setString(2, subTopic);
+                    ps.executeUpdate();
 
 //                    PreparedStatement ps = conn.prepareStatement(INSERT_INTO_DATABASE_TABLE_TOPICS);
 //                    ps.setLong(1, id);

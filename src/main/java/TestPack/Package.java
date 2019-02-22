@@ -25,17 +25,17 @@ import java.util.List;
             return rnd;
         }
 
-        public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            PrintWriter out = response.getWriter();
-            ObjectRnd rnd = method();
-            for(String str : rnd.getStr()){
-                out.println(str);
-            }
-            out.println("**************");
-            for(String str : rnd.getStr1()){
-                out.println(str);
-            }
-        }
+//        public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//            PrintWriter out = response.getWriter();
+//            ObjectRnd rnd = method();
+//            for(String str : rnd.getStr()){
+//                out.println(str);
+//            }
+//            out.println("**************");
+//            for(String str : rnd.getStr1()){
+//                out.println(str);
+//            }
+//        }
 
 
 

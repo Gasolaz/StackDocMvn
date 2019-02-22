@@ -21,68 +21,42 @@ public class TopicDAO extends DatabaseConnection {
     public static final String SELECT_DESCRIPTION = "SELECT description FROM description WHERE ";
 
     public static final String SELECT_FROM_TOPICS_ALL = "SELECT * FROM topics";
-    public static Topic ObjectCreation(){
-        try {
-            conn = connect();
+//    public static Topic ObjectCreation(){
+//        try {
+//            conn = connect();
+//            Statement statement = conn.createStatement();
+//            ResultSet rs = statement.executeQuery(SELECT_FROM_TOPICS_ALL);
+//            Topic topic = null;
+//            while(rs.next()){
+//                int id = rs.getInt("_id");
+//                String theme = rs.getString("topic");
+//                topic = new Topic(id, theme);
+//            }
+//            return topic;
+//        } catch (SQLException e){
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
+
+    public static List<Topic> themes() {
+        List<Topic> topics = new ArrayList<>();
+        try (Connection conn = connect()){
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery(SELECT_FROM_TOPICS_ALL);
-            Topic topic = null;
-            while(rs.next()){
-                int id = rs.getInt("_id");
-                String theme = rs.getString("topic");
-                topic = new Topic(id, theme);
+            ResultSet rs = statement.executeQuery("SELECT * FROM Topics");
+
+            while (rs.next()) {
+                long id = (rs.getLong("_id"));
+                String str = (rs.getString("topic"));
+                Topic topic = new Topic(id, str);
+                topics.add(topic);
             }
-            return topic;
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return topics;
     }
 
-//    public List<Topic> getAll(){
-////        try {
-////            conn = connect();
-////            Statement statement = conn.createStatement();
-////            ResultSet rs = statement.executeQuery("SELECT * FROM Topics");
-////            List<Topic> topics = new ArrayList<Topic>();
-//////            List<Integer> id = new ArrayList<>();
-//////            Map<Long, String> topics = new HashMap<Long, String>();
-////            while(rs.next()){
-////                Topic topic = new Topic(rs.getLong("_id"), rs.getString("topic"));
-//////                System.out.println(rs.getString("topic"));
-////                topics.add(topic);
-//////                topics.put(rs.getLong("_id"), rs.getString("topic"));
-////            }
-//
-////            return topics;
-////
-////        } catch (SQLException e){
-////            e.printStackTrace();
-////            System.out.println("failed");
-////        }
-////
-////        return null;
-//    }
-//
-//    @Override
-//    public void save(Topic topic) {
-//
-//    }
-//
-//    @Override
-//    public void update(Topic topic, String[] params) {
-//
-//    }
-//
-//    @Override
-//    public void delete(Topic topic) {
-//
-//    }
-//
-//    @Override
-//    public Optional<Topic> get(long id) {
-//        return Optional.empty();
-//    }
 }
 
 

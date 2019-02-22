@@ -1,27 +1,42 @@
 package models;
 
-public class SubTopic {
-    int id;
-    String sub_topic;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ResourceBundle;
 
-    public SubTopic(int id, String sub_topic) {
+import static DB.DatabaseConnection.connect;
+
+public class SubTopic {
+    long id;
+    String topicId;
+    String subTopic;
+
+    public SubTopic(long id, long topicId, String subTopic) {
         this.id = id;
-        this.sub_topic = sub_topic;
+        try (Connection conn = connect()){
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT topic FROM Topics WHERE _id = '" + topicId + "'");
+            while(rs.next()){
+                this.topicId = rs.getString("topic");
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+//        this.topicId = topicId;
+        this.subTopic = subTopic;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getTopicId() {
+        return topicId;
     }
 
-    public String getSub_topic() {
-        return sub_topic;
-    }
-
-    public void setSub_topic(String sub_topic) {
-        this.sub_topic = sub_topic;
+    public String getSubTopic() {
+        return subTopic;
     }
 }

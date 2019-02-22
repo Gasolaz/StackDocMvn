@@ -1,3 +1,4 @@
+import DB.JsonParser;
 import models.Topic;
 import org.json.simple.JSONObject;
 
@@ -22,7 +23,7 @@ public class Main {
             "?, ?, ?, ?, ?, ?, ?, ?)";
 
     public static void main(String[] args) {
-
+        JsonParser.jsonToDb("w.e");
 
 //        List<String> strings = new ArrayList<String>();
 //        String smth = "*";

@@ -2,7 +2,9 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="TestPack.Package" %>
 <%@ page import="models.Topic" %>
-<%@ page import="java.util.Map" %><%--
+<%@ page import="java.util.Map" %>
+<%@ page import="models.SubTopic" %>
+<%@ page import="models.SearchObject" %><%--
   Created by IntelliJ IDEA.
   User: sarunas
   Date: 19.2.14
@@ -13,69 +15,92 @@
 <html>
 <head>
     <title>Test</title>
-    <style>
-        table {
-            border: 1px solid black;
-            border-collapse: collapse;
-            margin: auto;
-            width: 50%;
-            text-align: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: aqua;
-            transition: 3s;
-        }
-        table td {
-            border: 1px solid black;
-            background-color: red;
-            color: white;
-        }
-        table th {
-            background-color: black;
-            color: white;
-        }
-        table:hover {
-            cursor: pointer;
-            transform: rotate(360deg);
-        }
-    </style>
+    <%--<link rel="stylesheet" href="reset.css">--%>
+    <link rel="stylesheet" href="styles.css">
+    <%--<script src="script.js"></script>--%>
 </head>
 <body>
-    <table cellpadding="20px">
-        <tr>
-            <th>id</th>
-            <th>Topic</th>
-        </tr>
-    <%
-        List<Topic> topics = (List<Topic>) request.getAttribute("topics");
-        for(Topic topic : topics){
-            %>
 
-            <%--out.print("<tr><td>" + topic.getId() + "</td><td>" + topic.getTopic() + "</td></tr>");--%>
+<div class="container">
+
+    <form action="" class="topics_form" method="post">
+        <select name="topics">
+        <option selected="selected" value=0></option>
+        <%
+            List<Topic> topics = (List<Topic>) request.getAttribute("topics");
+            if(topics != null) {
+                for(Topic topic : topics){
+                    if(request.getAttribute("selectedTopic") != null &&
+                            (Long) request.getAttribute("selectedTopic") == topic.getId()) {
+        %>
+            <option selected="selected" value=<%=topic.getId()%>><%=topic.getTopic()%></option>
+                        <% continue;
+                    }%>
+        <option value=<%=topic.getId()%>>
+                <%=topic.getTopic()%>
+        </option>
+        <%
+                }
+            }
+        %>
+    </select>
+        <input name="subtopicsearch" type="text" class="search" placeholder="Search...">
+        <input type="hidden" name="pageNumber" value="1">
+        <button type="submit">Search</button>
+    </form>
+
+    <table cellpadding="5px">
+        <%
+            List<SubTopic> subTopics;
+            if(request.getAttribute("filteredSt") == null) {
+                subTopics = (List<SubTopic>) request.getAttribute("subTopics");
+            } else {
+                subTopics = (List<SubTopic>) request.getAttribute("filteredSt");
+            }
+
+        %>
+        <tr>
+            <th>Topic</th>
+            <th>Subtopic</th>
+        <tr>
+            <% for(SubTopic subTopic : subTopics){ %>
         <tr>
             <td>
-                <%=  topic.getId()%>
+                <%= subTopic.getTopicId()%>
             </td>
             <td>
-                <%= topic.getTopic() %>
+                <%= subTopic.getSubTopic() %>
             </td>
         </tr>
         <%
-        }
-    %>
+            }
+        %>
     </table>
-    <%--<h3> String Information </h3>--%>
-    <%--<% List<String> strings = (ArrayList<String>)request.getAttribute("strings");--%>
+    <div class="pages">
 
-        <%--for(String string : strings){--%>
-            <%--out.print(string);--%>
-            <%--out.print("<br>");--%>
-        <%--}--%>
+            <%SearchObject searchObject = (SearchObject) request.getAttribute("searchObject");
+            if(searchObject == null) {
+                searchObject = new SearchObject(0, "");
+            }
+            %>
 
-    <%--%>--%>
+        <% for(int i = 1; i <= 10; i++){%>
+        <form action="" method="post">
+            <input name="topics" type="hidden" value="<%=searchObject.getTopicId()%>">
+            <input name="subtopicsearch" type="hidden" value="<%=searchObject.getSearch()%>">
+            <input type="hidden" value="<%=i%>" name="pageNumber">
+            <button type="submit"><%=i%></button>
+        </form>
+        <%
 
-    <%--<h3> <%= request.getParameter("smth") %></h3>--%>
+            }
+        %>
+
+    </div>
+
+</div>
+
+
+
 </body>
 </html>

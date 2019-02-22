@@ -12,45 +12,37 @@ import java.util.*;
 
 import models.*;
 
-import static DB.DatabaseConnection.*;
+import services.TopicService;
+
+import static DB.SubTopicDAO.searching;
+
 
 @WebServlet("")
 public class TopicsController extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//        try {
-//
-//            conn = connect();
-//            Statement statement = conn.createStatement();
-//            ResultSet rs = statement.executeQuery("SELECT * FROM Topics");
-//            List<Topic> topics = new ArrayList<Topic>();
-////            List<Integer> id = new ArrayList<>();
-////            Map<Long, String> topics = new HashMap<Long, String>();
-//            while(rs.next()){
-//                Topic topic = new Topic(rs.getLong("_id"), rs.getString("topic"));
-////                System.out.println(rs.getString("topic"));
-//                topics.add(topic);
-////                topics.put(rs.getLong("_id"), rs.getString("topic"));
-//            }
-//            System.out.println("randomasdasdawd");
-//
-//            request.setAttribute("topics", topics);
-//
-//        } catch (SQLException e){
-//            e.printStackTrace();
-//            System.out.println("failed");
-//        }
-        List<Topic> topics = DB.DatabaseConnection.themes();
+        List<Topic> topics = DB.TopicDAO.themes();
         request.setAttribute("topics", topics);
-
+        List<SubTopic> subTopics = DB.SubTopicDAO.subTopicThemes();
+        request.setAttribute("subTopics", subTopics);
         request.getRequestDispatcher("index.jsp").forward(request, response);
 
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//        String topic = request.getParameter("topic");
-//        String subTopic = request.getParameter("subTopic");
+        List<Topic> topics = DB.TopicDAO.themes();
+        request.setAttribute("topics", topics);
+        Long topic = Long.parseLong(request.getParameter("topics"));
+        long pageNumber = Long.parseLong(request.getParameter("pageNumber"));
+//        System.out.println(pageNumber);
+        String subTopic = request.getParameter("subtopicsearch");
+        SearchObject searchObject = new SearchObject(topic, subTopic);
+        request.setAttribute("searchObject", searchObject);
+        request.setAttribute("selectedTopic", topic);
+        List<SubTopic> filteredSubtopics = searching(topic, subTopic, pageNumber);
+        request.setAttribute("filteredSt", filteredSubtopics);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
 
     }
 }
