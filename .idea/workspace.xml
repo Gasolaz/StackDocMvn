@@ -8,33 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7546b152-ce5e-4a9a-955b-112c7d9d0c68" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/DatabaseConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/DescriptionInsertion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/DescriptionInsertion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/JsonParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/JsonParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/SubTopicDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/SubTopicDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/TableCreations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/TableCreations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/TopicDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/DB/TopicDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/models/SubTopic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/WEB-INF/classes/models/SubTopic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DB/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DB/DescriptionInsertion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/DescriptionInsertion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DB/JsonParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/JsonParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DB/SubTopicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/SubTopicDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DB/TableCreations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/TableCreations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DB/TopicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/TopicDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/SubTopic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/SubTopic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DB/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DB/DatabaseConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DB/DescriptionInsertion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DB/DescriptionInsertion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DB/JsonParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DB/JsonParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DB/SubTopicDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DB/SubTopicDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DB/TableCreations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DB/TableCreations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DB/TopicDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DB/TopicDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/SubTopic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/SubTopic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/styles.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -84,151 +57,53 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.51867515">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/controllers/TopicsController.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="450">
-                  <caret line="36" column="77" selection-start-line="36" selection-start-column="77" selection-end-line="36" selection-end-column="77" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/DB/DatabaseConnection.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="336">
-                  <caret line="27" column="44" lean-forward="true" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/DB/TableCreations.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/DB/TopicDAO.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="186">
-                  <caret line="45" selection-start-line="45" selection-end-line="45" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/DB/SubTopicDAO.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="380">
-                  <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/web/index.jsp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="306">
-                  <caret line="68" column="56" selection-start-line="68" selection-start-column="56" selection-end-line="68" selection-end-column="56" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/script.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="28" selection-start-line="28" selection-end-line="28" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/models/SubTopic.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#856#857#0" expanded="true" />
-                    <element signature="e#881#882#0" expanded="true" />
-                    <element signature="e#915#916#0" expanded="true" />
-                    <element signature="e#945#946#0" expanded="true" />
-                    <element signature="e#980#981#0" expanded="true" />
-                    <element signature="e#1011#1012#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/create_table_test.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/web/styles.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="4" selection-start-line="4" selection-end-line="4" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pom.xml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="437">
-                  <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DB/DatabaseConnection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DB/TopicDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="555">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DB/SubTopicDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="64" column="13" lean-forward="true" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -336,14 +211,38 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="StackDocMvn" type="b2602c69:ProjectViewProjectNode" />
               <item name="StackDocMvn" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StackDocMvn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StackDocMvn" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StackDocMvn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StackDocMvn" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StackDocMvn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StackDocMvn" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="StackDocMvn_Web_exploded" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StackDocMvn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StackDocMvn" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="StackDocMvn_Web_exploded" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="StackDocMvn" type="b2602c69:ProjectViewProjectNode" />
@@ -419,21 +318,19 @@
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="StackDocMvn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550838544191" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550933093709" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/JavaPrograms/Kata2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -630,11 +527,12 @@
       <workItem from="1550776123563" duration="2845000" />
       <workItem from="1550817520751" duration="1667000" />
       <workItem from="1550823402333" duration="544000" />
+      <workItem from="1550932798161" duration="325000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118752000" />
+    <option name="totallyTimeSpent" value="118815000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -647,9 +545,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1853" height="1053" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21472053" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2274488" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -668,7 +565,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.5860542" weight="0.3293348" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" weight="0.32715377" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" visible="true" weight="0.32715377" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.41394576" side_tool="true" weight="0.3293348" />
       <window_info active="true" anchor="bottom" id="Database Console" order="13" visible="true" weight="0.3293348" />
       <window_info anchor="bottom" id="Application Servers" order="14" weight="0.3293348" />
@@ -1017,7 +914,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DB/SubTopicDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
+        <state relative-caret-position="360">
           <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1027,7 +924,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DB/TopicDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
+        <state relative-caret-position="555">
           <caret line="45" selection-start-line="45" selection-end-line="45" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1054,8 +951,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DB/DatabaseConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="27" column="44" lean-forward="true" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+        <state relative-caret-position="345">
+          <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1076,10 +973,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/apache-tomcat-9.0.16/jdk1.8.0_202/lib/missioncontrol/plugins/org.eclipse.ui.themes_1.0.1.v20140819-1717/META-INF/MANIFEST.MF" />
+    <entry file="file://$PROJECT_DIR$/out/artifacts/StackDocMvn_Web_exploded/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="68" column="56" selection-start-line="68" selection-start-column="56" selection-end-line="68" selection-end-column="56" />
+          <caret line="64" column="13" lean-forward="true" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
         </state>
       </provider>
     </entry>
