@@ -21,23 +21,6 @@ public class TopicDAO extends DatabaseConnection {
     public static final String SELECT_DESCRIPTION = "SELECT description FROM description WHERE ";
 
     public static final String SELECT_FROM_TOPICS_ALL = "SELECT * FROM topics";
-//    public static Topic ObjectCreation(){
-//        try {
-//            conn = connect();
-//            Statement statement = conn.createStatement();
-//            ResultSet rs = statement.executeQuery(SELECT_FROM_TOPICS_ALL);
-//            Topic topic = null;
-//            while(rs.next()){
-//                int id = rs.getInt("_id");
-//                String theme = rs.getString("topic");
-//                topic = new Topic(id, theme);
-//            }
-//            return topic;
-//        } catch (SQLException e){
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
 
     public static List<Topic> themes() {
         List<Topic> topics = new ArrayList<>();

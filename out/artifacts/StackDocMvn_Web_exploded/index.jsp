@@ -49,7 +49,7 @@
         <button class="search_button" type="submit">Search</button>
     </form>
 
-    <table cellpadding="20px">
+    <table cellpadding="10px">
         <%
             List<SubTopic> subTopics;
             if(request.getAttribute("filteredSt") == null) {
@@ -66,7 +66,7 @@
 
             <% for(SubTopic subTopic : subTopics){ %>
 
-        <tr onclick="location.href='https://google.com'; this.target='_blank'">
+        <tr onclick="location.href='https://google.com'">
             <td><%= subTopic.getTopicId()%></td>
             <td><%= subTopic.getSubTopic() %></td>
         </tr>

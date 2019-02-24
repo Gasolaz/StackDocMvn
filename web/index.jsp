@@ -49,7 +49,7 @@
         <button class="search_button" type="submit">Search</button>
     </form>
 
-    <table cellpadding="20px">
+    <table cellpadding="10px">
         <%
             List<SubTopic> subTopics;
             if(request.getAttribute("filteredSt") == null) {
