@@ -25,13 +25,6 @@ public class Main {
     public static void main(String[] args) {
         JsonParser.jsonToDb("w.e");
 
-//        List<String> strings = new ArrayList<String>();
-//        String smth = "*";
-//        for (int i = 0; i < 4; i++) {
-//            strings.add(smth);
-//            smth += smth;
-//        }
-//        System.out.println(strings);
     }
 
 

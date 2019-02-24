@@ -133,3 +133,11 @@
 //                String ParametersMarkdown = (String) element.get("ParametersMarkdown");
 //                String RemarksMarkdown = (String) element.get("RemarksMarkdown");
 //                String HelloWorldVersionsHtml = (String) element.get("HelloWorldVersionsHtml");
+
+//        List<String> strings = new ArrayList<String>();
+//        String smth = "*";
+//        for (int i = 0; i < 4; i++) {
+//            strings.add(smth);
+//            smth += smth;
+//        }
+//        System.out.println(strings);
