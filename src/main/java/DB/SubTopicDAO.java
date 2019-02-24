@@ -17,9 +17,7 @@ public class SubTopicDAO {
         List<SubTopic> subTopics = new ArrayList<>();
         try (Connection conn = connect()){
             Statement statement = conn.createStatement();
-//            int limitstart = 0+(5*(pagenr-1))
-//            int limitend = 5+(5*(pagenr-1))
-            ResultSet rs = statement.executeQuery("SELECT * FROM subtopics LIMIT 0, 5");
+            ResultSet rs = statement.executeQuery("SELECT * FROM subtopics LIMIT 0, 10");
             searchingForSt(rs, subTopics);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -33,9 +31,7 @@ public class SubTopicDAO {
         try (Connection conn = connect()){
             Statement statement = conn.createStatement();
             long limitstart = 5*(pageNumber-1);
-//            System.out.println(limitstart);
-            long rows = 5;
-//            System.out.println(limitend);
+            long rows = 10;
 
             if(topic == 0 && search.equals("")) {
                 ResultSet rs = statement.executeQuery("SELECT * FROM subtopics LIMIT " + limitstart + ", " + rows );

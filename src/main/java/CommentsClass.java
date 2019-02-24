@@ -82,6 +82,24 @@
 
 //            ResultSet rs = statement.executeQuery("SELECT * FROM subtopics as st INNER JOIN Topics as t WHERE t.topic='" + topic + "' AND st.sub_topic='" + search + "'");
 
+//     public static Topic ObjectCreation(){
+////        try {
+////            conn = connect();
+////            Statement statement = conn.createStatement();
+////            ResultSet rs = statement.executeQuery(SELECT_FROM_TOPICS_ALL);
+////            Topic topic = null;
+////            while(rs.next()){
+////                int id = rs.getInt("_id");
+////                String theme = rs.getString("topic");
+////                topic = new Topic(id, theme);
+////            }
+////            return topic;
+////        } catch (SQLException e){
+////            e.printStackTrace();
+////        }
+////        return null;
+////    }
+
 //                    PreparedStatement ps = conn.prepareStatement(INSERT_INTO_DATABASE_TABLE_TOPICS);
 //                    ps.setLong(1, id);
 //                    ps.setLong(2, docTagId);
@@ -141,3 +159,16 @@
 //            smth += smth;
 //        }
 //        System.out.println(strings);
+//                    System.out.println(conn);
+
+//                    Statement stmt = conn.createStatement();
+//                    ResultSet rs = stmt.executeQuery("SELECT * FROM Topics");
+//                    while(rs.next()){
+//                        System.out.println(rs.getArray(1));
+//                    }
+
+//                    Statement statement = conn.createStatement();
+//                    ResultSet rs = statement.executeQuery("SELECT Title FROM Topics");
+//                    while(rs.next()){
+//                        System.out.println(rs.getString("Title"));
+//                    }

@@ -27,11 +27,11 @@ public class JsonParser extends DatabaseConnection{
 
                 try {
                     conn = connect();
+
                     PreparedStatement ps = conn.prepareStatement("INSERT INTO subtopics(topic_id, sub_topic) VALUES(?, ?)");
                     ps.setLong(1, topicId);
                     ps.setString(2, subTopic);
                     ps.executeUpdate();
-
 
                 } catch (SQLException | ClassNotFoundException e) {
                     e.printStackTrace();
