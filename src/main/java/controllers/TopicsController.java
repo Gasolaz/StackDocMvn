@@ -31,11 +31,15 @@ public class TopicsController extends HttpServlet {
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+//        int number = Integer.parseInt(request.getParameter("number"));
+//        if(number == -1 || number == 1) {
+//            SearchObject searchObject;
+//        }
         List<Topic> topics = DB.TopicDAO.themes();
         request.setAttribute("topics", topics);
         Long topic = Long.parseLong(request.getParameter("topics"));
         long pageNumber = Long.parseLong(request.getParameter("pageNumber"));
-//        System.out.println(pageNumber);
+
         String subTopic = request.getParameter("subtopicsearch");
         SearchObject searchObject = new SearchObject(topic, subTopic);
         request.setAttribute("searchObject", searchObject);

@@ -1,10 +1,6 @@
 package DB;
 
-import models.Topic;
-
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class DatabaseConnection {
     public static final String TABLE_TOPICS = "topics";

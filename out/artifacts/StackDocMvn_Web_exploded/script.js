@@ -25,4 +25,9 @@ function clicked(e) {
     })
 }
 
+function back() {
+
+    history.back();
+}
+
 

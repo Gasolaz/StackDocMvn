@@ -2,10 +2,10 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="StackDoc" uuid="41484e90-d7b2-46ef-898d-0d0a38a0f97b">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
     </data-source>
     <data-source name="StackDoc [2]" uuid="0aeffeb2-41ce-424f-8408-69243619e661">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
       <introspection-schemas>*:@</introspection-schemas>
     </data-source>
   </component>

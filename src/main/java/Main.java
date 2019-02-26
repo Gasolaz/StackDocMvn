@@ -1,17 +1,5 @@
-import DB.JsonParser;
-import models.Topic;
-import org.json.simple.JSONObject;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.sql.*;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
-import static DB.DatabaseConnection.connect;
-import static DB.DatabaseConnection.conn;
+import static DB.JsonParser.jsonToDb;
 
 
 public class Main {
@@ -23,17 +11,9 @@ public class Main {
             "?, ?, ?, ?, ?, ?, ?, ?)";
 
     public static void main(String[] args) {
-        JsonParser.jsonToDb("w.e");
+        jsonToDb("w.e");
 
-//        List<String> strings = new ArrayList<String>();
-//        String smth = "*";
-//        for (int i = 0; i < 4; i++) {
-//            strings.add(smth);
-//            smth += smth;
-//        }
-//        System.out.println(strings);
     }
-
 
 
 }

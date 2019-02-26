@@ -15,9 +15,10 @@ import static DB.DatabaseConnection.connect;
 public class SubTopicDAO {
     public static List<SubTopic> subTopicThemes() {
         List<SubTopic> subTopics = new ArrayList<>();
+        long pages = 0;
         try (Connection conn = connect()){
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM subtopics LIMIT 0, 10");
+            ResultSet rs = statement.executeQuery("SELECT * FROM subtopics LIMIT 0, 20");
             searchingForSt(rs, subTopics);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -30,8 +31,9 @@ public class SubTopicDAO {
         List<SubTopic> subTopics = new ArrayList<>();
         try (Connection conn = connect()){
             Statement statement = conn.createStatement();
-            long limitstart = 5*(pageNumber-1);
-            long rows = 10;
+            long rows = 20;
+            long limitstart = rows*(pageNumber-1);
+
 
             if(topic == 0 && search.equals("")) {
                 ResultSet rs = statement.executeQuery("SELECT * FROM subtopics LIMIT " + limitstart + ", " + rows );

@@ -17,21 +17,22 @@ public class JsonParser extends DatabaseConnection{
         JSONParser parser = new JSONParser();
         try {
 
-            Object obj = parser.parse(new FileReader("/home/sarunas/Codebaker/StackDocMvn/src/main/Json/subTopicNoQuotes.json"));
+            Object obj = parser.parse(new FileReader("/home/sarunas/Codebaker/StackDocMvn/src/main/Json/subTopicDescription.json"));
             JSONArray jsonArray = (JSONArray) obj;
             for (Object ms : jsonArray) {
                 JSONObject element = (JSONObject) ms;
-                long topicId = (Long) element.get("topic_id");
+                long subtopicId = (Long) element.get("sub_topic_id");
                 String subTopic = (String) element.get("sub_topic");
-
+                String description = (String) element.get("description");
 
                 try {
                     conn = connect();
 
 
-                    PreparedStatement ps = conn.prepareStatement("INSERT INTO subtopics(topic_id, sub_topic) VALUES(?, ?)");
-                    ps.setLong(1, topicId);
+                    PreparedStatement ps = conn.prepareStatement("INSERT INTO descriptions(sub_topic_id, sub_topic, description) VALUES(?, ?, ?)");
+                    ps.setLong(1, subtopicId);
                     ps.setString(2, subTopic);
+                    ps.setString(3, description);
                     ps.executeUpdate();
 
 
