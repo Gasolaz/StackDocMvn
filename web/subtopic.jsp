@@ -16,8 +16,7 @@
 
     <h1><%=description.getSub_topic()%>
     </h1>
-    <p><%=description.getDescription()%>
-    </p>
+    <%=description.getDescription()%>
 
 
     <button type="submit" onclick="back()">Back</button>

@@ -2,13 +2,13 @@ package models;
 
 public class Description {
     long id;
-    long sub_topic_id;
+    long topic_id;
     String sub_topic;
     String description;
 
     public Description(long id, long sub_topic_id, String sub_topic, String description) {
         this.id = id;
-        this.sub_topic_id = sub_topic_id;
+        this.topic_id = sub_topic_id;
         this.sub_topic = sub_topic;
         this.description = description;
     }
@@ -18,7 +18,7 @@ public class Description {
     }
 
     public long getSub_topic_id() {
-        return sub_topic_id;
+        return topic_id;
     }
 
     public String getSub_topic() {

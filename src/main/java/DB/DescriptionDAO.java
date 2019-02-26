@@ -10,11 +10,11 @@ public class DescriptionDAO {
 //            System.out.println(number);
             Statement ps = conn.createStatement();
 //            ps.setLong(1, number);
-            ResultSet rs = ps.executeQuery("SELECT * FROM descriptions WHERE sub_topic_id='" + number + "'");
+            ResultSet rs = ps.executeQuery("SELECT * FROM subtopics WHERE _id='" + number + "'");
             if(rs.next()) {
 //                System.out.println("daeita");
-                Description description = new Description(rs.getLong("_id"), rs.getLong("sub_topic_id"),
-                        rs.getString("sub_topic"), rs.getString("description"));
+                Description description = new Description(rs.getLong("_id"), rs.getLong("topic_id"),
+                        rs.getString("sub_topic"), rs.getString("description_HTML"));
                 return description;
             }
         } catch (SQLException | ClassNotFoundException e){
