@@ -12,6 +12,7 @@ import java.util.*;
 
 import models.*;
 
+import services.SubTopicService;
 import services.TopicService;
 
 import static DB.SubTopicDAO.searching;
@@ -22,30 +23,31 @@ public class TopicsController extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        List<Topic> topics = DB.TopicDAO.themes();
+        TopicService topics = new TopicService();
         request.setAttribute("topics", topics);
-        List<SubTopic> subTopics = DB.SubTopicDAO.subTopicThemes();
+
+        List<SubTopic> subTopics = SubTopicService.subTopicThemes;
         request.setAttribute("subTopics", subTopics);
+
         request.getRequestDispatcher("index.jsp").forward(request, response);
 
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//        int number = Integer.parseInt(request.getParameter("number"));
-//        if(number == -1 || number == 1) {
-//            SearchObject searchObject;
-//        }
-        List<Topic> topics = DB.TopicDAO.themes();
+        TopicService topics = new TopicService();
         request.setAttribute("topics", topics);
+
         Long topic = Long.parseLong(request.getParameter("topics"));
         long pageNumber = Long.parseLong(request.getParameter("pageNumber"));
-
         String subTopic = request.getParameter("subtopicsearch");
-        SearchObject searchObject = new SearchObject(topic, subTopic);
+        SearchObject searchObject = new SearchObject(topic, subTopic, pageNumber);
+
         request.setAttribute("searchObject", searchObject);
         request.setAttribute("selectedTopic", topic);
-        List<SubTopic> filteredSubtopics = searching(topic, subTopic, pageNumber);
+//        List<SubTopic> filteredSubtopics = searching(topic, subTopic, pageNumber);
+        List<SubTopic> filteredSubtopics = SubTopicService.searchingService(topic, subTopic, pageNumber);
         request.setAttribute("filteredSt", filteredSubtopics);
+
         request.getRequestDispatcher("index.jsp").forward(request, response);
 
     }

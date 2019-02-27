@@ -26,7 +26,7 @@ public class TopicDAO extends DatabaseConnection {
         List<Topic> topics = new ArrayList<>();
         try (Connection conn = connect()){
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM topics");
+            ResultSet rs = statement.executeQuery("SELECT * FROM topics ORDER BY topic_count DESC");
 
             while (rs.next()) {
                 long id = (rs.getLong("_id"));

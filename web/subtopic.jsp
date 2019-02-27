@@ -11,15 +11,27 @@
 <%Description description = (Description) request.getAttribute("descriptionObject");%>
 
 
+
+
+
 <div class="subtopic_container">
 
+    <div class="header">
 
-    <h1><%=description.getSub_topic()%>
-    </h1>
+        <button class="back" type="submit">Back</button>
+
+        <h1><%=description.getSub_topic()%></h1>
+
+
+    </div>
+
+
+
     <%=description.getDescription()%>
+    <%=description.getBody_HTML()%>
+    <%=description.getBody_markdown()%>
 
 
-    <button type="submit" onclick="back()">Back</button>
 
 
 </div>

@@ -5,6 +5,7 @@ body {
 
 
 }
+
 .container {
     margin: auto;
     max-width: 1200px;
@@ -12,23 +13,54 @@ body {
     flex-direction: column;
     justify-content: center;
 }
-table {
-    border: 2px solid black;
-    border-collapse: collapse;
-    width: 75%;
-    text-align: center;
-    border-radius: 50%;
-    table-layout: fixed;
-    margin: 50px auto;
-}
+
+/*table {*/
+    /*border: 2px solid black;*/
+    /*border-collapse: collapse;*/
+    /*width: 75%;*/
+    /*text-align: center;*/
+    /*border-radius: 50%;*/
+    /*table-layout: fixed;*/
+    /*margin: 50px auto;*/
+/*}*/
 
 
 .subtopics {
     display: flex;
     flex-direction: column;
     width: 75%;
+    /*border: 1px solid grey;*/
+    cursor: pointer;
     margin: auto;
 }
+
+
+/*table tr {*/
+    /*border: 1px solid grey;*/
+    /*width: 100%;*/
+
+/*}*/
+
+/*table tr:hover {*/
+    /*background-color: red;*/
+    /*color: white;*/
+/*}*/
+
+
+/*table tr:nth-child(1) {*/
+    /*border-bottom: 3px solid black;*/
+/*}*/
+
+/*table tr:nth-child(1):hover {*/
+    /*background-color: antiquewhite;*/
+    /*color: black;*/
+    /*border-bottom: 3px solid black;*/
+/*}*/
+
+/*table th {*/
+/*}*/
+    /*margin: auto;*/
+/*}*/
 
 .subtopics .tableform {
     width: 100%;
@@ -56,76 +88,65 @@ table {
     user-select: none;
 }
 
-table td {
-    border: 1px solid grey;
-    cursor: pointer;
-}
+/*table td {*/
+    /*border: 1px solid grey;*/
+    /*cursor: pointer;*/
+/*}*/
 
 
-table tr {
-    border: 1px solid grey;
-    width: 100%;
+/*table tr {*/
+    /*border: 1px solid grey;*/
+    /*width: 100%;*/
 
-}
+/*}*/
 
-table tr:hover{
-    background-color: red;
-    color: white;
-}
-
-
+/*table tr:hover {*/
+    /*background-color: red;*/
+    /*color: white;*/
+/*}*/
 
 
-table tr:nth-child(1) {
-    border-bottom: 3px solid black;
-}
+/*table tr:nth-child(1) {*/
+    /*border-bottom: 3px solid black;*/
+/*}*/
 
-table tr:nth-child(1):hover {
-    background-color: antiquewhite;
-    color: black;
-    border-bottom: 3px solid black;
-}
+/*table tr:nth-child(1):hover {*/
+    /*background-color: antiquewhite;*/
+    /*color: black;*/
+    /*border-bottom: 3px solid black;*/
+/*}*/
 
-table th {
-}
+/*table th {*/
+/*}*/
 
 .topicSpan {
-    /*margin-right: 25%;*/
     float: left;
     margin-left: 15%;
 }
 
 .subtopicSpan {
-    /*float: left;*/
     margin-left: 25%;
 }
-
 
 
 .pages {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 50px;
-    flex-wrap: wrap;
-
 }
 
-@media(max-width: 420px) {
-    .pages {
-        flex-wrap: wrap;
-    }
-}
 
- .page {
+.page {
     border: 1px solid black;
     width: 1%;
     cursor: pointer;
     user-select: none;
-     padding: 10px 20px;
-     border-radius: 50%;
-     display: flex;
-     justify-content: center;
-     align-items: center;
+    padding: 10px 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -142,6 +163,7 @@ table th {
     display: flex;
     justify-content: space-evenly;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .topics_form .search {
@@ -169,31 +191,29 @@ table th {
 }
 
 .subtopic_container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    width: 75%;
+    margin: auto;
+}
+
+.subtopic_container .header {
+    display: flex;
+    align-items: center;
+    /*justify-content: space-around;*/
+    border-bottom: 2px solid grey;
+    border-top: 2px solid grey;
+
 }
 
 .subtopic_container h1 {
-    border-top: 2px solid grey;
-    border-bottom: 2px solid grey;
     color: black;
     padding-top: 20px;
     padding-bottom: 20px;
     font-size: 50px;
+    margin: auto;
 }
 
-.subtopic_container p {
-    margin-top: 100px;
-    font-size: 20px;
-}
 
-.subtopic_container form {
-    margin-top: 20px;
-}
-
-.subtopic_container button {
+.subtopic_container .back {
     padding: 20px 60px;
     background-color: white;
     border: 1px solid orange;
@@ -201,14 +221,79 @@ table th {
     cursor: pointer;
     font-size: 20px;
     color: orange;
-    margin-top: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5%;
 }
 
-.subtopic_container button:hover {
+
+.subtopic_container form {
+    margin-top: 20px;
+}
+
+
+.subtopic_container .back:hover {
     background-color: orange;
     color: white;
 }
 
-.subtopic_container button:active {
+.subtopic_container .back:active {
     transform: scale(.9);
+}
+
+.container .pages .back {
+    padding: 20px 60px;
+    background-color: white;
+    border: 1px solid orange;
+    user-select: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: orange;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5%;
+}
+
+
+.container .pages .back:hover {
+    background-color: orange;
+    color: white;
+}
+
+.container .pages .back:active {
+    transform: scale(.9);
+
+}
+
+.container .pages .next {
+    padding: 20px 60px;
+    background-color: white;
+    border: 1px solid orange;
+    user-select: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: orange;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5%;
+}
+
+.container .pages .next:hover {
+    background-color: orange;
+    color: white;
+}
+
+.container .pages .next:active {
+    transform: scale(.9);
+
+}
+
+.container .header {
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid black;
+    width: 75%;
+    margin: auto;
+    font-weight: bold;
+    font-size: 20px;
 }

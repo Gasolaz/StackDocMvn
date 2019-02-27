@@ -18,34 +18,44 @@ public class JsonParser extends DatabaseConnection{
         JSONParser parser = new JSONParser();
         try {
 
-            Object obj = parser.parse(new FileReader("/home/sarunas/Codebaker/JsonaiKurieActuallyReikalingi/topics.json"));
+            Object obj = parser.parse(new FileReader("/home/sarunas/Codebaker/JsonaiKurieActuallyReikalingi/examples.json"));
             JSONArray jsonArray = (JSONArray) obj;
+//            int index = 0;
             for (Object ms : jsonArray) {
                 JSONObject element = (JSONObject) ms;
+                long id = (Long) element.get("Id");
+                long sub_topic_id = (Long) element.get("DocTopicId");
+                String title = (String) element.get("Title");
+                String body_html = (String) element.get("BodyHtml");
+                String body_markdown = (String) element.get("BodyMarkdown");
 //                long subtopicId = (Long) element.get("sub_topic_id");
 //                String subTopic = (String) element.get("sub_topic");
 //                String description = (String) element.get("description");
-                long id = (Long) element.get("Id");
-                long topicsId = (Long) element.get("DocTagId");
-                String sub_topic = (String) element.get("Title");
-                String description = (String) element.get("ParametersHtml");
-                if(description.equals("")){
-                    description = (String) element.get("RemarksHtml");
-                    if(description.equals("")){
-                        continue;
-                    }
-                }
+//                long id = (Long) element.get("Id");
+//                long topicsId = (Long) element.get("DocTagId");
+//                String sub_topic = (String) element.get("Title");
+//                String description = (String) element.get("ParametersHtml");
+//                if(description.equals("")){
+//                    description = (String) element.get("RemarksHtml");
+//                    if(description.equals("")){
+//                        continue;
+//                    }
+//                }
 
                 try {
-                    Class.forName("org.sqlite.JDBC");
                     conn = connect();
-
-                    PreparedStatement ps = conn.prepareStatement("INSERT INTO subtopics(_id, topic_id, sub_topic, description_HTML) VALUES(?, ?, ?, ?)");
+//
+//                    if(index % 1000 == 0) {
+//                        System.out.println(index);
+//                    }
+                    PreparedStatement ps = conn.prepareStatement("INSERT INTO examples(_id, sub_topic_id, title, body_HTML, body_markdown) VALUES(?, ?, ?, ?, ?)");
                     ps.setLong(1, id);
-                    ps.setLong(2, topicsId);
-                    ps.setString(3, sub_topic);
-                    ps.setString(4, description);
+                    ps.setLong(2, sub_topic_id);
+                    ps.setString(3, title);
+                    ps.setString(4, body_html);
+                    ps.setString(5, body_markdown);
                     ps.executeUpdate();
+//                    index++;
 
 
 
