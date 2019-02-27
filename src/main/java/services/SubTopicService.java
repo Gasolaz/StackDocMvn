@@ -1,8 +1,16 @@
 package services;
 
-import java.sql.PreparedStatement;
+import DB.SubTopicDAO;
+import models.SubTopic;
+import models.Topic;
+import java.util.List;
+
+import static DB.SubTopicDAO.searching;
+import static DB.TopicDAO.themes;
 
 public class SubTopicService {
-    public static final String INSERT_INTO_SUBTOPICS = "INSERT INTO SubTopics(sub_topic) VALUES(?)";
-    public static final String SELECT_SUBTOPICS = "SELECT sub_topic FROM ";
+    public static List<SubTopic> subTopicThemes = SubTopicDAO.subTopicThemes();
+    public static List<SubTopic> searchingService(long a, String b, long c){
+        return searching(a, b, c);
+    }
 }

@@ -1,37 +1,43 @@
 package models;
 
 public class Description {
-    int id;
-    int topic_id;
-    int sub_topic_id;
+    long id;
+    long topic_id;
+    String sub_topic;
+    String description;
+    String body_HTML;
+    String body_markdown;
 
-    public Description(int id, int topic_id, int sub_topic_id) {
+    public Description(long id, long sub_topic_id, String sub_topic, String description, String body_HTML, String body_markdown) {
         this.id = id;
-        this.topic_id = topic_id;
-        this.sub_topic_id = sub_topic_id;
+        this.topic_id = sub_topic_id;
+        this.sub_topic = sub_topic;
+        this.description = description;
+        this.body_HTML = body_HTML;
+        this.body_markdown = body_markdown;
     }
 
-    public int getId() {
+    public String getBody_HTML() {
+        return body_HTML;
+    }
+
+    public String getBody_markdown() {
+        return body_markdown;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getTopic_id() {
+    public long getSub_topic_id() {
         return topic_id;
     }
 
-    public void setTopic_id(int topic_id) {
-        this.topic_id = topic_id;
+    public String getSub_topic() {
+        return sub_topic;
     }
 
-    public int getSub_topic_id() {
-        return sub_topic_id;
-    }
-
-    public void setSub_topic_id(int sub_topic_id) {
-        this.sub_topic_id = sub_topic_id;
+    public String getDescription() {
+        return description;
     }
 }

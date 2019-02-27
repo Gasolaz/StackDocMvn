@@ -1,6 +1,15 @@
 
 
 
+window.onload = () => {
+
+    document.querySelector(".back").onclick = () => {
+        history.back();
+
+    }
+
+}
+
 let input_Value;
 
 function changed(e) {
@@ -24,5 +33,6 @@ function clicked(e) {
                
     })
 }
+
 
 
