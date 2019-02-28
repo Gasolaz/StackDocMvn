@@ -115,13 +115,14 @@
                 searchObject = new SearchObject(0, "", 1);
             }
             long pages = searchObject.getPages();
-            if(pages > 20){
-                pages = 20;
-            }
             %>
 
             <%--<% if()--%>
-        <button type="submit" class="back">Back</button>
+        <button type="submit" class="back"<%
+            if(searchObject.getPageNumber() == 1){%>
+                style="visibility: hidden"
+            <%}
+        %>>Back</button>
         <%--<form action="" method="POST">--%>
             <%--<input name="existingSearchObject" type="hidden" value="<%=searchObject%>">--%>
             <%--<input name="number" type="hidden" value="-1">--%>
@@ -148,7 +149,10 @@
             <input name="topics" type="hidden" value="<%=searchObject.getTopicId()%>">
             <input name="subtopicsearch" type="hidden" value="<%=searchObject.getSearch()%>">
             <input name="pageNumber" type="hidden" value="<%=searchObject.getPageNumber()+1%>">
-            <button type="submit" class="next">next</button>
+            <button type="submit"  class="next" <%
+                if(pages <= searchObject.getPageNumber()){%>
+                    style="visibility: hidden"
+                <%}%>>next</button>
         </form>
 
     </div>

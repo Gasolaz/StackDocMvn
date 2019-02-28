@@ -29,7 +29,7 @@
 
     <%=description.getDescription()%>
     <%=description.getBody_HTML()%>
-    <%=description.getBody_markdown()%>
+    <%--<%=description.getBody_markdown()%>--%>
 
 
 
