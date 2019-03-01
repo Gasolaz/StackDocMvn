@@ -24,7 +24,7 @@ public class DatabaseConnection {
     public static Connection connect() throws SQLException, ClassNotFoundException {
         Class.forName("org.sqlite.JDBC");
         Connection conn = null;
-        conn = DriverManager.getConnection("jdbc:sqlite:/home/sarunas/Codebaker/StackDocMvn/src/TempStackDoc.db");
+        conn = DriverManager.getConnection(url);
         return conn;
     }
 }
