@@ -8,6 +8,7 @@ public class DatabaseConnection {
     public static final String TABLE_DESCRIPTION = "description";
     public static final String ID = "_id";
     public static final String TOPICS_TOPIC = "topic";
+    public static final String TOPICS_TOPIC_COUNT = "topic_count";
     public static final String SUB_TOPICS_SUB_TOPIC = "sub_topic";
     public static final String DESCRIPTION_TOPIC_ID = "topic_id";
     public static final String DESCRIPTION_SUB_TOPIC_ID = "sub_topic_id";
@@ -15,7 +16,7 @@ public class DatabaseConnection {
 
     public static final String INSERT_INTO_TOPICS = "INSERT INTO topics(" + TOPICS_TOPIC + ") VALUES(?)";
     public static final String INSERT_INTO_SUB_TOPICS = "INSERT INTO sub_topics(" + SUB_TOPICS_SUB_TOPIC + ") VALUES(?)";
-    public static final String INSERT_INTO_DESCRIPTION = "INSERT INTO description(" + DESCRIPTION_TOPIC_ID + ", " +
+    public static final String INSERT_INTO_DESCRIPTION = "INSERT INTO " + TABLE_DESCRIPTION + "(" + DESCRIPTION_TOPIC_ID + ", " +
             DESCRIPTION_SUB_TOPIC_ID + ", " + DESCRIPTION_DESCRIPTION + ") VALUES(?, ?, ?)";
 
     public static Connection conn;
@@ -24,7 +25,7 @@ public class DatabaseConnection {
     public static Connection connect() throws SQLException, ClassNotFoundException {
         Class.forName("org.sqlite.JDBC");
         Connection conn = null;
-        conn = DriverManager.getConnection("jdbc:sqlite:/home/sarunas/Codebaker/StackDocMvn/src/TempStackDoc.db");
+        conn = DriverManager.getConnection(url);
         return conn;
     }
 }

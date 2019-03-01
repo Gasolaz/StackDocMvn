@@ -1,9 +1,6 @@
 package models;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 import static DB.DatabaseConnection.connect;
@@ -16,15 +13,17 @@ public class SubTopic {
     public SubTopic(long id, long topicId, String subTopic) {
         this.id = id;
         try (Connection conn = connect()){
-            Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT topic FROM Topics WHERE _id = '" + topicId + "'");
+//            Statement statement = conn.createStatement();
+//            ResultSet rs = statement.executeQuery("SELECT topic FROM Topics WHERE _id = '" + topicId + "'");
+            PreparedStatement ps = conn.prepareStatement("SELECT topic FROM Topics WHERE _id=?");
+            ps.setLong(1, topicId);
+            ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 this.topicId = rs.getString("topic");
             }
         } catch (SQLException | ClassNotFoundException e){
             e.printStackTrace();
         }
-//        this.topicId = topicId;
         this.subTopic = subTopic;
     }
 
