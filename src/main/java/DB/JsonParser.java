@@ -44,10 +44,6 @@ public class JsonParser extends DatabaseConnection{
 
                 try {
                     conn = connect();
-//
-//                    if(index % 1000 == 0) {
-//                        System.out.println(index);
-//                    }
                     PreparedStatement ps = conn.prepareStatement("INSERT INTO examples(_id, sub_topic_id, title, body_HTML, body_markdown) VALUES(?, ?, ?, ?, ?)");
                     ps.setLong(1, id);
                     ps.setLong(2, sub_topic_id);
@@ -55,7 +51,6 @@ public class JsonParser extends DatabaseConnection{
                     ps.setString(4, body_html);
                     ps.setString(5, body_markdown);
                     ps.executeUpdate();
-//                    index++;
 
 
 

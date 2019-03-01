@@ -14,13 +14,13 @@ import java.util.Optional;
 
 public class TopicDAO extends DatabaseConnection {
 
-    private List<Topic> topics = new ArrayList<Topic>();
-    public static final String SELECT_TOPIC = "SELECT topic FROM topics";
-
-    public static final String SELECT_SUB_TOPIC = "SELECT sub_topic FROM sub_topics";
-    public static final String SELECT_DESCRIPTION = "SELECT description FROM description WHERE ";
-
-    public static final String SELECT_FROM_TOPICS_ALL = "SELECT * FROM topics";
+//    private List<Topic> topics = new ArrayList<Topic>();
+//    public static final String SELECT_TOPIC = "SELECT topic FROM topics";
+//
+//    public static final String SELECT_SUB_TOPIC = "SELECT sub_topic FROM sub_topics";
+//    public static final String SELECT_DESCRIPTION = "SELECT description FROM description WHERE ";
+//
+//    public static final String SELECT_FROM_TOPICS_ALL = "SELECT * FROM topics";
 
     public static List<Topic> themes() {
         List<Topic> topics = new ArrayList<>();

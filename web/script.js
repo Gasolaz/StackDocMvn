@@ -8,16 +8,16 @@ window.onload = () => {
 
     }
 
-}
+};
 
-let input_Value;
+// let input_Value;
 
-function changed(e) {
-
-    console.log(e.target.value);
-
-     input_Value = e.target.value;
-}
+// function changed(e) {
+//
+//     console.log(e.target.value);
+//
+//      input_Value = e.target.value;
+// }
 
 
 

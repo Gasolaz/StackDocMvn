@@ -44,7 +44,6 @@ public class TopicsController extends HttpServlet {
 
         request.setAttribute("searchObject", searchObject);
         request.setAttribute("selectedTopic", topic);
-//        List<SubTopic> filteredSubtopics = searching(topic, subTopic, pageNumber);
         List<SubTopic> filteredSubtopics = SubTopicService.searchingService(topic, subTopic, pageNumber);
         request.setAttribute("filteredSt", filteredSubtopics);
 

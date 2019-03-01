@@ -3,10 +3,7 @@ package DB;
 import models.SubTopic;
 import models.Topic;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +15,11 @@ public class SubTopicDAO {
         long pages = 0;
         try (Connection conn = connect()){
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM subtopics LIMIT 0, 10");
+//            ResultSet rs = statement.executeQuery("SELECT * FROM subtopics LIMIT 0, 10");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM subtopics LIMIT ?, ?");
+            ps.setLong(1, 0);
+            ps.setLong(2, 10);
+            ResultSet rs = ps.executeQuery();
             searchingForSt(rs, subTopics);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -34,14 +35,14 @@ public class SubTopicDAO {
             long rows = 10;
             long limitStart = rows*(pageNumber-1);
 
-            if(topic == 0 && search.equals("")) {
+            if(topic == 0 && search.trim().equals("")) {
                 ResultSet rs = statement.executeQuery("SELECT * FROM subtopics LIMIT " + limitStart + ", " + rows );
                 searchingForSt(rs, subTopics);
             } else if (topic == 0) {
                 search = makeSearchIntoArray(search);
                 ResultSet rs = statement.executeQuery("SELECT * FROM subtopics WHERE " + search + " LIMIT " + limitStart + ", " + rows);
                 searchingForSt(rs, subTopics);
-            } else if (search.equals("")){
+            } else if (search.trim().equals("")){
                 ResultSet rs = statement.executeQuery("SELECT * FROM subtopics WHERE topic_id='" + topic + "' LIMIT " + limitStart + ", " + rows);
                 searchingForSt(rs, subTopics);
             } else {

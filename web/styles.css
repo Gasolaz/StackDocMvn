@@ -1,9 +1,13 @@
 body {
-    text-align: center;
+    /*text-align: center;*/
     background-color: antiquewhite;
     user-select: none;
 
 
+}
+
+h1 {
+    text-align: center;
 }
 
 .container {
