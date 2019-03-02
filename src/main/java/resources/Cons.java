@@ -41,7 +41,7 @@ public class Cons {
     public static final String INSERT_INTO_EXAMPLES_BODY_MARKDOWN = "INSERT INTO (" + TABLE_EXAMPLES  + ") (" + EXAMPLES_BODY_MARKDOWN + ") VALUES(?)";
 
     public static final String SELECT_TOPICS_BY_ID = "SELECT * FROM (" + TABLE_TOPICS + ") WHERE (" + ID + ")"; // SubTopic line:18
-    public static final String SELECT_TOPICS_TOPIC_COUNT = "SELECT * FROM (" + TABLE_TOPICS + ") WHERE (" + TOPICS_TOPIC_COUNT + ")"; // TopicDAO line:29
+    public static final String SELECT_TOPICS_WHERE_TOPIC_COUNT = "SELECT * FROM (" + TABLE_TOPICS + ") WHERE (" + TOPICS_TOPIC_COUNT + ")"; // TopicDAO line:29
     public static final String SELECT_SUBTOPICS_BY_ID = "SELECT * FROM (" + TABLE_SUB_TOPICS + ") WHERE (" + ID + ")"; // DescriptionDAO line:12
     public static final String SELECT_SUBTOPICS_BY = "SELECT * FROM (" + TABLE_SUB_TOPICS + ") WHERE "; // SubtopicDAO line:43
     public static final String SELECT_SUBTOPICS_BY_TOPIC_ID = "SELECT * FROM (" + TABLE_SUB_TOPICS + ") WHERE (" + SUB_TOPICS_TOPIC_ID + ")"; // SubtopicDAO line:46,50
@@ -52,5 +52,7 @@ public class Cons {
 //    URL's
     public static final String URL_DB = "jdbc:sqlite:../../TempStackDoc.db"; // DatabaseConnection line:28
 
+//    Variables
+    public static final int ROWS = 10; // SearchObject
 
 }

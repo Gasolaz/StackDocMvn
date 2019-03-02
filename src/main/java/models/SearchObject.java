@@ -6,14 +6,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import static DB.DatabaseConnection.connect;
-
+import static resources.Cons.ROWS;
 
 
 public class SearchObject {
     long topicId;
     String search;
     long pages;
-    private final int ROWS = 10;
+    // private final int ROWS = 10;
     long pageNumber;
 
     public SearchObject(long topicId, String search, long pageNumber) {

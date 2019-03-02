@@ -1,5 +1,5 @@
 package DB;
-
+import static resources.Cons.*;
 import models.SubTopic;
 import models.Topic;
 
@@ -40,14 +40,14 @@ public class SubTopicDAO {
                 searchingForSt(rs, subTopics);
             } else if (topic == 0) {
                 search = makeSearchIntoArray(search);
-                ResultSet rs = statement.executeQuery("SELECT * FROM subtopics WHERE " + search + " LIMIT " + limitStart + ", " + rows);
+                ResultSet rs = statement.executeQuery( SELECT_SUBTOPICS_BY + search + " LIMIT " + limitStart + ", " + rows);
                 searchingForSt(rs, subTopics);
             } else if (search.trim().equals("")){
-                ResultSet rs = statement.executeQuery("SELECT * FROM subtopics WHERE topic_id='" + topic + "' LIMIT " + limitStart + ", " + rows);
+                ResultSet rs = statement.executeQuery(SELECT_SUBTOPICS_BY_TOPIC_ID + "'" + topic + "' LIMIT " + limitStart + ", " + rows);
                 searchingForSt(rs, subTopics);
             } else {
                 search = makeSearchIntoArray(search);
-                ResultSet rs = statement.executeQuery("SELECT * FROM subtopics WHERE topic_id='" + topic + "' AND " + search + " LIMIT " + limitStart +
+                ResultSet rs = statement.executeQuery(SELECT_SUBTOPICS_BY_TOPIC_ID + "'" + topic + "' AND " + search + " LIMIT " + limitStart +
                         ", " + rows);
                 searchingForSt(rs, subTopics);
             }
