@@ -33,12 +33,12 @@ public class Cons {
 //    public static final String DESCRIPTION_DESCRIPTION = "description";
 
 //    Database -> CRUD
-    public static final String INSERT_INTO_TOPICS = "INSERT INTO topics(" + TOPICS_TOPIC + ") VALUES(?)";
-    public static final String INSERT_INTO_SUB_TOPICS = "INSERT INTO sub_topics(" + SUB_TOPICS_SUB_TOPIC + ") VALUES(?)";
-    public static final String INSERT_INTO_SUB_TOPICS_DESCRIPTION = "INSERT INTO sub_topics(" + SUB_TOPICS_DESCRIPTION_HTML + ") VALUES(?)";
-    public static final String INSERT_INTO_EXAMPLES_TITLE = "INSERT INTO examples(" + EXAMPLES_TITLE + ") VALUES(?)";
-    public static final String INSERT_INTO_EXAMPLES_BODY_HTML = "INSERT INTO examples(" + EXAMPLES_BODY_HTML + ") VALUES(?)";
-    public static final String INSERT_INTO_EXAMPLES_BODY_MARKDOWN = "INSERT INTO examples(" + EXAMPLES_BODY_MARKDOWN + ") VALUES(?)";
+    public static final String INSERT_INTO_TOPICS = "INSERT INTO (" + TABLE_TOPICS + ") (" + TOPICS_TOPIC + ") VALUES(?)";
+    public static final String INSERT_INTO_SUB_TOPICS = "INSERT INTO (" + TABLE_SUB_TOPICS + ") (" + SUB_TOPICS_SUB_TOPIC + ") VALUES(?)";
+    public static final String INSERT_INTO_SUB_TOPICS_DESCRIPTION = "INSERT INTO (" + TABLE_SUB_TOPICS + ") (" + SUB_TOPICS_DESCRIPTION_HTML + ") VALUES(?)";
+    public static final String INSERT_INTO_EXAMPLES_TITLE = "INSERT INTO (" + TABLE_EXAMPLES  + ") (" + EXAMPLES_TITLE + ") VALUES(?)";
+    public static final String INSERT_INTO_EXAMPLES_BODY_HTML = "INSERT INTO (" + TABLE_EXAMPLES  + ") (" + EXAMPLES_BODY_HTML + ") VALUES(?)";
+    public static final String INSERT_INTO_EXAMPLES_BODY_MARKDOWN = "INSERT INTO (" + TABLE_EXAMPLES  + ") (" + EXAMPLES_BODY_MARKDOWN + ") VALUES(?)";
 
     public static final String SELECT_TOPICS_BY_ID = "SELECT * FROM (" + TABLE_TOPICS + ") WHERE (" + ID + ")"; // SubTopic line:18
     public static final String SELECT_TOPICS_TOPIC_COUNT = "SELECT * FROM (" + TABLE_TOPICS + ") WHERE (" + TOPICS_TOPIC_COUNT + ")"; // TopicDAO line:29
