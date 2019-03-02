@@ -17,7 +17,7 @@
     <title>Test</title>
     <%--<link rel="stylesheet" href="reset.css">--%>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <%--<script src="script.js"></script>--%>
 </head>
 <body>
 
@@ -26,42 +26,50 @@
 
     <h1>StackOverflow Documentation Search Engine</h1>
 
-    <form action="" class="topics_form" method="post">
-        <select class="select_topics" name="topics">
-        <option selected="selected" value=0></option>
-        <%
-            TopicService topics = (TopicService) request.getAttribute("topics");
-            if(topics != null) {
-                for(Topic topic : topics.getTopics()){
-                    if(request.getAttribute("selectedTopic") != null &&
-                            (Long) request.getAttribute("selectedTopic") == topic.getId()) {
-        %>
-            <option selected="selected" value=<%=topic.getId()%>><%=topic.getTopic()%></option>
-                        <% continue;
-                    }%>
-        <option value=<%=topic.getId()%>>
+    <form
+            onsubmit="onSubmit()"
+            class="topics_form">
+        <select onchange="changeState(event, 'topics')" class="select_topics">
+            <option selected="selected" value=0></option>
+            <%
+                TopicService topics = (TopicService) request.getAttribute("topics");
+                if (topics != null) {
+                    for (Topic topic : topics.getTopics()) {
+                        if (request.getAttribute("selectedTopic") != null &&
+                                (Long) request.getAttribute("selectedTopic") == topic.getId()) {
+            %>
+            <option selected="selected" value=<%=topic.getId()%>><%=topic.getTopic()%>
+            </option>
+            <% continue;
+            }%>
+            <option value=<%=topic.getId()%>>
                 <%=topic.getTopic()%>
-        </option>
-        <%
+            </option>
+            <%
+                    }
                 }
-            }
-        %>
-    </select>
-        <input autofocus name="subtopicsearch" type="text" class="search" placeholder="Search...">
-        <input type="hidden" name="pageNumber" value="1">
+            %>
+        </select>
+        <input
+                onchange="changeState(event, 'search_keyword')"
+                autofocus
+                type="text"
+                class="search"
+                placeholder="Search...">
+        <%--<input type="hidden" name="pageNumber" value="1">--%>
         <button class="search_button" type="submit">Search</button>
     </form>
 
     <%--<table cellpadding="10px">--%>
-        <%
-            List<SubTopic> subTopics;
-            if(request.getAttribute("filteredSt") == null) {
-                subTopics = (List<SubTopic>) request.getAttribute("subTopics");
-            } else {
-                subTopics = (List<SubTopic>) request.getAttribute("filteredSt");
-            }
+    <%
+        List<SubTopic> subTopics;
+        if (request.getAttribute("filteredSt") == null) {
+            subTopics = (List<SubTopic>) request.getAttribute("subTopics");
+        } else {
+            subTopics = (List<SubTopic>) request.getAttribute("filteredSt");
+        }
 
-        %>
+    %>
 
 
     <div class="header">
@@ -69,16 +77,16 @@
         <p>Subtopic</p>
     </div>
 
-        <%--<tr>--%>
-            <%--<th>Topic</th>--%>
-            <%--<th>Subtopic</th>--%>
-        <%--</tr>--%>
+    <%--<tr>--%>
+    <%--<th>Topic</th>--%>
+    <%--<th>Subtopic</th>--%>
+    <%--</tr>--%>
 
     <%--</table>--%>
 
 
     <div class="subtopics">
-            <% for(SubTopic subTopic : subTopics){ %>
+        <% for (SubTopic subTopic : subTopics) { %>
 
         <form action="subtopic" method="post" class="tableform">
             <input type="hidden" value="<%=subTopic.getId()%>" name="subtopicid">
@@ -90,66 +98,63 @@
                     <%=subTopic.getSubTopic()%>
                 </span></button>
         </form>
-    <%
+        <%
             }
         %>
 
     </div>
 
 
-
-
-
-<%--<tr>--%>
-            <%--<td><%= subTopic.getTopicId()%></td>--%>
-            <%--<td><%= subTopic.getSubTopic() %></td>--%>
-        <%--</tr>--%>
-
-
+    <%--<tr>--%>
+    <%--<td><%= subTopic.getTopicId()%></td>--%>
+    <%--<td><%= subTopic.getSubTopic() %></td>--%>
+    <%--</tr>--%>
 
 
     <div class="pages">
 
-            <%SearchObject searchObject = (SearchObject) request.getAttribute("searchObject");
-            if(searchObject == null) {
+        <%
+            SearchObject searchObject = (SearchObject) request.getAttribute("searchObject");
+            if (searchObject == null) {
                 searchObject = new SearchObject(0, "", 1);
             }
             long pages = searchObject.getPages();
-            if(pages > 20){
+            if (pages > 20) {
                 pages = 20;
             }
-            %>
+        %>
 
-            <%--<% if()--%>
-        <button type="submit" class="back">Back</button>
+        <%--<% if()--%>
+        <button onclick="onClickBack()" class="back">Previous</button>
         <%--<form action="" method="POST">--%>
-            <%--<input name="existingSearchObject" type="hidden" value="<%=searchObject%>">--%>
-            <%--<input name="number" type="hidden" value="-1">--%>
-            <%--<button type="submit" class="previous">previous</button>--%>
+        <%--<input name="existingSearchObject" type="hidden" value="<%=searchObject%>">--%>
+        <%--<input name="number" type="hidden" value="-1">--%>
+        <%--<button type="submit" class="previous">previous</button>--%>
         <%--</form>--%>
 
 
-        <p class="numba!"><%=searchObject.getPageNumber()%></p>
+        <p onchange="changeState(event, 'pageNumber')" class="numba!"><%=searchObject.getPageNumber()%>
+        </p>
         <%--<% for(int i = 1; i <=pages; i++){%>--%>
 
 
         <%--<form action="" method="post">--%>
-            <%--<input name="topics" type="hidden" value="<%=searchObject.getTopicId()%>">--%>
-            <%--<input name="subtopicsearch" type="hidden" value="<%=searchObject.getSearch()%>">--%>
-            <%--<input type="hidden" value="<%=i%>" name="pageNumber">--%>
-            <%--<button class="page" type="submit"><%=i%></button>--%>
+        <%--<input name="topics" type="hidden" value="<%=searchObject.getTopicId()%>">--%>
+        <%--<input name="subtopicsearch" type="hidden" value="<%=searchObject.getSearch()%>">--%>
+        <%--<input type="hidden" value="<%=i%>" name="pageNumber">--%>
+        <%--<button class="page" type="submit"><%=i%></button>--%>
         <%--</form>--%>
         <%--<%--%>
 
-            <%--}--%>
+        <%--}--%>
         <%--%>--%>
 
-        <form action="" method="POST">
-            <input name="topics" type="hidden" value="<%=searchObject.getTopicId()%>">
-            <input name="subtopicsearch" type="hidden" value="<%=searchObject.getSearch()%>">
-            <input name="pageNumber" type="hidden" value="<%=searchObject.getPageNumber()+1%>">
-            <button type="submit" class="next">next</button>
-        </form>
+        <%--<form action="" method="POST">--%>
+        <%--<input name="topics" type="hidden" value="<%=searchObject.getTopicId()%>">--%>
+        <%--<input name="subtopicsearch" type="hidden" value="<%=searchObject.getSearch()%>">--%>
+        <%--<input name="pageNumber" type="hidden" value="<%=searchObject.getPageNumber()+1%>">--%>
+        <button onclick="onClickNext()" class="next">next</button>
+        <%--</form>--%>
 
     </div>
 

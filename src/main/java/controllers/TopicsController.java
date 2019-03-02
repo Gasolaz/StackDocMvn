@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.sql.*;
 import java.util.*;
 
+import com.google.gson.Gson;
 import models.*;
 
 import services.SubTopicService;
@@ -23,32 +24,44 @@ public class TopicsController extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        TopicService topics = new TopicService();
-        request.setAttribute("topics", topics);
+//        request.getRequestDispatcher("test.jsp");
 
-        List<SubTopic> subTopics = SubTopicService.subTopicThemes;
-        request.setAttribute("subTopics", subTopics);
+        request.getRequestDispatcher("test.jsp").forward(request, response);
 
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+
+//        TopicService topics = new TopicService();
+//
+//
+//        String json = new Gson().toJson(topics);
+
+
+//
+//
+
+//        request.setAttribute("topics", topics);
+
+
+
+//        String text = "smth";
+//
+//
+//        for (SubTopic subtopic: subTopics) {
+//            out.println(subtopic.getSubTopic() + " " + subtopic.getTopicId());
+//        }
+
+//        request.setAttribute("subTopics", subTopics);
+
+//        request.getRequestDispatcher("index.jsp").forward(request, response);
+
+//        response.sendRedirect("index.jsp");
+
+//        request.getRequestDispatcher("test.jsp");
 
     }
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        TopicService topics = new TopicService();
-        request.setAttribute("topics", topics);
 
-        Long topic = Long.parseLong(request.getParameter("topics"));
-        long pageNumber = Long.parseLong(request.getParameter("pageNumber"));
-        String subTopic = request.getParameter("subtopicsearch");
-        SearchObject searchObject = new SearchObject(topic, subTopic, pageNumber);
-
-        request.setAttribute("searchObject", searchObject);
-        request.setAttribute("selectedTopic", topic);
-//        List<SubTopic> filteredSubtopics = searching(topic, subTopic, pageNumber);
-        List<SubTopic> filteredSubtopics = SubTopicService.searchingService(topic, subTopic, pageNumber);
-        request.setAttribute("filteredSt", filteredSubtopics);
-
-        request.getRequestDispatcher("index.jsp").forward(request, response);
 
     }
 }

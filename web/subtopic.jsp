@@ -4,7 +4,7 @@
 <head>
     <title>Test</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <%--<script src="script.js"></script>--%>
 </head>
 <body>
 
