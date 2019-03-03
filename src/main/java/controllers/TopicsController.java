@@ -26,7 +26,11 @@ public class TopicsController extends HttpServlet {
 
 //        request.getRequestDispatcher("test.jsp");
 
-        request.getRequestDispatcher("test.jsp").forward(request, response);
+//        response.sendRedirect("index.html");
+
+        request.getRequestDispatcher("index.html").forward(request, response);
+
+//        request.getRequestDispatcher("index.html").forward(request, response);
 
 
 //        TopicService topics = new TopicService();
@@ -60,8 +64,6 @@ public class TopicsController extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
 
     }
 }

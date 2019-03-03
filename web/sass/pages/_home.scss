@@ -1,0 +1,157 @@
+.home {
+    text-align: center;
+    background-color: $color-orange;
+
+    .container {
+        background-color: $color-antiquewhite;
+
+        .search_fields {
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+            margin: auto;
+            padding-top: 150px;
+
+            .select_topic {
+                background-color: white;
+                width: 40%;
+                cursor: pointer;
+                outline: none;
+            }
+
+            .search {
+                width: 40%;
+                padding: 5px;
+                outline: none;
+                border: none;
+                color: orange;
+                font-weight: 700;
+                text-align: center;
+                text-transform: uppercase;
+
+                &::placeholder {
+                    color: $color-orange;
+                    font-weight: 700;
+                    text-align: center;
+                    font-family: 'Architects Daughter', cursive;
+                    font-size: 20px;
+                    text-transform: none;
+                }
+
+                &:focus::placeholder {
+                    color: transparent;
+                }
+            }
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 100px;
+            margin-bottom: 50px;
+            border-top: 2px solid $color-orange;
+            border-bottom: 2px solid $color-orange;
+            color: $color-orange;
+            padding: 20px;
+            font-weight: 700;
+            font-size: 25px;
+        }
+
+        .subtopics {
+            display: flex;
+            flex-wrap: wrap;
+
+            .subtopic {
+                display: flex;
+                width: 100%;
+                border-top: 2px solid $color-orange;
+                border-bottom: 2px solid $color-orange;
+                cursor: pointer;
+                user-select: none;
+                font-size: 20px;
+                font-weight: 700;
+                padding: 20px;
+                margin-bottom: 10px;
+                transition: .25s;
+
+                &:hover {
+                    background-color: $color-orange;
+                    color: white;
+                }
+
+                &:active {
+                    transform: scale(.9);
+                }
+
+                .topic_name {
+                    width: 50%;
+                }
+
+                .subtopic_name {
+                    width: 50%;
+                }
+            }
+        }
+
+        .pages {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            width: 90%;
+            margin: auto;
+
+            .previous {
+                background-color: white;
+                border: 1px solid $color-orange;
+                text-transform: uppercase;
+                color: $color-orange;
+                height: 50px;
+                width: 100px;
+                font-weight: 700;
+                cursor: pointer;
+                user-select: none;
+                outline: none;
+                order: 1;
+
+                &:hover {
+                    background-color: $color-orange;
+                    color: white;
+                }
+
+                &:active {
+                    transform: scale(.8);
+                }
+            }
+
+            .next {
+                background-color: white;
+                border: 1px solid $color-orange;
+                text-transform: uppercase;
+                color: $color-orange;
+                font-weight: 700;
+                height: 50px;
+                width: 100px;
+                cursor: pointer;
+                user-select: none;
+                outline: none;
+                order: 3;
+
+                &:hover {
+                    background-color: $color-orange;
+                    color: white;
+                }
+
+                &:active {
+                    transform: scale(.8);
+                }
+            }
+
+            .page_number {
+                color: $color-orange;
+                font-size: 30px;
+                order: 2;
+            }
+        }
+    }
+}

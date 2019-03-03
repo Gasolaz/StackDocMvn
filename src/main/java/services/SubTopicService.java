@@ -2,6 +2,7 @@ package services;
 
 import DB.SubTopicDAO;
 import com.google.gson.Gson;
+import models.Description;
 import models.SubTopic;
 import models.Topic;
 
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+import static DB.DescriptionDAO.descriptionGetter;
 import static DB.SubTopicDAO.searching;
 import static DB.TopicDAO.themes;
 
@@ -35,7 +37,19 @@ public class SubTopicService extends HttpServlet {
 
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
+        Description description = descriptionGetter(Long.parseLong(request.getParameter("subtopicid")));
+
+        String json = new Gson().toJson(description);
+
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
+        response.getWriter().write(json);
+
+
+//        request.setAttribute("descriptionObject", description);
+//        request.getRequestDispatcher("subtopic.jsp").forward(request, response);
     }
 }

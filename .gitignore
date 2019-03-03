@@ -3,3 +3,6 @@ out
 target
 *.iml
 *.db
+node_modules
+package-lock.json
+classes
