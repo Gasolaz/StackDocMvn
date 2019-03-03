@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static resources.Cons.ID;
+import static resources.Cons.TOPICS_TOPIC;
+
 // implements DAO<Topic>
 
 public class TopicDAO extends DatabaseConnection {
@@ -29,8 +32,8 @@ public class TopicDAO extends DatabaseConnection {
             ResultSet rs = statement.executeQuery("SELECT * FROM topics ORDER BY topic_count DESC");
 
             while (rs.next()) {
-                long id = (rs.getLong("_id"));
-                String str = (rs.getString("topic"));
+                long id = (rs.getLong(ID));
+                String str = (rs.getString(TOPICS_TOPIC));
                 Topic topic = new Topic(id, str);
                 topics.add(topic);
             }
