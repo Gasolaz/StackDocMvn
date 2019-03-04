@@ -13,13 +13,10 @@ import static resources.Cons.*;
 public class SubTopicDAO {
     public static List<SubTopic> subTopicThemes() {
         List<SubTopic> subTopics = new ArrayList<>();
-        long pages = 0;
         try (Connection conn = connect()){
-            Statement statement = conn.createStatement();
-//            ResultSet rs = statement.executeQuery("SELECT * FROM subtopics LIMIT 0, 10");
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM subtopics LIMIT ?, ?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + TABLE_SUB_TOPICS + " LIMIT ?, ?");
             ps.setLong(1, 0);
-            ps.setLong(2, 10);
+            ps.setLong(2, ROWS);
             ResultSet rs = ps.executeQuery();
             searchingForSt(rs, subTopics);
         } catch (SQLException | ClassNotFoundException e) {

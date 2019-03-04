@@ -3,8 +3,6 @@ package DB;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import static resources.Cons.*;
-
 //do we even use this class?
 public class DescriptionInsertion extends DatabaseConnection {
 //    public static final String INSERT_INTO_DESCRIPTION = "INSERT INTO description(topic_id, sub_topic_id, description) VALUES(?, ?, ?)";

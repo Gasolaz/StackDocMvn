@@ -47,9 +47,5 @@ public class SubTopicService extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         response.getWriter().write(json);
-
-
-//        request.setAttribute("descriptionObject", description);
-//        request.getRequestDispatcher("subtopic.jsp").forward(request, response);
     }
 }

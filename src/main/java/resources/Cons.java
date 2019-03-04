@@ -1,12 +1,13 @@
 package resources;
 
+import java.sql.ResultSet;
+
 import static DB.DatabaseConnection.*;
 
 public class Cons {
 
     //    All Tables ID
     public static final String ID = "_id";
-    public static final String TITLE = "title";
 
     //    Table: Topics
     public static final String TABLE_TOPICS = "topics";
@@ -15,7 +16,7 @@ public class Cons {
     public static final String TOPICS_TOPIC_COUNT = "topic_count";
 
     //    Table: Subtopics
-    public static final String TABLE_SUB_TOPICS = "sub_topics";
+    public static final String TABLE_SUB_TOPICS = "subtopics";
     // Table Subtopics  -> Columns
     public static final String SUB_TOPICS_TOPIC_ID = "topic_id";
     public static final String SUB_TOPICS_SUB_TOPIC = "sub_topic";
@@ -38,12 +39,9 @@ public class Cons {
 
     //    Database -> CRUD
     public static final String INSERT_INTO_TOPICS = "INSERT INTO " + TABLE_TOPICS + "(" + TOPICS_TOPIC + ") VALUES(?)";
-    public static final String INSERT_INTO_SUB_TOPICS = "INSERT INTO " + TABLE_SUB_TOPICS + "(" + SUB_TOPICS_SUB_TOPIC + ") VALUES(?)";
+    public static final String INSERT_INTO_SUB_TOPICS = "INSERT INTO " + TABLE_SUB_TOPICS + "(" + SUB_TOPICS_SUB_TOPIC + ", " + SUB_TOPICS_DESCRIPTION_HTML + ") VALUES(?, ?)";
     public static final String INSERT_INTO_SUB_TOPICS_DESCRIPTION = "INSERT INTO " + TABLE_SUB_TOPICS + "(" + SUB_TOPICS_DESCRIPTION_HTML + ") VALUES(?)";
-    public static final String INSERT_INTO_EXAMPLES_TITLE = "INSERT INTO " + TABLE_EXAMPLES + "(" + EXAMPLES_TITLE + ") VALUES(?)";
-    public static final String INSERT_INTO_EXAMPLES_BODY_HTML = "INSERT INTO " + TABLE_EXAMPLES  + "(" + EXAMPLES_BODY_HTML + ") VALUES(?)";
-    public static final String INSERT_INTO_EXAMPLES_BODY_MARKDOWN = "INSERT INTO " + TABLE_EXAMPLES + "(" + EXAMPLES_BODY_MARKDOWN + ") VALUES(?)";
-    public static final String INSERT_INTO_EXAMPLE_EXAMPLE = "INSERT INTO " + TABLE_EXAMPLES + "(" + ID + ", " + EXAMPLES_SUB_TOPIC_ID + ", " + TITLE + ", " + EXAMPLES_BODY_HTML + ", " + EXAMPLES_BODY_MARKDOWN + ") VALUES(?, ?, ?, ?, ?)";
+    public static final String INSERT_INTO_EXAMPLE_EXAMPLE = "INSERT INTO " + TABLE_EXAMPLES + "(" + ID + ", " + EXAMPLES_SUB_TOPIC_ID + ", " + EXAMPLES_TITLE + ", " + EXAMPLES_BODY_HTML + ", " + EXAMPLES_BODY_MARKDOWN + ") VALUES(?, ?, ?, ?, ?, ?)";
 
 
     public static final String SELECT_TOPICS_BY_ID = "SELECT * FROM " + TABLE_TOPICS + " WHERE " + ID + "=?"; // SubTopic line:18
@@ -53,6 +51,8 @@ public class Cons {
     public static final String SELECT_SUBTOPICS_BY = "SELECT * FROM " + TABLE_SUB_TOPICS + " WHERE "; // SubtopicDAO line:43
     public static final String SELECT_SUBTOPICS_BY_TOPIC_ID = "SELECT * FROM " + TABLE_SUB_TOPICS + " WHERE " + SUB_TOPICS_TOPIC_ID + "=?"; // SubtopicDAO line:46,50
     public static final String SELECT_EXAMPLES_BY_SUBTOPIC_ID = "SELECT * FROM " + TABLE_EXAMPLES  + " WHERE " + EXAMPLES_SUB_TOPIC_ID + "=?"; // DescriptionDAO line:13
+    public static final String SELECT_FROM_SUBTOPICS_BY_ID = "SELECT * FROM " + TABLE_SUB_TOPICS + " WHERE " + ID + "=?";
+    public static final String SELECT_FROM_EXAMPLES_BY_SUBTOPIC_ID = "SELECT * FROM " + TABLE_EXAMPLES + " WHERE " + EXAMPLES_SUB_TOPIC_ID + "=?";
 
 
 

@@ -2,6 +2,8 @@ package DB;
 
 import java.sql.*;
 
+import static resources.Cons.URL_DB;
+
 public class DatabaseConnection {
     public static final String TABLE_TOPICS = "topics";
     public static final String TABLE_SUB_TOPICS = "sub_topics";
@@ -24,7 +26,7 @@ public class DatabaseConnection {
     public static Connection connect() throws SQLException, ClassNotFoundException {
         Class.forName("org.sqlite.JDBC");
         Connection conn = null;
-        conn = DriverManager.getConnection("jdbc:sqlite:/home/exqlusi0n/Desktop/StackDocMvn/src/TempStackDoc.db");
+        conn = DriverManager.getConnection(URL_DB);
         return conn;
     }
 }

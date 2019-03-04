@@ -9,10 +9,12 @@ import static resources.Cons.*;
 public class DescriptionDAO {
     public static Description descriptionGetter(long number) {
         try (Connection conn = DatabaseConnection.connect()) {
-            Statement ps = conn.createStatement();
-            Statement ps2 = conn.createStatement();
-            ResultSet rs = ps.executeQuery("SELECT * FROM subtopics WHERE _id='" + number + "'");
-            ResultSet rs2 = ps2.executeQuery("SELECT * FROM examples WHERE sub_topic_id='" + number + "'");
+            PreparedStatement ps = conn.prepareStatement(SELECT_SUBTOPICS_BY_ID);
+            ps.setLong(1, number);
+            PreparedStatement ps2 = conn.prepareStatement(SELECT_FROM_EXAMPLES_BY_SUBTOPIC_ID);
+            ps2.setLong(1, number);
+            ResultSet rs = ps.executeQuery();
+            ResultSet rs2 = ps2.executeQuery();
             if (rs.next() && rs2.next()) {
                 Description description = new Description(rs.getLong(ID), rs.getLong(SUB_TOPICS_TOPIC_ID),
                         rs.getString(SUB_TOPICS_SUB_TOPIC), rs.getString(SUB_TOPICS_DESCRIPTION_HTML), rs2.getString( EXAMPLES_BODY_HTML),

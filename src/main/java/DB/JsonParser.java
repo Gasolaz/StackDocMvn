@@ -8,7 +8,6 @@ import org.json.simple.parser.ParseException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -22,7 +21,6 @@ public class JsonParser extends DatabaseConnection{
 
             Object obj = parser.parse(new FileReader("/home/sarunas/Codebaker/JsonaiKurieActuallyReikalingi/examples.json"));
             JSONArray jsonArray = (JSONArray) obj;
-//            int index = 0;
             for (Object ms : jsonArray) {
                 JSONObject element = (JSONObject) ms;
                 //These tags are not linked to Cons
@@ -31,19 +29,6 @@ public class JsonParser extends DatabaseConnection{
                 String title = (String) element.get("Title");
                 String body_html = (String) element.get("BodyHtml");
                 String body_markdown = (String) element.get("BodyMarkdown");
-//                long subtopicId = (Long) element.get("sub_topic_id");
-//                String subTopic = (String) element.get("sub_topic");
-//                String description = (String) element.get("description");
-//                long id = (Long) element.get("Id");
-//                long topicsId = (Long) element.get("DocTagId");
-//                String sub_topic = (String) element.get("Title");
-//                String description = (String) element.get("ParametersHtml");
-//                if(description.equals("")){
-//                    description = (String) element.get("RemarksHtml");
-//                    if(description.equals("")){
-//                        continue;
-//                    }
-//                }
 
                 try {
                     conn = connect();

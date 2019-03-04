@@ -1,7 +1,5 @@
 package models;
 
-import DB.DAO;
-
 public class Topic {
     long id;
     String topic;
