@@ -4,7 +4,8 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="models.SubTopic" %>
 <%@ page import="models.SearchObject" %>
-<%@ page import="services.TopicService" %><%--
+<%@ page import="services.TopicService" %>
+<%@ page import="static resources.Cons.TABLE_TOPICS" %><%--
   Created by IntelliJ IDEA.
   User: sarunas
   Date: 19.2.14
@@ -15,7 +16,7 @@
 <html>
 <head>
     <title>Test</title>
-    <%--<link rel="stylesheet" href="reset.css">--%>
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </head>
@@ -30,7 +31,7 @@
         <select class="select_topics" name="topics">
         <option selected="selected" value=0></option>
         <%
-            TopicService topics = (TopicService) request.getAttribute("topics");
+            TopicService topics = (TopicService) request.getAttribute(TABLE_TOPICS);
             if(topics != null) {
                 for(Topic topic : topics.getTopics()){
                     if(request.getAttribute("selectedTopic") != null &&

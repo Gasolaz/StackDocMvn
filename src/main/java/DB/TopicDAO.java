@@ -10,17 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static resources.Cons.ID;
+import static resources.Cons.TOPICS_TOPIC;
+
 // implements DAO<Topic>
 
 public class TopicDAO extends DatabaseConnection {
 
-    private List<Topic> topics = new ArrayList<Topic>();
-    public static final String SELECT_TOPIC = "SELECT topic FROM topics";
-
-    public static final String SELECT_SUB_TOPIC = "SELECT sub_topic FROM sub_topics";
-    public static final String SELECT_DESCRIPTION = "SELECT description FROM description WHERE ";
-
-    public static final String SELECT_FROM_TOPICS_ALL = "SELECT * FROM topics";
+//    private List<Topic> topics = new ArrayList<Topic>();
+//    public static final String SELECT_TOPIC = "SELECT topic FROM topics";
+//
+//    public static final String SELECT_SUB_TOPIC = "SELECT sub_topic FROM sub_topics";
+//    public static final String SELECT_DESCRIPTION = "SELECT description FROM description WHERE ";
+//
+//    public static final String SELECT_FROM_TOPICS_ALL = "SELECT * FROM topics";
 
     public static List<Topic> themes() {
         List<Topic> topics = new ArrayList<>();
@@ -29,8 +32,8 @@ public class TopicDAO extends DatabaseConnection {
             ResultSet rs = statement.executeQuery("SELECT * FROM topics ORDER BY topic_count DESC");
 
             while (rs.next()) {
-                long id = (rs.getLong("_id"));
-                String str = (rs.getString("topic"));
+                long id = (rs.getLong(ID));
+                String str = (rs.getString(TOPICS_TOPIC));
                 Topic topic = new Topic(id, str);
                 topics.add(topic);
             }

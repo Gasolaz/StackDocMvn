@@ -1,9 +1,12 @@
 package resources;
 
+import static DB.DatabaseConnection.*;
+
 public class Cons {
 
     //    All Tables ID
     public static final String ID = "_id";
+    public static final String TITLE = "title";
 
     //    Table: Topics
     public static final String TABLE_TOPICS = "topics";
@@ -26,11 +29,12 @@ public class Cons {
     public static final String EXAMPLES_BODY_HTML = "body_HTML";
     public static final String EXAMPLES_BODY_MARKDOWN = "body_Markdown";
 
-
-//    public static final String TABLE_DESCRIPTION = "description";
-//    public static final String DESCRIPTION_TOPIC_ID = "topic_id";
-//    public static final String DESCRIPTION_SUB_TOPIC_ID = "sub_topic_id";
-//    public static final String DESCRIPTION_DESCRIPTION = "description";
+    public static final String TABLE_DESCRIPTION = "description";
+    public static final String DESCRIPTION_TOPIC_ID = "topic_id";
+    public static final String DESCRIPTION_SUB_TOPIC_ID = "sub_topic_id";
+    public static final String DESCRIPTION_DESCRIPTION = "description";
+    public static final String INSERT_INTO_DESCRIPTION = "INSERT INTO " + TABLE_DESCRIPTION + "(" + DESCRIPTION_TOPIC_ID + ", " +
+        DESCRIPTION_SUB_TOPIC_ID + ", " + DESCRIPTION_DESCRIPTION + ") VALUES(?, ?, ?)";
 
     //    Database -> CRUD
     public static final String INSERT_INTO_TOPICS = "INSERT INTO " + TABLE_TOPICS + "(" + TOPICS_TOPIC + ") VALUES(?)";
@@ -39,9 +43,12 @@ public class Cons {
     public static final String INSERT_INTO_EXAMPLES_TITLE = "INSERT INTO " + TABLE_EXAMPLES + "(" + EXAMPLES_TITLE + ") VALUES(?)";
     public static final String INSERT_INTO_EXAMPLES_BODY_HTML = "INSERT INTO " + TABLE_EXAMPLES  + "(" + EXAMPLES_BODY_HTML + ") VALUES(?)";
     public static final String INSERT_INTO_EXAMPLES_BODY_MARKDOWN = "INSERT INTO " + TABLE_EXAMPLES + "(" + EXAMPLES_BODY_MARKDOWN + ") VALUES(?)";
+    public static final String INSERT_INTO_EXAMPLE_EXAMPLE = "INSERT INTO " + TABLE_EXAMPLES + "(" + ID + ", " + EXAMPLES_SUB_TOPIC_ID + ", " + TITLE + ", " + EXAMPLES_BODY_HTML + ", " + EXAMPLES_BODY_MARKDOWN + ") VALUES(?, ?, ?, ?, ?)";
+
 
     public static final String SELECT_TOPICS_BY_ID = "SELECT * FROM " + TABLE_TOPICS + " WHERE " + ID + "=?"; // SubTopic line:18
     public static final String SELECT_TOPICS_WHERE_TOPIC_COUNT = "SELECT * FROM " + TABLE_TOPICS + " WHERE " + TOPICS_TOPIC_COUNT + "=?"; // TopicDAO line:29
+    public static final String SELECT_SUBTOPICS = "SELECT * FROM " + TABLE_SUB_TOPICS;
     public static final String SELECT_SUBTOPICS_BY_ID = "SELECT * FROM " + TABLE_SUB_TOPICS + " WHERE " + ID + "=?"; // DescriptionDAO line:12
     public static final String SELECT_SUBTOPICS_BY = "SELECT * FROM " + TABLE_SUB_TOPICS + " WHERE "; // SubtopicDAO line:43
     public static final String SELECT_SUBTOPICS_BY_TOPIC_ID = "SELECT * FROM " + TABLE_SUB_TOPICS + " WHERE " + SUB_TOPICS_TOPIC_ID + "=?"; // SubtopicDAO line:46,50
