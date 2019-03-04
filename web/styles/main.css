@@ -350,7 +350,7 @@ header {
       justify-content: space-between;
       width: 50%;
       margin: auto;
-      padding-top: 150px; }
+      padding-top: 200px; }
       .home .container .search_fields .select_topic {
         background-color: white;
         width: 40%;
@@ -412,7 +412,6 @@ header {
       border-top: 2px solid orange;
       border-bottom: 2px solid orange;
       color: orange;
-      padding: 20px;
       font-weight: 700;
       font-size: 25px; }
     .home .container .subtopics {
@@ -483,9 +482,9 @@ header {
           background-color: orange;
           color: white; }
         .home .container .pages .previous:active {
-          -webkit-transform: scale(0.8);
-          -ms-transform: scale(0.8);
-          transform: scale(0.8); }
+          -webkit-transform: scale(0.9);
+          -ms-transform: scale(0.9);
+          transform: scale(0.9); }
       .home .container .pages .next {
         background-color: white;
         border: 1px solid orange;
@@ -507,9 +506,9 @@ header {
           background-color: orange;
           color: white; }
         .home .container .pages .next:active {
-          -webkit-transform: scale(0.8);
-          -ms-transform: scale(0.8);
-          transform: scale(0.8); }
+          -webkit-transform: scale(0.9);
+          -ms-transform: scale(0.9);
+          transform: scale(0.9); }
       .home .container .pages .page_number {
         color: orange;
         font-size: 30px;

@@ -83,7 +83,7 @@ window.onload = async () => { // when window object is loaded (with dom elements
   document.querySelector('.page_number').textContent = state.pageNumber;
 };
 
-const onChange = async () => { // when select value has changed
+const onChange = async () => { // when select or input value has changed
 
   state.pageNumber = 1;
 
@@ -205,7 +205,7 @@ const onClick = async id => {
 
   document.querySelector('.content').innerHTML += json.description;
   document.querySelector('.content').innerHTML += json.body_HTML;
-  document.querySelector('.content').innerHTML += json.body_markdown;
+  // document.querySelector('.content').innerHTML += json.body_markdown;
 };
 
 const clickPrevious = async () => {
