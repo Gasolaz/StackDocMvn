@@ -26,8 +26,8 @@ public class SubtopicController extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Description description = descriptionGetter(Long.parseLong(request.getParameter("subtopicid")));
-        request.setAttribute("descriptionObject", description);
-        request.getRequestDispatcher("subtopic.jsp").forward(request, response);
+//        Description description = descriptionGetter(Long.parseLong(request.getParameter("subtopicid")));
+//        request.setAttribute("descriptionObject", description);
+//        request.getRequestDispatcher("subtopic.jsp").forward(request, response);
     }
 }

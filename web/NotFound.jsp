@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title>Not Found</title>
 </head>
 <body>
     <p>Error 404, page not found</p>

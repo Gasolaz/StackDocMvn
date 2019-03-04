@@ -3,8 +3,8 @@
 <html>
 <head>
     <title>Test</title>
-    <link rel="stylesheet" href="../resources/styles.css">
-    <script src="../resources/script.js"></script>
+    <link rel="stylesheet" href="styles/styles.css">
+    <%--<script src="script.js"></script>--%>
 </head>
 <body>
 
@@ -29,7 +29,7 @@
 
     <%=description.getDescription()%>
     <%=description.getBody_HTML()%>
-    <%--<%=description.getBody_markdown()%>--%>
+    <%=description.getBody_markdown()%>
 
 
 

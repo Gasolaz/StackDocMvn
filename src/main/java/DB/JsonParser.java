@@ -55,8 +55,6 @@ public class JsonParser extends DatabaseConnection{
                     ps.setString(5, body_markdown);
                     ps.executeUpdate();
 
-
-
                 } catch (SQLException | ClassNotFoundException e) {
                     e.printStackTrace();
                 } finally {
