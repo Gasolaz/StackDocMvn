@@ -5,16 +5,17 @@ let state = {
   search_keyword: "",
   pageNumber: 1,
   searchObject: {},
-  pages: ""
+  pages: "",
+  path: "com_Saras_Web_exploded"
 };
 
 const request = async () => {
   // get topics
-  const topics = await fetch("http://localhost:8080/com_Saras_Web_exploded/api/topics");
+  const topics = await fetch(`http://localhost:8080/${state.path}/api/topics`);
   // get subtopics
-  const subtopics = await fetch("http://localhost:8080/com_Saras_Web_exploded/api/subtopics");
+  const subtopics = await fetch(`http://localhost:8080/${state.path}/api/subtopics`);
   // get searchObject
-  const searchObject = await fetch("http://localhost:8080/com_Saras_Web_exploded/api/search",
+  const searchObject = await fetch(`http://localhost:8080/${state.path}/api/search`,
       {
         method: "POST",
         // whatever data you want to post with a key-value pair
@@ -88,7 +89,7 @@ const onChange = async () => { // when select or input value has changed
   state.pageNumber = 1;
 
   // post request to get filtered topics
-  const response = await fetch("http://localhost:8080/com_Saras_Web_exploded/api/topics",
+  const response = await fetch(`http://localhost:8080/${state.path}/api/topics`,
       {
         method: "POST",
         // whatever data you want to post with a key-value pair
@@ -99,7 +100,7 @@ const onChange = async () => { // when select or input value has changed
             }
       });
 
-  const searchObject = await fetch("http://localhost:8080/com_Saras_Web_exploded/api/search",
+  const searchObject = await fetch(`http://localhost:8080/${state.path}/api/search`,
       {
         method: "POST",
         // whatever data you want to post with a key-value pair
@@ -182,7 +183,7 @@ const onChange = async () => { // when select or input value has changed
 
 const onClick = async id => {
 
-  const response = await fetch("http://localhost:8080/com_Saras_Web_exploded/api/subtopics",
+  const response = await fetch(`http://localhost:8080/${state.path}/api/subtopics`,
       {
         method: "POST",
         // whatever data you want to post with a key-value pair
@@ -212,7 +213,7 @@ const clickPrevious = async () => {
 
   state.pageNumber--;
 
-  const response = await fetch("http://localhost:8080/com_Saras_Web_exploded/api/topics",
+  const response = await fetch(`http://localhost:8080/${state.path}/api/topics`,
       {
         method: "POST",
 
@@ -264,7 +265,7 @@ const clickNext = async () => {
 
   state.pageNumber++;
 
-  const response = await fetch("http://localhost:8080/com_Saras_Web_exploded/api/topics",
+  const response = await fetch(`http://localhost:8080/${state.path}/api/topics`,
       {
         method: "POST",
 
