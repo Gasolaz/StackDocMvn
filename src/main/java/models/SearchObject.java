@@ -1,9 +1,9 @@
 package models;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import com.sun.org.apache.regexp.internal.RE;
+import sun.misc.REException;
+
+import java.sql.*;
 
 import static DB.DatabaseConnection.connect;
 import static resources.Cons.ROWS;
@@ -21,9 +21,20 @@ public class SearchObject {
         this.search = search;
         this.pageNumber = pageNumber;
         try (Connection conn = connect()){
-            Statement statement = conn.createStatement();
+//            Statement statement = conn.createStatement();
+            PreparedStatement ps = conn.prepareStatement("SELECT count(*) FROM subtopics");
+            PreparedStatement ps2 = conn.prepareStatement("SELECT count(*) FROM subtopics WHERE topic_id='" + topicId + "'");
+            PreparedStatement ps3 = conn.prepareStatement("SELECT count(*) FROM subtopics WHERE sub_topic LIKE '%" + search + "%'");
+            PreparedStatement ps4 = conn.prepareStatement("SELECT count(*) FROM subtopics WHERE sub_topic LIKE '%" + search + "%' AND topic_id='" + topicId + "'");
+            ps.setString(1, search);
+            ps2.setLong(1, topicId);
+            ps3.setString(1, search);
+            ps4.setString(1, search);
+            ps4.setLong(2, topicId);
+
             if(topicId == 0 && search.equals("")) {
-                ResultSet rs = statement.executeQuery("SELECT count(*) FROM subtopics");
+//                ResultSet rs = statement.executeQuery("SELECT count(*) FROM subtopics");
+                ResultSet rs = ps.executeQuery();
                 if (rs.next()) {
                     long result = rs.getLong("count(*)");
                     pages = result / ROWS;
@@ -32,7 +43,8 @@ public class SearchObject {
                     }
                 }
             } else if (search.equals("")){
-                ResultSet rs = statement.executeQuery("SELECT count(*) FROM subtopics WHERE topic_id='" + topicId + "'");
+//                ResultSet rs = statement.executeQuery("SELECT count(*) FROM subtopics WHERE topic_id='" + topicId + "'");
+                ResultSet rs = ps2.executeQuery();
                 if (rs.next()) {
                     long result = rs.getLong("count(*)");
                     pages = result / ROWS;
@@ -41,7 +53,8 @@ public class SearchObject {
                     }
                 }
             } else if (topicId == 0){
-                ResultSet rs = statement.executeQuery("SELECT count(*) FROM subtopics WHERE sub_topic LIKE '%" + search + "%'");
+//                ResultSet rs = statement.executeQuery("SELECT count(*) FROM subtopics WHERE sub_topic LIKE '%" + search + "%'");
+                ResultSet rs = ps3.executeQuery();
                 if (rs.next()) {
                     long result = rs.getLong("count(*)");
                     pages = result / ROWS;
@@ -50,7 +63,8 @@ public class SearchObject {
                     }
                 }
             } else {
-                ResultSet rs = statement.executeQuery("SELECT count(*) FROM subtopics WHERE sub_topic LIKE '%" + search + "%' AND topic_id='" + topicId + "'");
+//                ResultSet rs = statement.executeQuery("SELECT count(*) FROM subtopics WHERE sub_topic LIKE '%" + search + "%' AND topic_id='" + topicId + "'");
+                ResultSet rs = ps4.executeQuery();
                 if (rs.next()) {
                     long result = rs.getLong("count(*)");
                     pages = result / ROWS;
