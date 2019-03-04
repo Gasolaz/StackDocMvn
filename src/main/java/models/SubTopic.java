@@ -16,7 +16,7 @@ public class SubTopic {
         try (Connection conn = connect()){
 //            Statement statement = conn.createStatement();
 //            ResultSet rs = statement.executeQuery("SELECT topic FROM Topics WHERE _id = '" + topicId + "'");
-            PreparedStatement ps = conn.prepareStatement(SELECT_TOPICS_BY_ID + "=?");
+            PreparedStatement ps = conn.prepareStatement(SELECT_TOPICS_BY_ID);
             ps.setLong(1, topicId);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
