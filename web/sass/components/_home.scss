@@ -1,24 +1,20 @@
 .home {
     text-align: center;
     background-color: $color-orange;
-
     .container {
         background-color: $color-antiquewhite;
-
         .search_fields {
             display: flex;
             justify-content: space-between;
             width: 50%;
             margin: auto;
             padding-top: 200px;
-
             .select_topic {
                 background-color: white;
                 width: 40%;
                 cursor: pointer;
                 outline: none;
             }
-
             .search {
                 width: 40%;
                 padding: 5px;
@@ -28,7 +24,6 @@
                 font-weight: 700;
                 text-align: center;
                 text-transform: uppercase;
-
                 &::placeholder {
                     color: $color-orange;
                     font-weight: 700;
@@ -37,13 +32,11 @@
                     font-size: 20px;
                     text-transform: none;
                 }
-
                 &:focus::placeholder {
                     color: transparent;
                 }
             }
         }
-
         .header {
             display: flex;
             justify-content: space-around;
@@ -55,11 +48,9 @@
             font-weight: 700;
             font-size: 25px;
         }
-
         .subtopics {
             display: flex;
             flex-wrap: wrap;
-
             .subtopic {
                 display: flex;
                 width: 100%;
@@ -72,21 +63,14 @@
                 padding: 20px;
                 margin-bottom: 10px;
                 transition: .25s;
-
                 &:hover {
                     background-color: $color-orange;
                     color: white;
                 }
-
                 &:active {
                     transform: scale(.9);
                 }
-
-                .topic_name {
-                    width: 50%;
-                }
-
-                .subtopic_name {
+                .topic_name, .subtopic_name {
                     width: 50%;
                 }
             }
@@ -101,18 +85,7 @@
             margin: auto;
 
             .previous {
-                background-color: white;
-                border: 1px solid $color-orange;
-                text-transform: uppercase;
-                color: $color-orange;
-                height: 50px;
-                width: 100px;
-                font-weight: 700;
-                cursor: pointer;
-                user-select: none;
-                outline: none;
-                order: 1;
-
+                @include button(1);
                 &:hover {
                     background-color: $color-orange;
                     color: white;
@@ -124,18 +97,7 @@
             }
 
             .next {
-                background-color: white;
-                border: 1px solid $color-orange;
-                text-transform: uppercase;
-                color: $color-orange;
-                font-weight: 700;
-                height: 50px;
-                width: 100px;
-                cursor: pointer;
-                user-select: none;
-                outline: none;
-                order: 3;
-
+                @include button(3);
                 &:hover {
                     background-color: $color-orange;
                     color: white;

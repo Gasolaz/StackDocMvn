@@ -28,7 +28,7 @@ public class TopicsController extends HttpServlet {
 
 //        response.sendRedirect("index.html");
 
-        request.getRequestDispatcher("index.html").forward(request, response);
+        request.getRequestDispatcher("build/static/index.html").forward(request, response);
 
 //        request.getRequestDispatcher("index.html").forward(request, response);
 

@@ -1,4 +1,4 @@
-let state = {
+const state = {
   topics: [],
   subtopics: [],
   topic_id: 0,
@@ -39,7 +39,7 @@ window.onload = async () => { // when window object is loaded (with dom elements
 
   await request(); // fire ajax function
 
-  const app = document.querySelector("#app"); // div with id = app (main div)
+  const app = document.querySelector('#app'); // div with id = app (main div)
 
   converter(Home, app); // fire converter to build home page, only template without content
 
@@ -72,16 +72,14 @@ window.onload = async () => { // when window object is loaded (with dom elements
     document.querySelectorAll(".subtopic")[i].appendChild(subtopic_name);
   });
 
-  const next = document.querySelector('.next');
   const previous = document.querySelector('.previous');
+  const next = document.querySelector('.next');
 
   previous.style.visibility = "hidden";
   state.pageNumber < state.pages ? next.style.visibility = "visible" : next.style.visibility = "hidden";
 
   // binding state properties to searching fields values and page number
-  document.querySelector('.search').setAttribute("value", state.search_keyword);
-  document.querySelector('.select_topic').setAttribute("value", state.topic_id);
-  document.querySelector('.page_number').textContent = state.pageNumber;
+  setAttribute();
 };
 
 const onChange = async () => { // when select or input value has changed
@@ -176,9 +174,7 @@ const onChange = async () => { // when select or input value has changed
   state.pageNumber < state.pages ? next.style.visibility = "visible" : next.style.visibility = "hidden";
   state.pageNumber > 1 ? previous.style.visibility = "visible" : previous.style.visibility = "hidden";
 
-  document.querySelector('.search').setAttribute("value", state.search_keyword);
-  document.querySelector('.select_topic').setAttribute("value", state.topic_id);
-  document.querySelector('.page_number').textContent = state.pageNumber;
+  setAttribute();
 };
 
 const onClick = async id => {
@@ -196,7 +192,7 @@ const onClick = async id => {
 
   const json = await response.json();
 
-  const app = document.querySelector("#app");
+  const app = document.querySelector('#app');
 
   app.innerHTML = "";
 
@@ -251,19 +247,18 @@ const clickPrevious = async () => {
     document.querySelectorAll(".subtopic")[i].appendChild(subtopic_name);
   });
 
-  // state.pageNumber < state.pages ? next.className = "active" : "";
   const previous = document.querySelector('.previous');
   const next = document.querySelector('.next');
 
   next.style.visibility = "visible";
   state.pageNumber > 1 ? previous.style.visibility = "visible" : previous.style.visibility = "hidden";
 
-  document.querySelector('.page_number').textContent = state.pageNumber;
+  changePageNumber();
 };
 
 const clickNext = async () => {
 
-  state.pageNumber++;
+  state.pageNumber++; // page number +1
 
   const response = await fetch(`http://localhost:8080/${state.path}/api/topics`,
       {
@@ -303,13 +298,18 @@ const clickNext = async () => {
     document.querySelectorAll(".subtopic")[i].appendChild(subtopic_name);
   });
 
-  const next = document.querySelector('.next');
   const previous = document.querySelector('.previous');
+  const next = document.querySelector('.next');
 
   previous.style.visibility = "visible";
-  state.pageNumber < state.pages ? next.style.visibility = "visible" : next.style.visibility = "hidden";
 
-  document.querySelector('.page_number').textContent = state.pageNumber;
+  state.pageNumber < state.pages
+      ?
+      next.style.visibility = "visible"
+      :
+      next.style.visibility = "hidden";
+
+  changePageNumber();
 };
 
 const clickBack = () => {
@@ -346,16 +346,24 @@ const clickBack = () => {
     document.querySelectorAll(".subtopic")[i].appendChild(subtopic_name);
   });
 
-  const next = document.querySelector('.next');
   const previous = document.querySelector('.previous');
+  const next = document.querySelector('.next');
 
   state.pageNumber < state.pages ? next.style.visibility = "visible" : next.style.visibility = "hidden";
   state.pageNumber > 1 ? previous.style.visibility = "visible" : previous.style.visibility = "hidden";
 
+  setAttribute();
+};
+
+const setAttribute = () => {
   document.querySelector('.search').setAttribute("value", state.search_keyword);
   document.querySelector('.select_topic').setAttribute("value", state.topic_id);
   document.querySelector('.page_number').textContent = state.pageNumber;
 };
+
+const changePageNumber = () => document.querySelector('.page_number').textContent = state.pageNumber;
+
+
 
 
 

@@ -437,18 +437,14 @@ header {
         padding: 20px;
         margin-bottom: 10px;
         -webkit-transition: .25s;
-        -o-transition: .25s;
         transition: .25s; }
         .home .container .subtopics .subtopic:hover {
           background-color: orange;
           color: white; }
         .home .container .subtopics .subtopic:active {
           -webkit-transform: scale(0.9);
-          -ms-transform: scale(0.9);
           transform: scale(0.9); }
-        .home .container .subtopics .subtopic .topic_name {
-          width: 50%; }
-        .home .container .subtopics .subtopic .subtopic_name {
+        .home .container .subtopics .subtopic .topic_name, .home .container .subtopics .subtopic .subtopic_name {
           width: 50%; }
     .home .container .pages {
       display: -webkit-box;
@@ -483,16 +479,15 @@ header {
           color: white; }
         .home .container .pages .previous:active {
           -webkit-transform: scale(0.9);
-          -ms-transform: scale(0.9);
           transform: scale(0.9); }
       .home .container .pages .next {
         background-color: white;
         border: 1px solid orange;
         text-transform: uppercase;
         color: orange;
-        font-weight: 700;
         height: 50px;
         width: 100px;
+        font-weight: 700;
         cursor: pointer;
         -webkit-user-select: none;
         -moz-user-select: none;
@@ -507,7 +502,6 @@ header {
           color: white; }
         .home .container .pages .next:active {
           -webkit-transform: scale(0.9);
-          -ms-transform: scale(0.9);
           transform: scale(0.9); }
       .home .container .pages .page_number {
         color: orange;
@@ -532,25 +526,21 @@ header {
     user-select: none;
     padding: 15px 30px;
     -webkit-transform: translate(-140%);
-    -ms-transform: translate(-140%);
     transform: translate(-140%); }
     .description header .back:hover {
       background-color: orange;
       color: white; }
     .description header .back:active {
       -webkit-transform: scale(0.9) translate(-155%);
-      -ms-transform: scale(0.9) translate(-155%);
       transform: scale(0.9) translate(-155%); }
   .description header .title_logo {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-transform: translate(-5%);
-    -ms-transform: translate(-5%);
     transform: translate(-5%); }
     .description header .title_logo i {
       -webkit-transform: translate(0, 26%);
-      -ms-transform: translate(0, 26%);
       transform: translate(0, 26%); }
   .description .container {
     background-color: antiquewhite; }
