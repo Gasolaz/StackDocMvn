@@ -9827,31 +9827,8 @@ regeneratorRuntime.mark(function _callee2() {
           app = document.querySelector('#app'); // div with id = app (main div)
 
           converter(Home, app); // fire converter to build home page, only template without content
-          // iteration over topics array to put content
 
-          state.topics.forEach(function (topic) {
-            var option = document.createElement("option");
-            option.textContent = topic.topic;
-            option.value = topic.id;
-            document.querySelector('.select_topic').appendChild(option); // put option into select
-          }); // iteration over subtopics array to put content
-
-          state.subtopics.forEach(function (subtopic, i) {
-            var div = document.createElement("div");
-            div.className = "subtopic";
-            div.setAttribute("onclick", "onClick(".concat(subtopic.id, ")"));
-            document.querySelector('.subtopics').appendChild(div); // put subtopic into subtopics div
-
-            var topic_name = document.createElement("span");
-            topic_name.className = "topic_name";
-            topic_name.textContent = subtopic.topicId;
-            var subtopic_name = document.createElement("span");
-            subtopic_name.className = "subtopic_name";
-            subtopic_name.textContent = subtopic.subTopic; // put topic name and subtopic name into subtopic with appropriate index
-
-            document.querySelectorAll(".subtopic")[i].appendChild(topic_name);
-            document.querySelectorAll(".subtopic")[i].appendChild(subtopic_name);
-          });
+          contentGenerator(true);
           previous = document.querySelector('.previous');
           next = document.querySelector('.next');
           previous.style.visibility = "hidden";
@@ -9859,7 +9836,7 @@ regeneratorRuntime.mark(function _callee2() {
 
           setAttribute();
 
-        case 11:
+        case 10:
         case "end":
           return _context2.stop();
       }
@@ -9935,34 +9912,14 @@ function () {
             parseFloat(state.topic_id) === 0 && option.setAttribute("selected", "selected");
             document.querySelector('.select_topic').appendChild(option); // *************************************************
 
-            state.topics.forEach(function (topic) {
-              var option = document.createElement("option");
-              option.textContent = topic.topic;
-              option.value = topic.id;
-              parseFloat(state.topic_id) === topic.id && option.setAttribute("selected", "selected");
-              document.querySelector('.select_topic').appendChild(option);
-            });
-            state.subtopics.forEach(function (subtopic, i) {
-              var div = document.createElement("div");
-              div.className = "subtopic";
-              div.setAttribute("onclick", "onClick(".concat(subtopic.id, ")"));
-              document.querySelector('.subtopics').appendChild(div);
-              var topic_name = document.createElement("span");
-              topic_name.className = "topic_name";
-              topic_name.textContent = subtopic.topicId;
-              var subtopic_name = document.createElement("span");
-              subtopic_name.className = "subtopic_name";
-              subtopic_name.textContent = subtopic.subTopic;
-              document.querySelectorAll(".subtopic")[i].appendChild(topic_name);
-              document.querySelectorAll(".subtopic")[i].appendChild(subtopic_name);
-            });
+            contentGenerator(true);
             previous = document.querySelector('.previous');
             next = document.querySelector('.next');
             state.pageNumber < state.pages ? next.style.visibility = "visible" : next.style.visibility = "hidden";
             state.pageNumber > 1 ? previous.style.visibility = "visible" : previous.style.visibility = "hidden";
             setAttribute();
 
-          case 29:
+          case 28:
           case "end":
             return _context3.stop();
         }
@@ -10008,7 +9965,7 @@ function () {
             converter(Description, app);
             document.querySelector('.subtopic_title').textContent = json.sub_topic;
             document.querySelector('.content').innerHTML += json.description;
-            document.querySelector('.content').innerHTML += json.body_HTML; // document.querySelector('.content').innerHTML += json.body_markdown;
+            document.querySelector('.content').innerHTML += json.body_HTML;
 
           case 12:
           case "end":
@@ -10054,27 +10011,13 @@ function () {
             state.subtopics = _context5.sent;
             subtopics = document.querySelector('.subtopics');
             subtopics.innerHTML = "";
-            state.subtopics.forEach(function (subtopic, i) {
-              var div = document.createElement("div");
-              div.className = "subtopic";
-              div.setAttribute("onclick", "onClick(".concat(subtopic.id, ")"));
-              document.querySelector('.subtopics').appendChild(div);
-              var topic_name = document.createElement("span");
-              topic_name.className = "topic_name";
-              topic_name.textContent = subtopic.topicId;
-              var subtopic_name = document.createElement("span");
-              subtopic_name.className = "subtopic_name";
-              subtopic_name.textContent = subtopic.subTopic;
-              document.querySelectorAll(".subtopic")[i].appendChild(topic_name);
-              document.querySelectorAll(".subtopic")[i].appendChild(subtopic_name);
-            });
-            previous = document.querySelector('.previous');
-            next = document.querySelector('.next');
+            contentGenerator(false);
+            previous = document.querySelector('.previous'), next = document.querySelector('.next');
             next.style.visibility = "visible";
             state.pageNumber > 1 ? previous.style.visibility = "visible" : previous.style.visibility = "hidden";
             changePageNumber();
 
-          case 15:
+          case 14:
           case "end":
             return _context5.stop();
         }
@@ -10119,27 +10062,13 @@ function () {
             state.subtopics = _context6.sent;
             subtopics = document.querySelector('.subtopics');
             subtopics.innerHTML = "";
-            state.subtopics.forEach(function (subtopic, i) {
-              var div = document.createElement("div");
-              div.className = "subtopic";
-              div.setAttribute("onclick", "onClick(".concat(subtopic.id, ")"));
-              document.querySelector('.subtopics').appendChild(div);
-              var topic_name = document.createElement("span");
-              topic_name.className = "topic_name";
-              topic_name.textContent = subtopic.topicId;
-              var subtopic_name = document.createElement("span");
-              subtopic_name.className = "subtopic_name";
-              subtopic_name.textContent = subtopic.subTopic;
-              document.querySelectorAll(".subtopic")[i].appendChild(topic_name);
-              document.querySelectorAll(".subtopic")[i].appendChild(subtopic_name);
-            });
-            previous = document.querySelector('.previous');
-            next = document.querySelector('.next');
+            contentGenerator(false);
+            previous = document.querySelector('.previous'), next = document.querySelector('.next');
             previous.style.visibility = "visible";
             state.pageNumber < state.pages ? next.style.visibility = "visible" : next.style.visibility = "hidden";
             changePageNumber();
 
-          case 15:
+          case 14:
           case "end":
             return _context6.stop();
         }
@@ -10156,7 +10085,26 @@ var clickBack = function clickBack() {
   var app = document.querySelector("#app");
   app.innerHTML = "";
   converter(Home, app);
-  state.topics.forEach(function (topic) {
+  contentGenerator(true);
+  var previous = document.querySelector('.previous'),
+      next = document.querySelector('.next');
+  state.pageNumber < state.pages ? next.style.visibility = "visible" : next.style.visibility = "hidden";
+  state.pageNumber > 1 ? previous.style.visibility = "visible" : previous.style.visibility = "hidden";
+  setAttribute();
+};
+
+var setAttribute = function setAttribute() {
+  document.querySelector('.search').setAttribute("value", state.search_keyword);
+  document.querySelector('.select_topic').setAttribute("value", state.topic_id);
+  document.querySelector('.page_number').textContent = state.pageNumber;
+};
+
+var changePageNumber = function changePageNumber() {
+  return document.querySelector('.page_number').textContent = state.pageNumber;
+};
+
+var contentGenerator = function contentGenerator(requireTopics) {
+  requireTopics && state.topics.forEach(function (topic) {
     var option = document.createElement("option");
     option.textContent = topic.topic;
     option.value = topic.id;
@@ -10177,21 +10125,6 @@ var clickBack = function clickBack() {
     document.querySelectorAll(".subtopic")[i].appendChild(topic_name);
     document.querySelectorAll(".subtopic")[i].appendChild(subtopic_name);
   });
-  var previous = document.querySelector('.previous');
-  var next = document.querySelector('.next');
-  state.pageNumber < state.pages ? next.style.visibility = "visible" : next.style.visibility = "hidden";
-  state.pageNumber > 1 ? previous.style.visibility = "visible" : previous.style.visibility = "hidden";
-  setAttribute();
-};
-
-var setAttribute = function setAttribute() {
-  document.querySelector('.search').setAttribute("value", state.search_keyword);
-  document.querySelector('.select_topic').setAttribute("value", state.topic_id);
-  document.querySelector('.page_number').textContent = state.pageNumber;
-};
-
-var changePageNumber = function changePageNumber() {
-  return document.querySelector('.page_number').textContent = state.pageNumber;
 };
 
 var Description = {

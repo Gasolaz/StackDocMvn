@@ -8,7 +8,6 @@ const {watch, task, series, src, dest} = require('gulp'),
     htmlmin = require('gulp-htmlmin'),
     babel = require('gulp-babel');
 
-
 task('sass', function () {
   return src('./web/sass/*.scss')
       .pipe(sass().on('error', sass.logError))
