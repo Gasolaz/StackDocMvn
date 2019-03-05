@@ -52,6 +52,8 @@ public class Cons {
     public static final String SELECT_EXAMPLES_BY_SUBTOPIC_ID = "SELECT * FROM " + TABLE_EXAMPLES  + " WHERE " + EXAMPLES_SUB_TOPIC_ID + "=?"; // DescriptionDAO line:13
     public static final String SELECT_FROM_SUBTOPICS_BY_ID = "SELECT * FROM " + TABLE_SUB_TOPICS + " WHERE " + ID + "=?";
     public static final String SELECT_FROM_EXAMPLES_BY_SUBTOPIC_ID = "SELECT * FROM " + TABLE_EXAMPLES + " WHERE " + EXAMPLES_SUB_TOPIC_ID + "=?";
+    public static final String SELECT_TOPICS_BY_COUNT = "SELECT * FROM " + TABLE_TOPICS + " ORDER BY " + TOPICS_TOPIC_COUNT + " DESC";
+    public static final String SELECT_FROM_SUBTOPICS_START = "SELECT * FROM " + TABLE_SUB_TOPICS;
 
 
 

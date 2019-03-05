@@ -1,4 +1,4 @@
-package DB;
+package services;
 
 import models.SubTopic;
 import models.Topic;
@@ -13,7 +13,7 @@ import static resources.Cons.*;
 
 public class SubTopicDAO {
 
-    public static final String SELECT_FROM_SUBTOPICS_START = "SELECT * FROM " + TABLE_SUB_TOPICS;
+
     public static List<SubTopic> subTopicThemes() {
         List<SubTopic> subTopics = new ArrayList<>();
         try (Connection conn = connect()){
@@ -46,11 +46,7 @@ public class SubTopicDAO {
 
             if(!search.equals("")) {
 
-                if (array.length > 0 && topic > 0) {
-                    sb.append(" AND (");
-                } else if (array.length > 0) {
-                    sb.append(" WHERE (");
-                }
+                sb.append(topic > 0 ? " AND (" : " WHERE (");
                 for (int i = 0; i < array.length; i++) {
                     sb.append(SUB_TOPICS_SUB_TOPIC + " LIKE '%'||?||'%'");
                     if (i != array.length -1) {
@@ -66,9 +62,9 @@ public class SubTopicDAO {
             if(topic > 0){
                 ps.setLong(index++, topic);
             }
-            if(!search.equals("")) {
-                for (int i = 0; i < array.length; i++) {
-                    ps.setString(index++, array[i]);
+            if(!search.trim().equals("")) {
+                for (String element : array) {
+                    ps.setString(index++, element);
                 }
             }
             ps.setLong(index++, limitStart);

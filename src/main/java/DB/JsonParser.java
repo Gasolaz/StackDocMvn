@@ -8,30 +8,33 @@ import org.json.simple.parser.ParseException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import static resources.Cons.INSERT_INTO_EXAMPLE_EXAMPLE;
 
+// Class used to parse data into DB
 public class JsonParser extends DatabaseConnection{
 
-    public static void jsonToDb(String json) {
+    public static void jsonToDb() {
         JSONParser parser = new JSONParser();
         try {
 
-            Object obj = parser.parse(new FileReader("/home/sarunas/Codebaker/JsonaiKurieActuallyReikalingi/examples.json"));
+            Object obj = parser.parse(new FileReader("Path/to/json.json"));
             JSONArray jsonArray = (JSONArray) obj;
             for (Object ms : jsonArray) {
                 JSONObject element = (JSONObject) ms;
-                //These tags are not linked to Cons
+
+                // These tags are not linked to Cons
+
                 long id = (Long) element.get("Id");
                 long sub_topic_id = (Long) element.get("DocTopicId");
                 String title = (String) element.get("Title");
                 String body_html = (String) element.get("BodyHtml");
                 String body_markdown = (String) element.get("BodyMarkdown");
 
-                try {
-                    conn = connect();
+                try (Connection conn = connect()){
                     PreparedStatement ps = conn.prepareStatement(INSERT_INTO_EXAMPLE_EXAMPLE);
                     ps.setLong(1, id);
                     ps.setLong(2, sub_topic_id);
@@ -42,14 +45,6 @@ public class JsonParser extends DatabaseConnection{
 
                 } catch (SQLException | ClassNotFoundException e) {
                     e.printStackTrace();
-                } finally {
-                    if(conn != null) {
-                        try {
-                            conn.close();
-                        } catch (SQLException e){
-                            e.printStackTrace();
-                        }
-                    }
                 }
             }
         } catch (FileNotFoundException e) {

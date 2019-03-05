@@ -1,7 +1,6 @@
 package models;
 
 import java.sql.*;
-import java.util.ResourceBundle;
 
 import static DB.DatabaseConnection.connect;
 import static resources.Cons.SELECT_TOPICS_BY_ID;

@@ -1,25 +1,21 @@
-package DB;
+package services;
 
+import DB.DatabaseConnection;
 import models.Topic;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static resources.Cons.ID;
-import static resources.Cons.TOPICS_TOPIC;
+import static resources.Cons.*;
 
 public class TopicDAO extends DatabaseConnection {
 
     public static List<Topic> themes() {
         List<Topic> topics = new ArrayList<>();
         try (Connection conn = connect()){
-            Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM topics ORDER BY topic_count DESC");
-
+            PreparedStatement ps = conn.prepareStatement(SELECT_TOPICS_BY_COUNT);
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 long id = (rs.getLong(ID));
                 String str = (rs.getString(TOPICS_TOPIC));

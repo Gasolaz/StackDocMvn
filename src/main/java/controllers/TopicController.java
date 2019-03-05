@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 //import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import models.SubTopic;
 import models.Topic;
-import services.ITopicService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import static DB.TopicDAO.themes;
+import static services.TopicDAO.themes;
 
 @WebServlet("/api/topics")
-public class TopicController extends HttpServlet implements ITopicService {
+public class TopicController extends HttpServlet {
 
 
     public List<Topic> topics;

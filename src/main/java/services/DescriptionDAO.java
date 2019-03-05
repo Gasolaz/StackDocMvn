@@ -1,5 +1,6 @@
-package DB;
+package services;
 
+import DB.DatabaseConnection;
 import models.Description;
 
 import java.sql.*;
