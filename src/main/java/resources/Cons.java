@@ -57,7 +57,7 @@ public class Cons {
 
 
     //    URL's
-    public static final String URL_DB = "jdbc:sqlite:../../TempStackDoc.db"; // DatabaseConnection line:28
+    public static final String URL_DB = "jdbc:sqlite:../../../src/TempStackDoc.db"; // DatabaseConnection line:28
 
     //    Variables
     public static final int ROWS = 10; // SearchObject
