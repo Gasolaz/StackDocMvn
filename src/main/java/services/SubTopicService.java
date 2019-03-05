@@ -1,13 +1,11 @@
 package services;
 
 import models.SubTopic;
-import models.Topic;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static DB.DatabaseConnection.conn;
 import static DB.DatabaseConnection.connect;
 import static resources.Cons.*;
 
