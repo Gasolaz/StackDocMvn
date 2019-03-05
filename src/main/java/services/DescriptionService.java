@@ -7,7 +7,7 @@ import java.sql.*;
 
 import static resources.Cons.*;
 
-public class DescriptionDAO {
+public class DescriptionService {
     public static Description descriptionGetter(long number) {
         try (Connection conn = DatabaseConnection.connect()) {
             PreparedStatement ps = conn.prepareStatement(SELECT_SUBTOPICS_BY_ID);

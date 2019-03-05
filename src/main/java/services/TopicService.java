@@ -9,7 +9,7 @@ import java.util.List;
 
 import static resources.Cons.*;
 
-public class TopicDAO extends DatabaseConnection {
+public class TopicService extends DatabaseConnection {
 
     public static List<Topic> themes() {
         List<Topic> topics = new ArrayList<>();

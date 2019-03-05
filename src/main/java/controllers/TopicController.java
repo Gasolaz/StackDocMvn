@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import static services.TopicDAO.themes;
+import static services.TopicService.themes;
 
 @WebServlet("/api/topics")
 public class TopicController extends HttpServlet {

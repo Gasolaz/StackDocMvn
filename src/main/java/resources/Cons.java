@@ -44,12 +44,12 @@ public class Cons {
     public static final String INSERT_INTO_EXAMPLE_EXAMPLE = "INSERT INTO " + TABLE_EXAMPLES + "(" + ID + ", " + EXAMPLES_SUB_TOPIC_ID + ", " + EXAMPLES_TITLE + ", " + EXAMPLES_BODY_HTML + ", " + EXAMPLES_BODY_MARKDOWN + ") VALUES(?, ?, ?, ?, ?, ?)";
 
     public static final String SELECT_TOPICS_BY_ID = "SELECT * FROM " + TABLE_TOPICS + " WHERE " + ID + "=?"; // SubTopic line:18
-    public static final String SELECT_TOPICS_WHERE_TOPIC_COUNT = "SELECT * FROM " + TABLE_TOPICS + " WHERE " + TOPICS_TOPIC_COUNT + "=?"; // TopicDAO line:29
+    public static final String SELECT_TOPICS_WHERE_TOPIC_COUNT = "SELECT * FROM " + TABLE_TOPICS + " WHERE " + TOPICS_TOPIC_COUNT + "=?"; // TopicService line:29
     public static final String SELECT_SUBTOPICS = "SELECT * FROM " + TABLE_SUB_TOPICS;
-    public static final String SELECT_SUBTOPICS_BY_ID = "SELECT * FROM " + TABLE_SUB_TOPICS + " WHERE " + ID + "=?"; // DescriptionDAO line:12
+    public static final String SELECT_SUBTOPICS_BY_ID = "SELECT * FROM " + TABLE_SUB_TOPICS + " WHERE " + ID + "=?"; // DescriptionService line:12
     public static final String SELECT_SUBTOPICS_BY = "SELECT * FROM " + TABLE_SUB_TOPICS + " WHERE "; // SubtopicDAO line:43
     public static final String SELECT_SUBTOPICS_BY_TOPIC_ID = "SELECT * FROM " + TABLE_SUB_TOPICS + " WHERE " + SUB_TOPICS_TOPIC_ID + "=?"; // SubtopicDAO line:46,50
-    public static final String SELECT_EXAMPLES_BY_SUBTOPIC_ID = "SELECT * FROM " + TABLE_EXAMPLES  + " WHERE " + EXAMPLES_SUB_TOPIC_ID + "=?"; // DescriptionDAO line:13
+    public static final String SELECT_EXAMPLES_BY_SUBTOPIC_ID = "SELECT * FROM " + TABLE_EXAMPLES  + " WHERE " + EXAMPLES_SUB_TOPIC_ID + "=?"; // DescriptionService line:13
     public static final String SELECT_FROM_SUBTOPICS_BY_ID = "SELECT * FROM " + TABLE_SUB_TOPICS + " WHERE " + ID + "=?";
     public static final String SELECT_FROM_EXAMPLES_BY_SUBTOPIC_ID = "SELECT * FROM " + TABLE_EXAMPLES + " WHERE " + EXAMPLES_SUB_TOPIC_ID + "=?";
     public static final String SELECT_TOPICS_BY_COUNT = "SELECT * FROM " + TABLE_TOPICS + " ORDER BY " + TOPICS_TOPIC_COUNT + " DESC";

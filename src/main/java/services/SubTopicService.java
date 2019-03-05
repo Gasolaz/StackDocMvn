@@ -11,7 +11,7 @@ import static DB.DatabaseConnection.conn;
 import static DB.DatabaseConnection.connect;
 import static resources.Cons.*;
 
-public class SubTopicDAO {
+public class SubTopicService {
 
 
     public static List<SubTopic> subTopicThemes() {

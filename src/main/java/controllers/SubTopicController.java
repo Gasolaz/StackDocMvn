@@ -1,6 +1,6 @@
 package controllers;
 
-import services.SubTopicDAO;
+import services.SubTopicService;
 import com.google.gson.Gson;
 import models.Description;
 import models.SubTopic;
@@ -13,12 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import static services.DescriptionDAO.descriptionGetter;
-import static services.SubTopicDAO.searching;
+import static services.DescriptionService.descriptionGetter;
+import static services.SubTopicService.searching;
 
 @WebServlet("/api/subtopics")
 public class SubTopicController extends HttpServlet {
-    public static List<SubTopic> subTopicThemes = SubTopicDAO.subTopicThemes();
+    public static List<SubTopic> subTopicThemes = SubTopicService.subTopicThemes();
 
     public static List<SubTopic> searchingService(long a, String b, long c) {
         return searching(a, b, c);
