@@ -9,6 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import static resources.Cons.ID;
+import static resources.Cons.TOPICS_TOPIC;
+
 public class TopicDAO extends DatabaseConnection {
 
     public static List<Topic> themes() {
