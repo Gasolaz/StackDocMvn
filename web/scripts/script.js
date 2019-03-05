@@ -79,6 +79,11 @@ const onChange = async () => { // when select or input value has changed
   contentGenerator(true); ///
   paginationLogic("1");
   setAttribute();
+  if (!state.pages) {
+    document.querySelector('.subtopics').innerHTML = "<p style='margin: auto; font-size: 40px;font-weight: 700;'>No" +
+        " results found!</p>";
+    document.querySelector('.page_number').textContent = "";
+  }
 };
 
 const onClick = async subtopic_id => {
@@ -99,6 +104,11 @@ const onClick = async subtopic_id => {
   document.querySelector('.subtopic_title').textContent = json.sub_topic;
   document.querySelector('.content').innerHTML += json.description;
   document.querySelector('.content').innerHTML += json.body_HTML;
+  document.querySelectorAll('img').forEach(img => {
+    const div = document.createElement("div");
+    div.className = "image";
+    img.parentNode.appendChild(div).appendChild(img);
+  });
 };
 
 const clickPrevious = async () => {
