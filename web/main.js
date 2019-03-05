@@ -9747,7 +9747,7 @@ function () {
   var _ref = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee() {
-    var topics, subtopics, searchObject;
+    var topics, subtopics;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -9763,35 +9763,21 @@ function () {
           case 5:
             subtopics = _context.sent;
             _context.next = 8;
-            return fetch("http://localhost:8080/".concat(state.path, "/api/search"), {
-              method: "POST",
-              // whatever data you want to post with a key-value pair
-              body: "topics=".concat(state.topic_id, "&pageNumber=").concat(state.pageNumber, "&subtopicsearch=").concat(state.search_keyword),
-              headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-              }
-            });
+            return fetchSearchObject();
 
           case 8:
-            searchObject = _context.sent;
-            _context.next = 11;
+            _context.next = 10;
             return topics.json();
 
-          case 11:
+          case 10:
             state.topics = _context.sent;
-            _context.next = 14;
+            _context.next = 13;
             return subtopics.json();
 
-          case 14:
+          case 13:
             state.subtopics = _context.sent;
-            _context.next = 17;
-            return searchObject.json();
 
-          case 17:
-            state.searchObject = _context.sent;
-            state.pages = state.searchObject.pages;
-
-          case 19:
+          case 14:
           case "end":
             return _context.stop();
         }
@@ -9814,7 +9800,6 @@ window.onload =
 _asyncToGenerator(
 /*#__PURE__*/
 regeneratorRuntime.mark(function _callee2() {
-  var app, previous, next;
   return regeneratorRuntime.wrap(function _callee2$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
@@ -9823,20 +9808,18 @@ regeneratorRuntime.mark(function _callee2() {
           return request();
 
         case 2:
-          // fire ajax function
-          app = document.querySelector('#app'); // div with id = app (main div)
+          _context2.next = 4;
+          return templateGenerator(false);
 
-          converter(Home, app); // fire converter to build home page, only template without content
+        case 4:
+          _context2.next = 6;
+          return contentGenerator(true);
 
-          contentGenerator(true);
-          previous = document.querySelector('.previous');
-          next = document.querySelector('.next');
-          previous.style.visibility = "hidden";
-          state.pageNumber < state.pages ? next.style.visibility = "visible" : next.style.visibility = "hidden"; // binding state properties to searching fields values and page number
+        case 6:
+          paginationLogic("1");
+          setAttribute(); // binding state properties to searching fields values and page number
 
-          setAttribute();
-
-        case 10:
+        case 8:
         case "end":
           return _context2.stop();
       }
@@ -9850,76 +9833,45 @@ function () {
   var _ref3 = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee3() {
-    var response, searchObject, select, subtopics, option, previous, next;
+    var option;
     return regeneratorRuntime.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
             // when select or input value has changed
-            state.pageNumber = 1; // post request to get filtered topics
-
+            state.pageNumber = 1;
             _context3.next = 3;
-            return fetch("http://localhost:8080/".concat(state.path, "/api/topics"), {
-              method: "POST",
-              // whatever data you want to post with a key-value pair
-              body: "topics=".concat(state.topic_id, "&pageNumber=").concat(state.pageNumber, "&subtopicsearch=").concat(state.search_keyword),
-              headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-              }
-            });
+            return fetchSubtopics();
 
           case 3:
-            response = _context3.sent;
-            _context3.next = 6;
-            return fetch("http://localhost:8080/".concat(state.path, "/api/search"), {
-              method: "POST",
-              // whatever data you want to post with a key-value pair
-              body: "topics=".concat(state.topic_id, "&pageNumber=").concat(state.pageNumber, "&subtopicsearch=").concat(state.search_keyword),
-              headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-              }
-            });
+            _context3.next = 5;
+            return fetchSearchObject();
 
-          case 6:
-            searchObject = _context3.sent;
-            _context3.next = 9;
-            return response.json();
-
-          case 9:
-            state.subtopics = _context3.sent;
-            _context3.next = 12;
-            return searchObject.json();
-
-          case 12:
-            state.searchObject = _context3.sent;
-            state.pages = state.searchObject.pages;
+          case 5:
             /*
              Rebuild full page
-              const app = document.querySelector("#app");
-              app.innerHTML = "";
-              converter(Home, app);
-             */
+             const app = document.querySelector("#app");
+             app.innerHTML = "";
+             converter(Home, app);
+            */
             // Rebuild only content
             // ************************************************
-
-            select = document.querySelector('.select_topic');
-            subtopics = document.querySelector('.subtopics'); // set content to empty
-
-            select.innerHTML = "";
-            subtopics.innerHTML = "";
+            // set content to empty
+            document.querySelector('.select_topic').innerHTML = "";
+            document.querySelector('.subtopics').innerHTML = "";
             option = document.createElement("option");
             option.value = 0;
             parseFloat(state.topic_id) === 0 && option.setAttribute("selected", "selected");
             document.querySelector('.select_topic').appendChild(option); // *************************************************
 
-            contentGenerator(true);
-            previous = document.querySelector('.previous');
-            next = document.querySelector('.next');
-            state.pageNumber < state.pages ? next.style.visibility = "visible" : next.style.visibility = "hidden";
-            state.pageNumber > 1 ? previous.style.visibility = "visible" : previous.style.visibility = "hidden";
+            _context3.next = 13;
+            return contentGenerator(true);
+
+          case 13:
+            paginationLogic("1");
             setAttribute();
 
-          case 28:
+          case 15:
           case "end":
             return _context3.stop();
         }
@@ -9938,7 +9890,7 @@ function () {
   var _ref4 = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee4(id) {
-    var response, json, app;
+    var response, json;
     return regeneratorRuntime.wrap(function _callee4$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
@@ -9946,7 +9898,6 @@ function () {
             _context4.next = 2;
             return fetch("http://localhost:8080/".concat(state.path, "/api/subtopics"), {
               method: "POST",
-              // whatever data you want to post with a key-value pair
               body: "subtopicid=".concat(id, "&pageNumber=").concat(state.pageNumber, "&subtopicsearch=").concat(state.search_keyword),
               headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
@@ -9960,14 +9911,15 @@ function () {
 
           case 5:
             json = _context4.sent;
-            app = document.querySelector('#app');
-            app.innerHTML = "";
-            converter(Description, app);
+            _context4.next = 8;
+            return templateGenerator(true);
+
+          case 8:
             document.querySelector('.subtopic_title').textContent = json.sub_topic;
             document.querySelector('.content').innerHTML += json.description;
             document.querySelector('.content').innerHTML += json.body_HTML;
 
-          case 12:
+          case 11:
           case "end":
             return _context4.stop();
         }
@@ -9986,38 +9938,23 @@ function () {
   var _ref5 = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee5() {
-    var response, subtopics, previous, next;
     return regeneratorRuntime.wrap(function _callee5$(_context5) {
       while (1) {
         switch (_context5.prev = _context5.next) {
           case 0:
             state.pageNumber--;
             _context5.next = 3;
-            return fetch("http://localhost:8080/".concat(state.path, "/api/topics"), {
-              method: "POST",
-              // whatever data you want to post with a key-value pair
-              body: "topics=".concat(state.topic_id, "&pageNumber=").concat(state.pageNumber, "&subtopicsearch=").concat(state.search_keyword),
-              headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-              }
-            });
+            return fetchSubtopics();
 
           case 3:
-            response = _context5.sent;
-            _context5.next = 6;
-            return response.json();
+            _context5.next = 5;
+            return contentGenerator(false);
 
-          case 6:
-            state.subtopics = _context5.sent;
-            subtopics = document.querySelector('.subtopics');
-            subtopics.innerHTML = "";
-            contentGenerator(false);
-            previous = document.querySelector('.previous'), next = document.querySelector('.next');
-            next.style.visibility = "visible";
-            state.pageNumber > 1 ? previous.style.visibility = "visible" : previous.style.visibility = "hidden";
+          case 5:
+            paginationLogic("2");
             changePageNumber();
 
-          case 14:
+          case 7:
           case "end":
             return _context5.stop();
         }
@@ -10036,39 +9973,23 @@ function () {
   var _ref6 = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee6() {
-    var response, subtopics, previous, next;
     return regeneratorRuntime.wrap(function _callee6$(_context6) {
       while (1) {
         switch (_context6.prev = _context6.next) {
           case 0:
-            state.pageNumber++; // page number +1
-
+            state.pageNumber++;
             _context6.next = 3;
-            return fetch("http://localhost:8080/".concat(state.path, "/api/topics"), {
-              method: "POST",
-              // whatever data you want to post with a key-value pair
-              body: "topics=".concat(state.topic_id, "&pageNumber=").concat(state.pageNumber, "&subtopicsearch=").concat(state.search_keyword),
-              headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-              }
-            });
+            return fetchSubtopics();
 
           case 3:
-            response = _context6.sent;
-            _context6.next = 6;
-            return response.json();
+            _context6.next = 5;
+            return contentGenerator(false);
 
-          case 6:
-            state.subtopics = _context6.sent;
-            subtopics = document.querySelector('.subtopics');
-            subtopics.innerHTML = "";
-            contentGenerator(false);
-            previous = document.querySelector('.previous'), next = document.querySelector('.next');
-            previous.style.visibility = "visible";
-            state.pageNumber < state.pages ? next.style.visibility = "visible" : next.style.visibility = "hidden";
+          case 5:
+            paginationLogic("3");
             changePageNumber();
 
-          case 14:
+          case 7:
           case "end":
             return _context6.stop();
         }
@@ -10082,14 +10003,9 @@ function () {
 }();
 
 var clickBack = function clickBack() {
-  var app = document.querySelector("#app");
-  app.innerHTML = "";
-  converter(Home, app);
+  templateGenerator(true);
   contentGenerator(true);
-  var previous = document.querySelector('.previous'),
-      next = document.querySelector('.next');
-  state.pageNumber < state.pages ? next.style.visibility = "visible" : next.style.visibility = "hidden";
-  state.pageNumber > 1 ? previous.style.visibility = "visible" : previous.style.visibility = "hidden";
+  paginationLogic("4");
   setAttribute();
 };
 
@@ -10101,6 +10017,12 @@ var setAttribute = function setAttribute() {
 
 var changePageNumber = function changePageNumber() {
   return document.querySelector('.page_number').textContent = state.pageNumber;
+};
+
+var templateGenerator = function templateGenerator(requirePageRebuild) {
+  var app = document.querySelector("#app");
+  requirePageRebuild && (app.innerHTML = "");
+  converter(Home, app);
 };
 
 var contentGenerator = function contentGenerator(requireTopics) {
@@ -10125,6 +10047,99 @@ var contentGenerator = function contentGenerator(requireTopics) {
     document.querySelectorAll(".subtopic")[i].appendChild(topic_name);
     document.querySelectorAll(".subtopic")[i].appendChild(subtopic_name);
   });
+};
+
+var fetchSubtopics =
+/*#__PURE__*/
+function () {
+  var _ref7 = _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee7() {
+    var response;
+    return regeneratorRuntime.wrap(function _callee7$(_context7) {
+      while (1) {
+        switch (_context7.prev = _context7.next) {
+          case 0:
+            _context7.next = 2;
+            return fetch("http://localhost:8080/".concat(state.path, "/api/topics"), {
+              method: "POST",
+              body: "topics=".concat(state.topic_id, "&pageNumber=").concat(state.pageNumber, "&subtopicsearch=").concat(state.search_keyword),
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+              }
+            });
+
+          case 2:
+            response = _context7.sent;
+            _context7.next = 5;
+            return response.json();
+
+          case 5:
+            state.subtopics = _context7.sent;
+            document.querySelector('.subtopics').innerHTML = "";
+
+          case 7:
+          case "end":
+            return _context7.stop();
+        }
+      }
+    }, _callee7);
+  }));
+
+  return function fetchSubtopics() {
+    return _ref7.apply(this, arguments);
+  };
+}();
+
+var fetchSearchObject =
+/*#__PURE__*/
+function () {
+  var _ref8 = _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee8() {
+    var searchObject;
+    return regeneratorRuntime.wrap(function _callee8$(_context8) {
+      while (1) {
+        switch (_context8.prev = _context8.next) {
+          case 0:
+            _context8.next = 2;
+            return fetch("http://localhost:8080/".concat(state.path, "/api/search"), {
+              method: "POST",
+              body: "topics=".concat(state.topic_id, "&pageNumber=").concat(state.pageNumber, "&subtopicsearch=").concat(state.search_keyword),
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+              }
+            });
+
+          case 2:
+            searchObject = _context8.sent;
+            _context8.next = 5;
+            return searchObject.json();
+
+          case 5:
+            state.searchObject = _context8.sent;
+            state.pages = state.searchObject.pages;
+
+          case 7:
+          case "end":
+            return _context8.stop();
+        }
+      }
+    }, _callee8);
+  }));
+
+  return function fetchSearchObject() {
+    return _ref8.apply(this, arguments);
+  };
+}();
+
+var paginationLogic = function paginationLogic(order) {
+  var previous = document.querySelector('.previous'),
+      next = document.querySelector('.next');
+  order === "1" && (previous.style.visibility = "hidden") && (state.pageNumber < state.pages ? next.style.visibility = "visible" : next.style.visibility = "hidden");
+  order === "2" && (next.style.visibility = "visible") && (state.pageNumber > 1 ? previous.style.visibility = "visible" : previous.style.visibility = "hidden");
+  order === "3" && (previous.style.visibility = "visible") && (state.pageNumber < state.pages ? next.style.visibility = "visible" : next.style.visibility = "hidden");
+  order === "4" && (state.pageNumber < state.pages ? next.style.visibility = "visible" : next.style.visibility = "hidden") && (state.pageNumber > 1 ? previous.style.visibility = "visible" : previous.style.visibility = "hidden");
 };
 
 var Description = {
