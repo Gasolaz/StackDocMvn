@@ -15,7 +15,6 @@ task('sass', function () {
         browsers: ['last 2 versions'],
         cascade: false
       }))
-      .pipe(dest('./web'))
       .pipe(cleancss({compatibility: 'ie8'}))
       .pipe(rename({suffix: '.min'}))
       .pipe(dest('./web/build/static/css'))
@@ -31,14 +30,13 @@ task('minify-js', function () {
       .pipe(babel({
         presets: ['@babel/preset-env']
       }))
-      .pipe(dest('./web'))
       .pipe(uglify())
       .pipe(rename({suffix: '.min'}))
       .pipe(dest('./web/build/static/js'))
 });
 
 task('minify-html', function () {
-  return src('./web/*.html')
+  return src('./web/index.html')
       .pipe(htmlmin({collapseWhitespace: true}))
       .pipe(dest('./web/build/static'))
 });
