@@ -1,12 +1,12 @@
 package models;
 
 public class Description {
-    long id;
-    long topic_id;
-    String sub_topic;
-    String description;
-    String body_HTML;
-    String body_markdown;
+    private long id;
+    private long topic_id;
+    private String sub_topic;
+    private String description;
+    private String body_HTML;
+    private String body_markdown;
 
     public Description(long id, long sub_topic_id, String sub_topic, String description, String body_HTML, String body_markdown) {
         this.id = id;
