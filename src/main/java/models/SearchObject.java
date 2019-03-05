@@ -7,11 +7,11 @@ import static resources.Cons.*;
 
 
 public class SearchObject {
-    long topicId;
-    String search;
-    long pages;
-    long pageNumber;
-    public static final String SELECT_COUNT_FROM_SUBTOPICS_START = "SELECT count(*) FROM " + TABLE_SUB_TOPICS;
+    private long topicId;
+    private String search;
+    private long pages;
+    private long pageNumber;
+
     public SearchObject(long topicId, String search, long pageNumber) {
         this.topicId = topicId;
         this.search = search;

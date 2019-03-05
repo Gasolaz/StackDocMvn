@@ -18,9 +18,9 @@ import static services.SubTopicService.searching;
 
 @WebServlet("/api/subtopics")
 public class SubTopicController extends HttpServlet {
-    public static List<SubTopic> subTopicThemes = SubTopicService.subTopicThemes();
+    private static List<SubTopic> subTopicThemes = SubTopicService.subTopicThemes();
 
-    public static List<SubTopic> searchingService(long a, String b, long c) {
+    static List<SubTopic> searchingService(long a, String b, long c) {
         return searching(a, b, c);
     }
 
@@ -32,7 +32,6 @@ public class SubTopicController extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         response.getWriter().write(json);
-
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

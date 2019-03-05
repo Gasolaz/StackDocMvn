@@ -8,8 +8,7 @@ public class DatabaseConnection {
 
     public static Connection connect() throws SQLException, ClassNotFoundException {
         Class.forName("org.sqlite.JDBC");
-        Connection conn = null;
-        conn = DriverManager.getConnection(URL_DB);
+        Connection conn = DriverManager.getConnection(URL_DB);
         return conn;
     }
 }

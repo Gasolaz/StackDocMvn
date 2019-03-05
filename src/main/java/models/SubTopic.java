@@ -7,9 +7,9 @@ import static resources.Cons.SELECT_TOPICS_BY_ID;
 import static resources.Cons.TOPICS_TOPIC;
 
 public class SubTopic {
-    long id;
-    String topicId;
-    String subTopic;
+    private long id;
+    private String topicId;
+    private String subTopic;
 
     public SubTopic(long id, long topicId, String subTopic) {
         this.id = id;

@@ -76,7 +76,7 @@ public class SubTopicService {
         return subTopics;
     }
 
-    public static void searchingForSt(ResultSet rs, List<SubTopic> st) throws SQLException{
+    private static void searchingForSt(ResultSet rs, List<SubTopic> st) throws SQLException{
 
         while(rs.next()){
             long id = rs.getLong(ID);

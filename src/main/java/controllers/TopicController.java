@@ -43,30 +43,17 @@ public class TopicController extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-//        TopicController topics = new TopicController();
-//        request.setAttribute("topics", topics);
-
         Long topic = Long.parseLong(request.getParameter("topics"));
         long pageNumber = Long.parseLong(request.getParameter("pageNumber"));
         String subTopic = request.getParameter("subtopicsearch");
 
-
-//        request.setAttribute("searchObject", searchObject);
-//        request.setAttribute("selectedTopic", topic);
-
-//        List<SubTopic> filteredSubtopics = searching(topic, subTopic, pageNumber);
         List<SubTopic> filteredSubtopics = SubTopicController.searchingService(topic, subTopic, pageNumber);
 
-
-//        request.setAttribute("filteredSt", filteredSubtopics);
-
         String json = new Gson().toJson(filteredSubtopics);
-
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(json);
 
-//        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 }

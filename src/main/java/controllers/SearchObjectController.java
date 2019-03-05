@@ -16,34 +16,22 @@ public class SearchObjectController extends HttpServlet {
 
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-//        String json = new Gson().toJson(subTopicThemes);
-//
-//        response.setContentType("application/json");
-//        response.setCharacterEncoding("UTF-8");
-//
-//        response.getWriter().write(json);
-
+        response.sendRedirect(request.getContextPath());
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
+        Long topic = Long.parseLong(request.getParameter("topics"));
+        long pageNumber = Long.parseLong(request.getParameter("pageNumber"));
+        String subTopic = request.getParameter("subtopicsearch");
 
+        SearchObject searchObject = new SearchObject(topic, subTopic, pageNumber);
 
-            Long topic = Long.parseLong(request.getParameter("topics"));
-            long pageNumber = Long.parseLong(request.getParameter("pageNumber"));
-            String subTopic = request.getParameter("subtopicsearch");
+        String json = new Gson().toJson(searchObject);
 
-            SearchObject searchObject = new SearchObject(topic, subTopic, pageNumber);
-
-            String json = new Gson().toJson(searchObject);
-
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(json);
-
-//        request.setAttribute("descriptionObject", description);
-//        request.getRequestDispatcher("subtopic.jsp").forward(request, response);
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(json);
     }
 
 }

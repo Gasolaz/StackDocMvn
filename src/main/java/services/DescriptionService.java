@@ -18,7 +18,7 @@ public class DescriptionService {
             ResultSet rs2 = ps2.executeQuery();
             if (rs.next() && rs2.next()) {
                 Description description = new Description(rs.getLong(ID), rs.getLong(SUB_TOPICS_TOPIC_ID),
-                        rs.getString(SUB_TOPICS_SUB_TOPIC), rs.getString(SUB_TOPICS_DESCRIPTION_HTML), rs2.getString( EXAMPLES_BODY_HTML),
+                        rs.getString(SUB_TOPICS_SUB_TOPIC), rs.getString(SUB_TOPICS_DESCRIPTION_HTML), rs2.getString(EXAMPLES_BODY_HTML),
                         rs2.getString(EXAMPLES_BODY_MARKDOWN));
                 return description;
             }

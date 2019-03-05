@@ -19,7 +19,7 @@ public class JsonParser extends DatabaseConnection{
 
     public static void jsonToDb() {
         JSONParser parser = new JSONParser();
-        try {
+        try (Connection conn = connect()) {
 
             Object obj = parser.parse(new FileReader("Path/to/json.json"));
             JSONArray jsonArray = (JSONArray) obj;
@@ -34,24 +34,17 @@ public class JsonParser extends DatabaseConnection{
                 String body_html = (String) element.get("BodyHtml");
                 String body_markdown = (String) element.get("BodyMarkdown");
 
-                try (Connection conn = connect()){
-                    PreparedStatement ps = conn.prepareStatement(INSERT_INTO_EXAMPLE_EXAMPLE);
-                    ps.setLong(1, id);
-                    ps.setLong(2, sub_topic_id);
-                    ps.setString(3, title);
-                    ps.setString(4, body_html);
-                    ps.setString(5, body_markdown);
-                    ps.executeUpdate();
+                PreparedStatement ps = conn.prepareStatement(INSERT_INTO_EXAMPLE_EXAMPLE);
+                ps.setLong(1, id);
+                ps.setLong(2, sub_topic_id);
+                ps.setString(3, title);
+                ps.setString(4, body_html);
+                ps.setString(5, body_markdown);
+                ps.executeUpdate();
 
-                } catch (SQLException | ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (SQLException | ClassNotFoundException
+                | ParseException | IOException e) {
             e.printStackTrace();
         }
     }
