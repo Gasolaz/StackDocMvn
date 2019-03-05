@@ -1,4 +1,4 @@
-package services;
+package controllers;
 
 import com.google.gson.Gson;
 import models.SearchObject;
@@ -12,7 +12,7 @@ import java.io.IOException;
 
 
 @WebServlet("/api/search")
-public class SearchObjectService extends HttpServlet {
+public class SearchObjectController extends HttpServlet {
 
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

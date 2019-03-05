@@ -1,30 +1,28 @@
-package services;
+package controllers;
 
 import com.google.gson.Gson;
 //import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-import models.SearchObject;
 import models.SubTopic;
 import models.Topic;
+import services.ITopicService;
 
-import javax.jws.WebService;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import static DB.TopicDAO.themes;
 
 @WebServlet("/api/topics")
-public class TopicService extends HttpServlet implements ITopicService {
+public class TopicController extends HttpServlet implements ITopicService {
 
 
     public List<Topic> topics;
 
-    public TopicService() {
+    public TopicController() {
         this.topics = themes();
     }
 
@@ -46,7 +44,7 @@ public class TopicService extends HttpServlet implements ITopicService {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-//        TopicService topics = new TopicService();
+//        TopicController topics = new TopicController();
 //        request.setAttribute("topics", topics);
 
         Long topic = Long.parseLong(request.getParameter("topics"));
@@ -58,7 +56,7 @@ public class TopicService extends HttpServlet implements ITopicService {
 //        request.setAttribute("selectedTopic", topic);
 
 //        List<SubTopic> filteredSubtopics = searching(topic, subTopic, pageNumber);
-        List<SubTopic> filteredSubtopics = SubTopicService.searchingService(topic, subTopic, pageNumber);
+        List<SubTopic> filteredSubtopics = SubTopicController.searchingService(topic, subTopic, pageNumber);
 
 
 //        request.setAttribute("filteredSt", filteredSubtopics);

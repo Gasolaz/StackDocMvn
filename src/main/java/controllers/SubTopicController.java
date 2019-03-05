@@ -1,4 +1,4 @@
-package services;
+package controllers;
 
 import DB.SubTopicDAO;
 import com.google.gson.Gson;
@@ -19,7 +19,7 @@ import static DB.SubTopicDAO.searching;
 import static DB.TopicDAO.themes;
 
 @WebServlet("/api/subtopics")
-public class SubTopicService extends HttpServlet {
+public class SubTopicController extends HttpServlet {
     public static List<SubTopic> subTopicThemes = SubTopicDAO.subTopicThemes();
 
     public static List<SubTopic> searchingService(long a, String b, long c) {
