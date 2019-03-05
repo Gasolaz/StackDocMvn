@@ -81,11 +81,11 @@ const onChange = async () => { // when select or input value has changed
   setAttribute();
 };
 
-const onClick = async id => {
+const onClick = async subtopic_id => {
   const response = await fetch(`http://localhost:8080/${state.path}/api/subtopics`,
       {
         method: "POST",
-        body: `subtopicid=${id}&pageNumber=${state.pageNumber}&subtopicsearch=${state.search_keyword}`,
+        body: `subtopicid=${subtopic_id}&pageNumber=${state.pageNumber}&subtopicsearch=${state.search_keyword}`,
         headers:
             {
               "Content-Type": "application/x-www-form-urlencoded"
