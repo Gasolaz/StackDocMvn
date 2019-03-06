@@ -11,7 +11,7 @@ import java.io.IOException;
 public class TopicsController extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("index.html").forward(request, response);
+        request.getRequestDispatcher("build/static/index.html").forward(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
