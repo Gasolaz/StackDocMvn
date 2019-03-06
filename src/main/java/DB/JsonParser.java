@@ -16,7 +16,6 @@ import static resources.Cons.INSERT_INTO_EXAMPLE_EXAMPLE;
 
 // Class used to parse data into DB
 public class JsonParser extends DatabaseConnection{
-
     public static void jsonToDb() {
         JSONParser parser = new JSONParser();
         try (Connection conn = connect()) {
