@@ -25,16 +25,4 @@ public class SubTopic {
         }
         this.subTopic = subTopic;
     }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getTopicId() {
-        return topicId;
-    }
-
-    public String getSubTopic() {
-        return subTopic;
-    }
 }
