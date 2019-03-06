@@ -34,6 +34,23 @@ public class Cons {
         DESCRIPTION_SUB_TOPIC_ID + ", " + DESCRIPTION_DESCRIPTION + ") VALUES(?, ?, ?)";
 
     //    Database -> CRUD
+
+    // Creation
+
+    public static final String CREATE_TABLE_TOPICS = "CREATE TABLE IF NOT EXISTS \"" + TABLE_TOPICS + "\" (\"" + ID +
+            "\" INTEGER NOT NULL, \"" + TOPICS_TOPIC + "\" TEXT NOT NULL, \"" + TOPICS_TOPIC_COUNT + "\" " +
+            "INTEGER, PRIMARY KEY(\"" + ID + "\"))" ;
+
+    public static final String CREATE_TABLE_SUB_TOPICS = "CREATE TABLE IF NOT EXISTS \"" + TABLE_SUB_TOPICS + "\" (\"" + ID +
+            "\" INTEGER NOT NULL, \"" + SUB_TOPICS_TOPIC_ID + "\" INTEGER NOT NULL, \"" + SUB_TOPICS_SUB_TOPIC +
+            "\" TEXT NOT NULL, \"" + SUB_TOPICS_DESCRIPTION_HTML + "\" TEXT NOT NULL, PRIMARY KEY(\"" + ID + "\"))";
+
+    public static final String CREATE_TABLE_EXAMPLES = "CREATE TABLE IF NOT EXISTS \"" + TABLE_EXAMPLES + "\" (\"" + ID + "\" INTEGER NOT NULL, \"" +
+            EXAMPLES_SUB_TOPIC_ID + "\" INTEGER NOT NULL, \"" +  EXAMPLES_TITLE + "\" TEXT NOT NULL, \"" +
+            EXAMPLES_BODY_HTML + "\" TEXT NOT NULL, \"" + EXAMPLES_BODY_MARKDOWN + "\" TEXT NOT NULL, PRIMARY KEY(\"" +
+            ID + "\"))";
+
+
     //    Insertion
     public static final String INSERT_INTO_TOPICS = "INSERT INTO " + TABLE_TOPICS + "(" + TOPICS_TOPIC + ") VALUES(?)";
     public static final String INSERT_INTO_SUB_TOPICS = "INSERT INTO " + TABLE_SUB_TOPICS + "(" + SUB_TOPICS_SUB_TOPIC + ", " + SUB_TOPICS_DESCRIPTION_HTML + ") VALUES(?, ?)";
@@ -52,6 +69,7 @@ public class Cons {
 
     //    URL's
     public static final String URL_DB = "jdbc:sqlite:../../../src/TempStackDoc.db"; // DatabaseConnection line:28
+    public static final String URL_DB_FILE = "../../../src/TempStackDoc.db";
 
     //    Variables
     public static final int ROWS = 10; // SearchObject
