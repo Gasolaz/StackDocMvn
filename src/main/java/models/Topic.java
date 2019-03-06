@@ -8,12 +8,4 @@ public class Topic {
         this.id = id;
         this.topic = topic;
     }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getTopic() {
-        return topic;
-    }
 }
