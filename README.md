@@ -4,8 +4,7 @@ The project employs search engine architecture to discover StackOverflow informa
 
 ## Getting Started
 - Download Apache Tomcat - https://tomcat.apache.org/download-90.cgi
-- Extract Tomcat library and paste to /tomcat
-- In Run/Debug Configurations add Tomcat Server > Local
+- In Run/Debug Configurations add Tomcat Server > Local > Add Tomcat Library folder
 - Fix Artifacts to load Tomcat Library
 - If project is not loading > Run/Debug Configurations > Build Artifacts > Add Configurations > Build Artifacts
 - Cons.java class dictates URL path: 
