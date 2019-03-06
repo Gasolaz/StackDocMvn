@@ -1,10 +1,8 @@
 package models;
 
-import DB.DAO;
-
 public class Topic {
-    long id;
-    String topic;
+    private long id;
+    private String topic;
 
     public Topic(long id, String topic) {
         this.id = id;
