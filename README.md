@@ -1,6 +1,5 @@
 # Stack Overflow Documentation Project
 
-<<<<<<< HEAD
 The project employs search engine architecture to discover StackOverflow information of various programming languages.
 
 ## Getting Started
