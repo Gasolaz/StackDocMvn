@@ -280,6 +280,8 @@ const clickDelete = async subtopic_id => {
     subtopic_delete.className = "subtopic_delete";
     subtopic_delete.innerHTML = "X";
     subtopic_delete.setAttribute("onclick", `clickDelete(${subtopic.id})`);
+    subtopic_delete.setAttribute("onmouseover", subtopic.removeAttribute("onclick"));
+    subtopic_delete.setAttribute("onmouseout", subtopic.setAttribute("onclick", `onClick(${subtopic_id})`));
     document.querySelectorAll(".subtopic")[i].appendChild(topic_name);
     document.querySelectorAll(".subtopic")[i].appendChild(subtopic_name);
     document.querySelectorAll(".subtopic")[i].appendChild(subtopic_delete);
