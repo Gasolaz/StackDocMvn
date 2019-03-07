@@ -1,14 +1,17 @@
 .home {
     text-align: center;
     background-color: $color-orange;
+
     header {
         justify-content: space-evenly;
         align-items: center;
-        .logo{
+
+        .logo {
             display: flex;
             align-items: center;
             margin-left: 110px;
         }
+
         .adminpage_login, .adminpage_logout {
             @include button(3);
         }
@@ -18,20 +21,24 @@
         }
 
     }
+
     .container {
         background-color: $color-antiquewhite;
+
         .search_fields {
             display: flex;
             justify-content: space-between;
             width: 50%;
             margin: auto;
             padding-top: 200px;
+
             .select_topic {
                 background-color: white;
                 width: 40%;
                 cursor: pointer;
                 outline: none;
             }
+
             .search {
                 width: 40%;
                 padding: 5px;
@@ -41,6 +48,7 @@
                 font-weight: 700;
                 text-align: center;
                 text-transform: uppercase;
+
                 &::placeholder {
                     color: $color-orange;
                     font-weight: 700;
@@ -48,11 +56,13 @@
                     font-size: 20px;
                     text-transform: none;
                 }
+
                 &:focus::placeholder {
                     color: transparent;
                 }
             }
         }
+
         .header {
             display: flex;
             justify-content: space-around;
@@ -64,9 +74,11 @@
             font-weight: 700;
             font-size: 25px;
         }
+
         .subtopics {
             display: flex;
             flex-wrap: wrap;
+
             .subtopic {
                 display: flex;
                 width: 100%;
@@ -79,15 +91,31 @@
                 padding: 20px;
                 margin-bottom: 10px;
                 transition: .25s;
+
                 &:hover {
                     background-color: $color-orange;
                     color: white;
                 }
-                &:active {
-                    transform: scale(.9);
-                }
+
                 .topic_name, .subtopic_name {
                     width: 50%;
+                }
+
+                .subtopic_delete {
+
+                    &:hover {
+                        color: red;
+                    }
+
+
+                    //border: 1px solid orange;
+                    //display: inline-block;
+                    //padding: 10px 10px;
+                    //border: 5px solid grey;
+                    //width: 10px;
+                .fa-times {
+                        font-size: 5px;
+                    }
                 }
             }
         }
