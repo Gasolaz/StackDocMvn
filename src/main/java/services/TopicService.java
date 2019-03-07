@@ -1,75 +1,31 @@
 package services;
 
-import com.google.gson.Gson;
-//import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-import models.SearchObject;
-import models.SubTopic;
+import DB.DatabaseConnection;
 import models.Topic;
 
-import javax.jws.WebService;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static DB.TopicDAO.themes;
+import static resources.Cons.*;
 
-@WebServlet("/api/topics")
-public class TopicService extends HttpServlet implements ITopicService {
+public class TopicService extends DatabaseConnection {
 
-
-    public List<Topic> topics;
-
-    public TopicService() {
-        this.topics = themes();
-    }
-
-    public List<Topic> getTopics() {
+    public static List<Topic> themes() {
+        List<Topic> topics = new ArrayList<>();
+        try (Connection conn = connect()){
+            PreparedStatement ps = conn.prepareStatement(SELECT_TOPICS_BY_COUNT);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                long id = (rs.getLong(ID));
+                String str = (rs.getString(TOPICS_TOPIC));
+                Topic topic = new Topic(id, str);
+                topics.add(topic);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return topics;
     }
 
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-        String json = new Gson().toJson(topics);
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-
-        response.getWriter().write(json);
-    }
-
-    @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-//        TopicService topics = new TopicService();
-//        request.setAttribute("topics", topics);
-
-        Long topic = Long.parseLong(request.getParameter("topics"));
-        long pageNumber = Long.parseLong(request.getParameter("pageNumber"));
-        String subTopic = request.getParameter("subtopicsearch");
-
-
-//        request.setAttribute("searchObject", searchObject);
-//        request.setAttribute("selectedTopic", topic);
-
-//        List<SubTopic> filteredSubtopics = searching(topic, subTopic, pageNumber);
-        List<SubTopic> filteredSubtopics = SubTopicService.searchingService(topic, subTopic, pageNumber);
-
-
-//        request.setAttribute("filteredSt", filteredSubtopics);
-
-        String json = new Gson().toJson(filteredSubtopics);
-
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(json);
-
-//        request.getRequestDispatcher("index.jsp").forward(request, response);
-    }
 }

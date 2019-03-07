@@ -1,55 +1,89 @@
 package services;
 
-import DB.SubTopicDAO;
-import com.google.gson.Gson;
-import models.Description;
 import models.SubTopic;
-import models.Topic;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
-import static DB.DescriptionDAO.descriptionGetter;
-import static DB.SubTopicDAO.searching;
-import static DB.TopicDAO.themes;
+import static DB.DatabaseConnection.connect;
+import static resources.Cons.*;
 
-@WebServlet("/api/subtopics")
-public class SubTopicService extends HttpServlet {
-    public static List<SubTopic> subTopicThemes = SubTopicDAO.subTopicThemes();
+public class SubTopicService {
 
-    public static List<SubTopic> searchingService(long a, String b, long c) {
-        return searching(a, b, c);
+
+    public static List<SubTopic> subTopicThemes() {
+        List<SubTopic> subTopics = new ArrayList<>();
+        try (Connection conn = connect()){
+            StringBuilder sb = new StringBuilder();
+            sb.append(SELECT_FROM_SUBTOPICS_START + " LIMIT ?, ?");
+            PreparedStatement ps = conn.prepareStatement(sb.toString());
+            ps.setLong(1, 0);
+            ps.setLong(2, ROWS);
+            ResultSet rs = ps.executeQuery();
+            searchingForSt(rs, subTopics);
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return subTopics;
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public static List<SubTopic> searching(long topic, String search, long pageNumber) {
 
-        String json = new Gson().toJson(subTopicThemes);
+        List<SubTopic> subTopics = new ArrayList<>();
+        try (Connection conn = connect()){
 
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
+            long limitStart = ROWS*(pageNumber-1);
+            StringBuilder sb = new StringBuilder();
+            sb.append(SELECT_FROM_SUBTOPICS_START);
+            int index = 1;
+            String[] array = search.trim().split(" ");
+            if(topic > 0){
+                sb.append(" WHERE " + SUB_TOPICS_TOPIC_ID + "=?");
+            }
 
-        response.getWriter().write(json);
+            if(!search.equals("")) {
 
+                sb.append(topic > 0 ? " AND (" : " WHERE (");
+                for (int i = 0; i < array.length; i++) {
+                    sb.append(SUB_TOPICS_SUB_TOPIC + " LIKE '%'||?||'%'");
+                    if (i != array.length -1) {
+                        sb.append(" OR ");
+                    }
+                }
+                if (array.length > 0) {
+                    sb.append(")");
+                }
+            }
+            sb.append(" LIMIT ?, ?");
+            PreparedStatement ps = conn.prepareStatement(sb.toString());
+            if(topic > 0){
+                ps.setLong(index++, topic);
+            }
+            if(!search.trim().equals("")) {
+                for (String element : array) {
+                    ps.setString(index++, element);
+                }
+            }
+            ps.setLong(index++, limitStart);
+            ps.setLong(index, ROWS);
+            ResultSet rs = ps.executeQuery();
+            searchingForSt(rs, subTopics);
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return subTopics;
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    private static void searchingForSt(ResultSet rs, List<SubTopic> st) throws SQLException{
 
-        Description description = descriptionGetter(Long.parseLong(request.getParameter("subtopicid")));
-
-        String json = new Gson().toJson(description);
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-
-        response.getWriter().write(json);
-
-
-//        request.setAttribute("descriptionObject", description);
-//        request.getRequestDispatcher("subtopic.jsp").forward(request, response);
+        while(rs.next()){
+            long id = rs.getLong(ID);
+            long topicOfId = rs.getLong(SUB_TOPICS_TOPIC_ID);
+            String str = rs.getString(SUB_TOPICS_SUB_TOPIC);
+            SubTopic subTopic = new SubTopic(id, topicOfId, str);
+            st.add(subTopic);
+        }
     }
 }
