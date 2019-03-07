@@ -218,6 +218,7 @@ const clickLogin = async () => {
             }
       });
 
+  state.subtopics = await response.json();
 
   document.querySelector('.subtopics').innerHTML = "";
 
