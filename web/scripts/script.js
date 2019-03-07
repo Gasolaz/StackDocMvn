@@ -236,7 +236,7 @@ const clickLogin = async () => {
     subtopic_name.textContent = subtopic.subTopic;
     const subtopic_delete = document.createElement("span");
     subtopic_delete.className = "subtopic_delete";
-    subtopic_delete.innerHTML = "X";
+    subtopic_delete.innerHTML = "<i class='fas fa-times'></i>";
     subtopic_delete.setAttribute("onclick", `clickDelete(${subtopic.id})`);
     document.querySelectorAll(".subtopic")[i].appendChild(topic_name);
     document.querySelectorAll(".subtopic")[i].appendChild(subtopic_name);
@@ -278,7 +278,7 @@ const clickDelete = async subtopic_id => {
     subtopic_name.textContent = subtopic.subTopic;
     const subtopic_delete = document.createElement("span");
     subtopic_delete.className = "subtopic_delete";
-    subtopic_delete.innerHTML = "X";
+    subtopic_delete.innerHTML = "<i class='fas fa-times'></i>";
     subtopic_delete.setAttribute("onclick", `clickDelete(${subtopic.id})`);
     subtopic_delete.setAttribute("onmouseover", subtopic.removeAttribute("onclick"));
     subtopic_delete.setAttribute("onmouseout", subtopic.setAttribute("onclick", `onClick(${subtopic_id})`));
