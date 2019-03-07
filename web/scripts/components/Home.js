@@ -2,10 +2,30 @@ const Home = {
   "div": {
     "class": "home",
     "header": {
-      "i": {
-        "class": "fab fa-stack-overflow"
-      },
-      "h1": "StackOverflow Documentation Search Engine"
+      "div": [
+        {
+          "class": "logo",
+          "i": {
+            "class": "fab fa-stack-overflow"
+          },
+          "h1": "StackOverflow Documentation Search Engine"
+        },
+        {
+          "class": "admin_buttons",
+          "button": [
+            {
+              "class": "adminpage_login",
+              "text": "ADMIN",
+              "onclick": "clickLogin()"
+            },
+            {
+              "class": "adminpage_logout",
+              "text": "LOGOUT",
+              "onclick": "clickLogout()"
+            },
+          ]
+        }
+      ]
     },
     "div": {
       "class": "container",

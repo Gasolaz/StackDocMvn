@@ -6,7 +6,8 @@ const state = {
   pageNumber: 1,
   searchObject: {},
   pages: "",
-  path: "com_Saras_Web_exploded"
+  path: "com_Saras_Web_exploded",
+  password: "123"
 };
 
 const request = async () => {
@@ -205,6 +206,24 @@ const paginationLogic = order => {
   order === "4" && ((state.pageNumber < state.pages ? next.style.visibility = "visible" : next.style.visibility = "hidden") &&
       (state.pageNumber > 1 ? previous.style.visibility = "visible" : previous.style.visibility = "hidden"));
 };
+
+const clickLogin = async () => {
+  const response = await fetch(`http://localhost:8080/${state.path}/api/admin`,
+      {
+        method: "POST",
+        body: `password=${state.password}`,
+        headers:
+            {
+              "Content-Type": "application/x-www-form-urlencoded"
+            }
+      });
+
+};
+
+const clickLogout = async () => await fetch(`http://localhost:8080/${state.path}/api/admin`);
+
+
+
 
 
 
