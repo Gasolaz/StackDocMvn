@@ -19,7 +19,9 @@ public class AdminController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         if (checkIfExists(request.getParameter("pass"))) {
+
             request.getRequestDispatcher("build/static/index.html").forward(request, response);
+
         } else {
             response.sendRedirect(request.getContextPath());
         }

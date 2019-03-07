@@ -1,6 +1,23 @@
 .home {
     text-align: center;
     background-color: $color-orange;
+    header {
+        justify-content: space-evenly;
+        align-items: center;
+        .logo{
+            display: flex;
+            align-items: center;
+            margin-left: 110px;
+        }
+        .adminpage_login, .adminpage_logout {
+            @include button(3);
+        }
+
+        .adminpage_logout {
+            display: none;
+        }
+
+    }
     .container {
         background-color: $color-antiquewhite;
         .search_fields {
@@ -78,6 +95,7 @@
         .pages {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding-top: 50px;
             padding-bottom: 50px;
             width: 90%;
@@ -85,32 +103,17 @@
 
             .previous {
                 @include button(1);
-                &:hover {
-                    background-color: $color-orange;
-                    color: white;
-                }
-
-                &:active {
-                    transform: scale(.9);
-                }
             }
 
             .next {
                 @include button(3);
-                &:hover {
-                    background-color: $color-orange;
-                    color: white;
-                }
-
-                &:active {
-                    transform: scale(.9);
-                }
             }
 
             .page_number {
-                color: $color-orange;
-                font-size: 30px;
+                color: #000;
+                font-size: 25px;
                 order: 2;
+                user-select: none;
             }
         }
     }
