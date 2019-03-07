@@ -1,0 +1,17 @@
+body {
+    background-color: $color-antiquewhite;
+
+    .container {
+        margin: auto;
+        max-width: 1200px;
+        min-height: 100vh;
+
+        .image {
+            width: 30%;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

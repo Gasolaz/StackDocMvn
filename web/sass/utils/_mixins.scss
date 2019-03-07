@@ -1,0 +1,20 @@
+@mixin button($order) {
+    background-color: white;
+    border: 1px solid $color-orange;
+    text-transform: uppercase;
+    color: $color-orange;
+    height: 50px;
+    width: 100px;
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    order: $order;
+    &:hover {
+        background-color: $color-orange;
+        color: white;
+    }
+    &:active {
+        transform: scale(.9);
+    }
+}
