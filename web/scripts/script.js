@@ -236,6 +236,7 @@ const clickLogin = async () => {
     const subtopic_delete = document.createElement("span");
     subtopic_delete.className = "subtopic_delete";
     subtopic_delete.innerHTML = "X";
+    subtopic_delete.setAttribute("onclick", `clickDelete(${subtopic.id})`);
     document.querySelectorAll(".subtopic")[i].appendChild(topic_name);
     document.querySelectorAll(".subtopic")[i].appendChild(subtopic_name);
     document.querySelectorAll(".subtopic")[i].appendChild(subtopic_delete);
