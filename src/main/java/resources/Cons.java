@@ -33,6 +33,13 @@ public class Cons {
     public static final String INSERT_INTO_DESCRIPTION = "INSERT INTO " + TABLE_DESCRIPTION + "(" + DESCRIPTION_TOPIC_ID + ", " +
         DESCRIPTION_SUB_TOPIC_ID + ", " + DESCRIPTION_DESCRIPTION + ") VALUES(?, ?, ?)";
 
+    // Table: Admins
+    public static final String TABLE_ADMINS = "admins";
+    // Table Admins -> Columns
+    public static final String ADMINS_ID = "_id";
+    public static final String ADMINS_PASSWORD = "hashed_pass";
+    public static final String ADMINS_SALT = "salt";
+
     //    Database -> CRUD
 
     // Creation
@@ -49,6 +56,10 @@ public class Cons {
             EXAMPLES_SUB_TOPIC_ID + "\" INTEGER NOT NULL, \"" +  EXAMPLES_TITLE + "\" TEXT NOT NULL, \"" +
             EXAMPLES_BODY_HTML + "\" TEXT NOT NULL, \"" + EXAMPLES_BODY_MARKDOWN + "\" TEXT NOT NULL, PRIMARY KEY(\"" +
             ID + "\"))";
+
+    public static final String CREATE_TABLE_ADMINS = "CREATE TABLE IF NOT EXISTS \"" + TABLE_ADMINS + "\" (\"" + ID +
+            "\" INTEGER NOT NULL, \"" + ADMINS_PASSWORD + "\" TEXT NOT NULL, \"" + ADMINS_SALT +
+            "\" TEXT NOT NULL, PRIMARY KEY (\"" + ID + "\"))";
 
 
     //    Insertion
