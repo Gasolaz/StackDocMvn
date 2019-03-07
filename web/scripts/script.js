@@ -6,7 +6,7 @@ const state = {
   pageNumber: 1,
   searchObject: {},
   pages: "",
-  path: "com_Saras_Web_exploded",
+  path: "StackDocMvn_Web_exploded",
   pass: "123"
 };
 
@@ -238,6 +238,8 @@ const clickLogin = async () => {
     subtopic_delete.className = "subtopic_delete";
     subtopic_delete.innerHTML = "<i class='fas fa-times'></i>";
     subtopic_delete.setAttribute("onclick", `clickDelete(${subtopic.id})`);
+    subtopic_delete.setAttribute("onmouseover", document.querySelectorAll('.subtopic')[i].removeAttribute("onclick"));
+    subtopic_delete.setAttribute("onmouseout", document.querySelectorAll('.subtopic')[i].setAttribute("onclick", `onClick(${subtopic.id})`));
     document.querySelectorAll(".subtopic")[i].appendChild(topic_name);
     document.querySelectorAll(".subtopic")[i].appendChild(subtopic_name);
     document.querySelectorAll(".subtopic")[i].appendChild(subtopic_delete);
@@ -264,7 +266,11 @@ const clickDelete = async subtopic_id => {
   state.subtopics = await response.json();
 
   document.querySelector('.subtopics').innerHTML = "";
-
+     //border: 1px solid orange;
+                    //display: inline-block;
+                    //padding: 10px 10px;
+                    //border: 5px solid grey;
+                    //width: 10px;
   state.subtopics.forEach((subtopic, i) => {
     const div = document.createElement("div");
     div.className = "subtopic";
@@ -280,8 +286,9 @@ const clickDelete = async subtopic_id => {
     subtopic_delete.className = "subtopic_delete";
     subtopic_delete.innerHTML = "<i class='fas fa-times'></i>";
     subtopic_delete.setAttribute("onclick", `clickDelete(${subtopic.id})`);
-    subtopic_delete.setAttribute("onmouseover", subtopic.removeAttribute("onclick"));
-    subtopic_delete.setAttribute("onmouseout", subtopic.setAttribute("onclick", `onClick(${subtopic_id})`));
+    console.log(subtopic)
+    subtopic_delete.setAttribute("onmouseover", document.querySelectorAll('.subtopic')[i].removeAttribute("onclick"));
+    subtopic_delete.setAttribute("onmouseout", document.querySelectorAll('.subtopic')[i].setAttribute("onclick", `onClick(${subtopic.id})`));
     document.querySelectorAll(".subtopic")[i].appendChild(topic_name);
     document.querySelectorAll(".subtopic")[i].appendChild(subtopic_name);
     document.querySelectorAll(".subtopic")[i].appendChild(subtopic_delete);

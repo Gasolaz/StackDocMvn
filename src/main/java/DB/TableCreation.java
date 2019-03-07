@@ -24,6 +24,7 @@ public class TableCreation {
                 statement.executeUpdate(CREATE_TABLE_TOPICS);
                 statement.executeUpdate(CREATE_TABLE_SUB_TOPICS);
                 statement.executeUpdate(CREATE_TABLE_EXAMPLES);
+                statement.executeUpdate(CREATE_TABLE_ADMINS);
 
             } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
