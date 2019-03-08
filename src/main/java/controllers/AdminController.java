@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import static services.AdminService.checkIfExists;
-import static services.AdminService.deleteSubTopic;
+import static services.AdminService.*;
 
 @WebServlet("/admin")
 public class AdminController extends HttpServlet {
@@ -22,18 +21,7 @@ public class AdminController extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         List<SubTopic> filteredSubtopics = SubTopicController.searchingService(0, "", 1);
-
-        String json = new Gson().toJson(filteredSubtopics);
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(json);
-//        if (checkIfExists(request.getParameter("pass"))) {
-//            request.getRequestDispatcher("build/static/index.html").forward(request, response);
-//        } else {
-//            response.sendRedirect(request.getContextPath());
-//        }
+        objectToJson(response, filteredSubtopics);
     }
 }
