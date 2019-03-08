@@ -6,7 +6,7 @@ const state = {
   pageNumber: 1,
   searchObject: {},
   pages: "",
-  path: "com_Saras_Web_exploded",
+  path: "StackDocMvn_Web_exploded",
   pass: "",
   isAdmin: false
 };
