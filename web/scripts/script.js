@@ -225,7 +225,7 @@ const contentGenerator = (requireTopics, isAdmin) => {
       document.querySelectorAll('.fa-times')[i]
           .setAttribute("onclick", `clickShowDelete(${subtopic.id})`);
       document.querySelectorAll('.fa-edit')[i]
-          .setAttribute("onclick", `clickShowUpdate()`);
+          .setAttribute("onclick", `clickShowUpdate(${subtopic.id})`);
     }
 
   });
@@ -263,9 +263,9 @@ const clickShowCreate = () => {
 
 };
 
-const clickShowUpdate = () => {
+const clickShowUpdate = subtopic_id => {
   document.querySelector('.update_popup').style.top = "50%";
-
+  document.querySelector('.update_button').setAttribute("onclick", `clickUpdate(${subtopic_id})`);
 };
 
 const clickHideLogin = () => {

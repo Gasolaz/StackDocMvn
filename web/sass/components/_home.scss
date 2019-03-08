@@ -27,17 +27,7 @@
 
 
         .login_popup {
-            position: fixed;
-            top: -50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transition: 1s;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 40px;
-            z-index: 10;
-            display: flex;
-            flex-wrap: wrap;
-            width: 15%;
+            @include popup(40px);
 
             .password_input {
                 width: 82%;
@@ -59,25 +49,10 @@
         }
 
         .logout_popup {
-            position: fixed;
-            top: -50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transition: 1s;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 30px;
-            z-index: 10;
-            display: flex;
-            flex-wrap: wrap;
-            width: 15%;
+            @include popup(30px);
 
             p {
-                color: $color-orange;
-                font-size: 26px;
-                width: 80%;
-                margin: 0 auto;
-                margin-bottom: 28px;
-                padding-top: 20px;
+                @include sure;
             }
 
             .logout_button {
@@ -93,25 +68,10 @@
         }
 
         .delete_popup {
-            position: fixed;
-            top: -50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transition: 1s;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 30px;
-            z-index: 10;
-            display: flex;
-            flex-wrap: wrap;
-            width: 15%;
+            @include popup(30px);
 
             p {
-                color: $color-orange;
-                font-size: 26px;
-                width: 80%;
-                margin: 0 auto;
-                margin-bottom: 28px;
-                padding-top: 20px;
+                @include sure;
             }
 
             .delete_button {
@@ -126,26 +86,30 @@
             }
         }
 
-        .create_popup {
-            position: fixed;
-            top: -50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transition: 1s;
-            background-color: rgba(01, 0, 0, 0.5);
-            padding: 30px;
-            z-index: 10;
-            display: flex;
-            flex-wrap: wrap;
-            width: 15%;
+        .update_popup {
+            @include popup(30px);
 
             p {
-                color: $color-orange;
-                font-size: 26px;
-                width: 80%;
-                margin: 0 auto;
-                margin-bottom: 28px;
-                padding-top: 20px;
+                @include sure;
+            }
+
+            .update_button {
+                width: 40%;
+                @include button(1);
+            }
+
+            .cancel_update {
+                width: 40%;
+                @include button(2);
+                margin-left: 19px;
+            }
+        }
+
+        .create_popup {
+            @include popup(30px);
+
+            p {
+                @include sure;
             }
 
             .create_button {

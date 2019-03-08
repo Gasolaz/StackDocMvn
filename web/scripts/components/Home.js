@@ -90,6 +90,21 @@ const Home = {
           ]
         },
         {
+          "class": "update_popup",
+          "p": "Are you sure?",
+          "button": [
+            {
+              "class": "update_button",
+              "text": "UPDATE"
+            },
+            {
+              "class": "cancel_update",
+              "text": "CANCEL",
+              "onclick": "clickHideUpdate()"
+            }
+          ]
+        },
+        {
           "class": "create_popup",
           "p": "Are you sure?",
           "button": [
