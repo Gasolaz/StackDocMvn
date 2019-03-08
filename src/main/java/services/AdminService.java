@@ -59,4 +59,20 @@ public class AdminService {
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(json);
     }
+
+    public static void updateSubTopicDescription(long id, String descriptionHTML) {
+
+        try(Connection conn = connect()){
+            PreparedStatement ps = conn.prepareStatement(UPDATE_SUBTOPICS_DESCRIPTION);
+
+            ps.setString(1, descriptionHTML);
+            ps.setLong(1, id);
+
+            ps.executeUpdate();
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

@@ -11,17 +11,38 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import static services.AdminService.*;
+import static services.AdminService.checkIfExists;
+import static services.AdminService.deleteSubTopic;
 
 @WebServlet("/admin")
 public class AdminController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect(request.getContextPath());
+        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<SubTopic> filteredSubtopics = SubTopicController.searchingService(0, "", 1);
-        objectToJson(response, filteredSubtopics);
+
+
+        if (checkIfExists(request.getParameter("pass"))) {
+
+            System.out.println(request.getParameter("pass"));
+            System.out.println("if");
+
+            response.setStatus(HttpServletResponse.SC_OK);
+
+
+        } else {
+
+            System.out.println(request.getParameter("pass"));
+
+            System.out.println("else");
+
+
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+
+        }
+
+
     }
 }
