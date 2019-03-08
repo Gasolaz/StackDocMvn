@@ -18,7 +18,7 @@ public class UpdateController extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        updateSubTopicDescription(Long.parseLong(request.getParameter("topicid")), request.getParameter("desctiptionHTML"));
+        updateSubTopicDescription(Long.parseLong(request.getParameter("subtopicid")), request.getParameter("desctiptionHTML"));
 //        List<Topic> filteredTopics = TopicController.sear/TopicController
 //        objectToJson(response, filteredSubtopics);
         response.sendRedirect(request.getContextPath());

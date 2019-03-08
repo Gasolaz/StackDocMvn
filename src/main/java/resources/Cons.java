@@ -77,7 +77,7 @@ public class Cons {
 
     //    Update
     public static final String UPDATE_SUBTOPICS_DESCRIPTION = "UPDATE " + TABLE_SUB_TOPICS + " SET " +
-            SUB_TOPICS_DESCRIPTION_HTML + "=? WHERE " + SUB_TOPICS_TOPIC_ID + "=?";
+            SUB_TOPICS_DESCRIPTION_HTML + "=? WHERE " + ID + "=?";
 
     //    URL's
     public static final String URL_DB = "jdbc:sqlite:../../../src/TempStackDoc.db"; // DatabaseConnection line:28
