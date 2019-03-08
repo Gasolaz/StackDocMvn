@@ -18,22 +18,36 @@ import static services.AdminService.deleteSubTopic;
 public class AdminController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect(request.getContextPath());
+        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        List<SubTopic> filteredSubtopics = SubTopicController.searchingService(0, "", 1);
 
-        String json = new Gson().toJson(filteredSubtopics);
 
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(json);
-//        if (checkIfExists(request.getParameter("pass"))) {
+//            List<SubTopic> filteredSubtopics = SubTopicController.searchingService(0, "", 1);
+//
+//            String json = new Gson().toJson(filteredSubtopics);
+
+
+//        response.setContentType("application/json");
+//        response.setCharacterEncoding("UTF-8");
+//        response.getWriter().write(json);
+            if (checkIfExists(request.getParameter("pass"))) {
 //            request.getRequestDispatcher("build/static/index.html").forward(request, response);
-//        } else {
-//            response.sendRedirect(request.getContextPath());
-//        }
+
+
+                response.setStatus(HttpServletResponse.SC_OK);
+
+
+            } else {
+//
+                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+
+
+//                response.getWriter().write("Error");
+            }
+
+
     }
 }

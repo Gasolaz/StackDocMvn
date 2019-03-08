@@ -14,16 +14,79 @@
 
         .adminpage_login, .adminpage_logout {
             @include button(3);
+            z-index: 10;
         }
-
-        .adminpage_logout {
-            display: none;
-        }
-
     }
 
     .container {
         background-color: $color-antiquewhite;
+
+
+        .login_popup {
+            position: fixed;
+            top: -50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: 1s;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            z-index: 10;
+            display: flex;
+            flex-wrap: wrap;
+            width: 15%;
+
+            .password_input {
+                width: 82%;
+                margin: 20px auto;
+                padding: 9px 20px;
+            }
+
+            .login_button {
+                width: 40%;
+                @include button(1);
+            }
+
+            .cancel_login {
+                width: 40%;
+                @include button(2);
+                margin-left: 19px;
+            }
+
+        }
+
+        .logout_popup {
+            position: fixed;
+            top: -50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: 1s;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            z-index: 10;
+            display: flex;
+            flex-wrap: wrap;
+            width: 15%;
+
+            p {
+                color: $color-orange;
+                font-size: 26px;
+                width: 80%;
+                margin: 0 auto;
+                margin-bottom: 28px;
+                padding-top: 20px;
+            }
+
+            .logout_button {
+                width: 40%;
+                @include button(1);
+            }
+
+            .cancel_logout {
+                width: 40%;
+                @include button(2);
+                margin-left: 19px;
+            }
+        }
 
         .search_fields {
             display: flex;
@@ -78,12 +141,10 @@
         .subtopics {
             display: flex;
             flex-wrap: wrap;
+            align-items: center;
 
             .subtopic {
                 display: flex;
-                width: 100%;
-                border-top: 2px solid $color-orange;
-                border-bottom: 2px solid $color-orange;
                 cursor: pointer;
                 user-select: none;
                 font-size: 20px;
@@ -91,24 +152,66 @@
                 padding: 20px;
                 margin-bottom: 10px;
                 transition: .25s;
+                width: 100%;
+                position: relative;
 
                 &:hover {
                     background-color: $color-orange;
                     color: white;
                 }
 
+
                 .topic_name, .subtopic_name {
                     width: 50%;
                 }
 
-                .subtopic_delete {
+                &:before {
+                    content: '';
+                    width: 108%;
+                    border-bottom: 2px solid $color-orange;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+
+                &:after {
+                    content: '';
+                    width: 108%;
+                    border-bottom: 2px solid $color-orange;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                }
+            }
+
+            .subtopic_delete {
+
+                .fa-times {
+                    font-size: 20px;
+                    cursor: pointer;
+                    transition: .5s;
+
 
                     &:hover {
                         color: red;
+                        transform: scale(1.5);
                     }
+                }
+            }
 
-                .fa-times {
-                        font-size: 10px;
+            .subtopic_update {
+
+                padding-left: 15px;
+
+                .fa-edit {
+                    font-size: 20px;
+                    cursor: pointer;
+                    transition: .5s;
+
+
+                    &:hover {
+                        color: red;
+                        transform: scale(1.5);
                     }
                 }
             }

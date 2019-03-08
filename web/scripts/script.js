@@ -6,8 +6,9 @@ const state = {
   pageNumber: 1,
   searchObject: {},
   pages: "",
-  path: "StackDocMvn_Web_exploded",
-  pass: "123"
+  path: "com_Saras_Web_exploded",
+  pass: "",
+  isAdmin: false
 };
 
 const request = async () => {
@@ -28,17 +29,18 @@ const request = async () => {
   state.pages = state.searchObject.pages;
 };
 
-const changeState = (e, name) => state[name] = e.target.value; // binding state properties to searching fields
+const changeState = (e, name) => state[name] = e.target.value;
 
-window.onload = async () => { // when window object is loaded (with dom elements)
+window.onload = async () => {
   await request();
   templateGenerator(false, Home);
-  contentGenerator(true); ///
+  contentGenerator(true, state.isAdmin);
   paginationLogic("1");
-  setAttribute();   // binding state properties to searching fields values and page number
+  document.querySelector('.adminpage_logout').style.display = "none";
+  setAttribute();
 };
 
-const onChange = async () => { // when select or input value has changed
+const onChange = async () => {
   state.pageNumber = 1;
   const response = await fetch(`http://localhost:8080/${state.path}/api/topics`,
       {
@@ -77,7 +79,7 @@ const onChange = async () => { // when select or input value has changed
   parseFloat(state.topic_id) === 0 && option.setAttribute("selected", "selected");
   document.querySelector('.select_topic').appendChild(option);
   // *************************************************
-  contentGenerator(true); ///
+  contentGenerator(true, state.isAdmin); ///
   paginationLogic("1");
   setAttribute();
   if (!state.pages) {
@@ -125,7 +127,7 @@ const clickPrevious = async () => {
       });
   state.subtopics = await response.json();
   document.querySelector('.subtopics').innerHTML = "";
-  contentGenerator(false); ///
+  contentGenerator(false, state.isAdmin);
   paginationLogic("2");
   changePageNumber();
 };
@@ -143,15 +145,23 @@ const clickNext = async () => {
       });
   state.subtopics = await response.json();
   document.querySelector('.subtopics').innerHTML = "";
-  contentGenerator(false); ///
+  contentGenerator(false, state.isAdmin);
   paginationLogic("3");
   changePageNumber();
 };
 
 const clickBack = () => {
   templateGenerator(true, Home);
-  contentGenerator(true);
+  contentGenerator(true, state.isAdmin);
   paginationLogic("4");
+  state.isAdmin ?
+      ((document.querySelector('.adminpage_logout').style.display = "inline-block")
+          &&
+          (document.querySelector('.adminpage_login').style.display = "none"))
+      :
+      ((document.querySelector('.adminpage_logout').style.display = "none")
+          &&
+          (document.querySelector('.adminpage_login').style.display = "inline-block"));
   setAttribute();
 };
 
@@ -169,7 +179,7 @@ const templateGenerator = (requirePageRebuild, page) => {
   converter(page, app);
 };
 
-const contentGenerator = requireTopics => {
+const contentGenerator = (requireTopics, isAdmin) => {
   requireTopics && (
       state.topics.forEach(topic => {
         const option = document.createElement("option");
@@ -183,6 +193,7 @@ const contentGenerator = requireTopics => {
     const div = document.createElement("div");
     div.className = "subtopic";
     div.setAttribute("onclick", `onClick(${subtopic.id})`);
+    isAdmin && ((div.style.width = "92%"));
     document.querySelector('.subtopics').appendChild(div);
     const topic_name = document.createElement("span");
     topic_name.className = "topic_name";
@@ -192,6 +203,24 @@ const contentGenerator = requireTopics => {
     subtopic_name.textContent = subtopic.subTopic;
     document.querySelectorAll(".subtopic")[i].appendChild(topic_name);
     document.querySelectorAll(".subtopic")[i].appendChild(subtopic_name);
+    if (isAdmin) {
+      const subtopic_delete = document.createElement("span");
+      subtopic_delete.className = "subtopic_delete";
+      subtopic_delete.innerHTML = "<i class='fas fa-times'></i>";
+
+      const subtopic_update = document.createElement("span");
+      subtopic_update.className = "subtopic_update";
+      subtopic_update.innerHTML = "<i class='fas fa-edit'></i>";
+
+      document.querySelector(".subtopics").appendChild(subtopic_delete);
+      document.querySelector(".subtopics").appendChild(subtopic_update);
+
+      document.querySelectorAll('.fa-times')[i]
+          .setAttribute("onclick", `clickDelete(${subtopic.id})`);
+      document.querySelectorAll('.fa-edit')[i]
+          .setAttribute("onclick", `clickUpdate(${subtopic.id})`);
+    }
+
   });
 };
 
@@ -207,50 +236,80 @@ const paginationLogic = order => {
       (state.pageNumber > 1 ? previous.style.visibility = "visible" : previous.style.visibility = "hidden"));
 };
 
-const clickLogin = async () => {
-  const response = await fetch(`http://localhost:8080/${state.path}/admin`,
-      {
-        method: "POST",
-        body: `pass=${state.password}`,
-        headers:
-            {
-              "Content-Type": "application/x-www-form-urlencoded"
-            }
-      });
-
-  state.subtopics = await response.json();
-
-  document.querySelector('.subtopics').innerHTML = "";
-
-
-  state.subtopics.forEach((subtopic, i) => {
-    const div = document.createElement("div");
-    div.className = "subtopic";
-    div.setAttribute("onclick", `onClick(${subtopic.id})`);
-    document.querySelector('.subtopics').appendChild(div);
-    const topic_name = document.createElement("span");
-    topic_name.className = "topic_name";
-    topic_name.textContent = subtopic.topicId;
-    const subtopic_name = document.createElement("span");
-    subtopic_name.className = "subtopic_name";
-    subtopic_name.textContent = subtopic.subTopic;
-    const subtopic_delete = document.createElement("span");
-    subtopic_delete.className = "subtopic_delete";
-    subtopic_delete.innerHTML = "<i class='fas fa-times'></i>";
-    subtopic_delete.setAttribute("onclick", `clickDelete(${subtopic.id})`);
-    subtopic_delete.setAttribute("onmouseover", document.querySelectorAll('.subtopic')[i].removeAttribute("onclick"));
-    subtopic_delete.setAttribute("onmouseout", document.querySelectorAll('.subtopic')[i].setAttribute("onclick", `onClick(${subtopic.id})`));
-    document.querySelectorAll(".subtopic")[i].appendChild(topic_name);
-    document.querySelectorAll(".subtopic")[i].appendChild(subtopic_name);
-    document.querySelectorAll(".subtopic")[i].appendChild(subtopic_delete);
-  });
-
-  document.querySelector('.adminpage_logout').style.visibility = "visible";
-  document.querySelector('.adminpage_login').style.visibility = "hidden";
+const clickShowLogin = () => {
+  document.querySelector('.login_popup').style.top = "50%";
 
 };
 
-const clickLogout = async () => await fetch(`http://localhost:8080/${state.path}/admin`);
+const clickShowLogout = () => {
+  document.querySelector('.logout_popup').style.top = "50%";
+
+};
+
+const clickHideLogin = () => {
+  document.querySelector('.login_popup').style.top = "-50%";
+};
+
+const clickHideLogout = () => {
+  document.querySelector('.logout_popup').style.top = "-50%";
+};
+
+const clickLogin = async () => {
+
+  try {
+
+    const response = await fetch(`http://localhost:8080/${state.path}/admin`,
+        {
+          method: "POST",
+          body: `pass=${state.pass}`,
+          headers:
+              {
+                "Content-Type": "application/x-www-form-urlencoded"
+              }
+        });
+
+    state.isAdmin = true;
+
+    document.querySelector('.login_popup').style.top = "-50%";
+
+
+    setTimeout(() => {
+
+      document.querySelector('.subtopics').innerHTML = "";
+
+      contentGenerator(false, state.isAdmin);
+
+      document.querySelector('.adminpage_logout').style.display = "inline-block";
+      document.querySelector('.adminpage_login').style.display = "none";
+    }, 500);
+
+  } catch (err) {
+
+    console.log(err.response.data);
+  }
+
+
+};
+
+const clickLogout = async () => {
+
+  state.isAdmin = false;
+
+  document.querySelector('.logout_popup').style.top = "-50%";
+
+
+  setTimeout(() => {
+
+    document.querySelector('.subtopics').innerHTML = "";
+
+    contentGenerator(false, state.isAdmin);
+
+    document.querySelector('.adminpage_logout').style.display = "none";
+    document.querySelector('.adminpage_login').style.display = "inline-block";
+
+  }, 500);
+};
+
 
 const clickDelete = async subtopic_id => {
   const response = await fetch(`http://localhost:8080/${state.path}/admin/delete`,
@@ -266,36 +325,25 @@ const clickDelete = async subtopic_id => {
   state.subtopics = await response.json();
 
   document.querySelector('.subtopics').innerHTML = "";
-     //border: 1px solid orange;
-                    //display: inline-block;
-                    //padding: 10px 10px;
-                    //border: 5px solid grey;
-                    //width: 10px;
-  state.subtopics.forEach((subtopic, i) => {
-    const div = document.createElement("div");
-    div.className = "subtopic";
-    div.setAttribute("onclick", `onClick(${subtopic.id})`);
-    document.querySelector('.subtopics').appendChild(div);
-    const topic_name = document.createElement("span");
-    topic_name.className = "topic_name";
-    topic_name.textContent = subtopic.topicId;
-    const subtopic_name = document.createElement("span");
-    subtopic_name.className = "subtopic_name";
-    subtopic_name.textContent = subtopic.subTopic;
-    const subtopic_delete = document.createElement("span");
-    subtopic_delete.className = "subtopic_delete";
-    subtopic_delete.innerHTML = "<i class='fas fa-times'></i>";
-    subtopic_delete.setAttribute("onclick", `clickDelete(${subtopic.id})`);
-    console.log(subtopic)
-    subtopic_delete.setAttribute("onmouseover", document.querySelectorAll('.subtopic')[i].removeAttribute("onclick"));
-    subtopic_delete.setAttribute("onmouseout", document.querySelectorAll('.subtopic')[i].setAttribute("onclick", `onClick(${subtopic.id})`));
-    document.querySelectorAll(".subtopic")[i].appendChild(topic_name);
-    document.querySelectorAll(".subtopic")[i].appendChild(subtopic_name);
-    document.querySelectorAll(".subtopic")[i].appendChild(subtopic_delete);
-  });
 
+  contentGenerator(false, state.isAdmin);
 
 };
+
+const clickUpdate = async () => {
+  const response = await fetch(`http://localhost:8080/${state.path}/admin/update`,
+      {
+        method: "POST",
+        body: `subtopicid=${subtopic_id}`,
+        headers:
+            {
+              "Content-Type": "application/x-www-form-urlencoded"
+            }
+      });
+};
+
+
+
 
 
 
