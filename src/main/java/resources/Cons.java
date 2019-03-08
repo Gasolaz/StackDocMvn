@@ -75,6 +75,10 @@ public class Cons {
     //    Deletion
     public static final String DELETE_SUB_TOPIC_FROM_SUB_TOPICS = "DELETE FROM " + TABLE_SUB_TOPICS + " WHERE " + ID + "=?";
 
+    //    Update
+    public static final String UPDATE_SUBTOPICS_DESCRIPTION = "UPDATE " + TABLE_SUB_TOPICS + " SET " +
+            SUB_TOPICS_DESCRIPTION_HTML + "=? WHERE " + SUB_TOPICS_TOPIC_ID + "=?";
+
     //    URL's
     public static final String URL_DB = "jdbc:sqlite:../../../src/TempStackDoc.db"; // DatabaseConnection line:28
     public static final String URL_DB_FILE = "../../../src/TempStackDoc.db";
