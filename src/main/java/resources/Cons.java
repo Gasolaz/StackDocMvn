@@ -73,7 +73,7 @@ public class Cons {
     public static final String SELECT_ADMIN_BY_PASSWORD = "SELECT * FROM " + TABLE_ADMINS + " WHERE " + ADMINS_PASSWORD + "=?";
 
     //    Deletion
-    public static final String DELETE_SUB_TOPIC_FROM_SUB_TOPICS = "DELETE FROM " + TABLE_SUB_TOPICS + " WHERE" + ID + "=?";
+    public static final String DELETE_SUB_TOPIC_FROM_SUB_TOPICS = "DELETE FROM " + TABLE_SUB_TOPICS + " WHERE " + ID + "=?";
 
     //    URL's
     public static final String URL_DB = "jdbc:sqlite:../../../src/TempStackDoc.db"; // DatabaseConnection line:28

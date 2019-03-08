@@ -1,5 +1,9 @@
 package services;
 
+import com.google.gson.Gson;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,5 +51,12 @@ public class AdminService {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void objectToJson(HttpServletResponse response, Object src) throws IOException {
+        String json = new Gson().toJson(src);
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(json);
     }
 }
