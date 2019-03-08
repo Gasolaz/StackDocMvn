@@ -24,29 +24,24 @@ public class AdminController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
+        if (checkIfExists(request.getParameter("pass"))) {
 
-//            List<SubTopic> filteredSubtopics = SubTopicController.searchingService(0, "", 1);
-//
-//            String json = new Gson().toJson(filteredSubtopics);
+            System.out.println(request.getParameter("pass"));
+            System.out.println("if");
 
-
-//        response.setContentType("application/json");
-//        response.setCharacterEncoding("UTF-8");
-//        response.getWriter().write(json);
-            if (checkIfExists(request.getParameter("pass"))) {
-//            request.getRequestDispatcher("build/static/index.html").forward(request, response);
+            response.setStatus(HttpServletResponse.SC_OK);
 
 
-                response.setStatus(HttpServletResponse.SC_OK);
+        } else {
+
+            System.out.println(request.getParameter("pass"));
+
+            System.out.println("else");
 
 
-            } else {
-//
-                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 
-
-//                response.getWriter().write("Error");
-            }
+        }
 
 
     }

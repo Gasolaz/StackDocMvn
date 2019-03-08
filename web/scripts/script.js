@@ -37,6 +37,7 @@ window.onload = async () => {
   contentGenerator(true, state.isAdmin);
   paginationLogic("1");
   document.querySelector('.adminpage_logout').style.display = "none";
+  document.querySelector('.admin_create').style.display = "none";
   setAttribute();
 };
 
@@ -157,11 +158,17 @@ const clickBack = () => {
   state.isAdmin ?
       ((document.querySelector('.adminpage_logout').style.display = "inline-block")
           &&
-          (document.querySelector('.adminpage_login').style.display = "none"))
+          (document.querySelector('.adminpage_login').style.display = "none")
+          &&
+          (document.querySelector('.admin_create').style.display = "inline-block")
+      )
       :
       ((document.querySelector('.adminpage_logout').style.display = "none")
           &&
-          (document.querySelector('.adminpage_login').style.display = "inline-block"));
+          (document.querySelector('.adminpage_login').style.display = "inline-block")
+          &&
+          (document.querySelector('.admin_create').style.display = "none")
+      );
   setAttribute();
 };
 
@@ -216,9 +223,9 @@ const contentGenerator = (requireTopics, isAdmin) => {
       document.querySelector(".subtopics").appendChild(subtopic_update);
 
       document.querySelectorAll('.fa-times')[i]
-          .setAttribute("onclick", `clickDelete(${subtopic.id})`);
+          .setAttribute("onclick", `clickShowDelete(${subtopic.id})`);
       document.querySelectorAll('.fa-edit')[i]
-          .setAttribute("onclick", `clickUpdate(${subtopic.id})`);
+          .setAttribute("onclick", `clickShowUpdate()`);
     }
 
   });
@@ -246,12 +253,42 @@ const clickShowLogout = () => {
 
 };
 
+const clickShowDelete = subtopic_id => {
+  document.querySelector('.delete_popup').style.top = "50%";
+  document.querySelector('.delete_button').setAttribute("onclick", `clickDelete(${subtopic_id})`);
+};
+
+const clickShowCreate = () => {
+  document.querySelector('.create_popup').style.top = "50%";
+
+};
+
+const clickShowUpdate = () => {
+  document.querySelector('.update_popup').style.top = "50%";
+
+};
+
 const clickHideLogin = () => {
   document.querySelector('.login_popup').style.top = "-50%";
 };
 
 const clickHideLogout = () => {
   document.querySelector('.logout_popup').style.top = "-50%";
+};
+
+const clickHideDelete = () => {
+  document.querySelector('.delete_popup').style.top = "-50%";
+
+};
+
+const clickHideCreate = () => {
+  document.querySelector('.create_popup').style.top = "-50%";
+
+};
+
+const clickHideUpdate = () => {
+  document.querySelector('.update_popup').style.top = "-50%";
+
 };
 
 const clickLogin = async () => {
@@ -268,26 +305,40 @@ const clickLogin = async () => {
               }
         });
 
-    state.isAdmin = true;
+    if (response.status === 200) {
+      state.isAdmin = true;
 
-    document.querySelector('.login_popup').style.top = "-50%";
+
+      document.querySelector('.login_popup').style.top = "-50%";
 
 
-    setTimeout(() => {
+      state.isAdmin = true;
 
-      document.querySelector('.subtopics').innerHTML = "";
 
-      contentGenerator(false, state.isAdmin);
+      document.querySelector('.login_popup').style.top = "-50%";
 
-      document.querySelector('.adminpage_logout').style.display = "inline-block";
-      document.querySelector('.adminpage_login').style.display = "none";
-    }, 500);
+
+      setTimeout(() => {
+        console.log(state.isAdmin);
+
+        document.querySelector('.subtopics').innerHTML = "";
+
+        contentGenerator(false, state.isAdmin);
+
+        document.querySelector('.adminpage_logout').style.display = "inline-block";
+        document.querySelector('.admin_create').style.display = "inline-block";
+        document.querySelector('.adminpage_login').style.display = "none";
+      }, 500);
+    } else {
+      throw new Error("wtf");
+    }
+
 
   } catch (err) {
 
     console.log(err.response.data);
-  }
 
+  }
 
 };
 
@@ -305,6 +356,7 @@ const clickLogout = async () => {
     contentGenerator(false, state.isAdmin);
 
     document.querySelector('.adminpage_logout').style.display = "none";
+    document.querySelector('.admin_create').style.display = "none";
     document.querySelector('.adminpage_login').style.display = "inline-block";
 
   }, 500);
@@ -328,6 +380,20 @@ const clickDelete = async subtopic_id => {
 
   contentGenerator(false, state.isAdmin);
 
+  document.querySelector('.delete_popup').style.top = "-50%";
+
+};
+
+const clickCreate = async () => {
+  const response = await fetch(`http://localhost:8080/${state.path}/admin/create`,
+      {
+        method: "POST",
+        body: `subtopicid=${subtopic_id}`,
+        headers:
+            {
+              "Content-Type": "application/x-www-form-urlencoded"
+            }
+      });
 };
 
 const clickUpdate = async () => {

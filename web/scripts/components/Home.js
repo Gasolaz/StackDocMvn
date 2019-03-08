@@ -2,6 +2,11 @@ const Home = {
   "div": {
     "class": "home",
     "header": {
+      "button": {
+        "class": "admin_create",
+        "text": "CREATE",
+        "onclick": "clickShowCreate()"
+      },
       "div": [
         {
           "class": "logo",
@@ -34,9 +39,9 @@ const Home = {
           "class": "login_popup",
           "input": {
             "class": "password_input",
-            "type": "text",
-            "placeholder": "Enter password...",
-            "onkeyup": "onChange(event, 'pass')"
+            "type": "password",
+            "placeholder": "Enter password",
+            "onkeyup": "changeState(event, 'pass')"
           },
           "button": [
             {
@@ -46,7 +51,7 @@ const Home = {
             },
             {
               "class": "cancel_login",
-              "text": "Cancel",
+              "text": "CANCEL",
               "onclick": "clickHideLogin()"
             }
 
@@ -63,8 +68,40 @@ const Home = {
             },
             {
               "class": "cancel_logout",
-              "text": "Cancel",
+              "text": "CANCEL",
               "onclick": "clickHideLogout()"
+            }
+          ]
+
+        },
+        {
+          "class": "delete_popup",
+          "p": "Are you sure?",
+          "button": [
+            {
+              "class": "delete_button",
+              "text": "DELETE",
+            },
+            {
+              "class": "cancel_delete",
+              "text": "CANCEL",
+              "onclick": "clickHideDelete()"
+            }
+          ]
+        },
+        {
+          "class": "create_popup",
+          "p": "Are you sure?",
+          "button": [
+            {
+              "class": "create_button",
+              "text": "CREATE",
+              "onclick": "clickCreate()"
+            },
+            {
+              "class": "cancel_create",
+              "text": "CANCEL",
+              "onclick": "clickHideCreate()"
             }
           ]
         },

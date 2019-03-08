@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 import static services.AdminService.deleteSubTopic;
+import static services.AdminService.objectToJson;
 
 
 @WebServlet("/admin/delete")
@@ -24,14 +25,8 @@ public class DeleteController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         deleteSubTopic(Long.parseLong(request.getParameter("subtopicid")));
-
         List<SubTopic> filteredSubtopics = SubTopicController.searchingService(0, "", 1);
-
-        String json = new Gson().toJson(filteredSubtopics);
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(json);
+        objectToJson(response, filteredSubtopics);
     }
 
 }
