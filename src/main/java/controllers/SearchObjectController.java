@@ -1,6 +1,5 @@
 package controllers;
 
-import com.google.gson.Gson;
 import models.SearchObject;
 
 import javax.servlet.ServletException;
