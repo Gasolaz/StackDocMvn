@@ -3,6 +3,8 @@ package DB;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.sql.*;
+import static resources.Cons.*;
 
 public class Encoder {
 
@@ -13,7 +15,7 @@ public class Encoder {
         return salt;
     }
 
-    String get_SHA_256_SecurePassword(String passwordToHash, byte[] salt){
+    public String get_SHA_256_SecurePassword(String passwordToHash, byte[] salt) {
 
         String generatedPassword = null;
         try {
@@ -21,27 +23,39 @@ public class Encoder {
             md.update(salt);
             byte[] bytes = md.digest(passwordToHash.getBytes());
             StringBuilder sb = new StringBuilder();
-            for(int i=0; i< bytes.length ;i++)
-            {
+            for (int i = 0; i < bytes.length; i++) {
                 sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
             }
             generatedPassword = sb.toString();
-        }
-        catch (NoSuchAlgorithmException e)
-        {
+        } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
         return generatedPassword;
     }
 
-    public static void main(String[] args) {
+    //method for password insertion into the database for testing purposes
+    public static void insertPass(String pass) {
         Encoder enc = new Encoder();
         try {
-            String generatedPass = enc.get_SHA_256_SecurePassword("randomPass", enc.getSalt());
-            System.out.println(generatedPass);
-        } catch (Exception e){
+            byte[] salt = enc.getSalt(); //get le salt
+            String generatedPass = enc.get_SHA_256_SecurePassword(pass, salt); //hash da password
+            Class.forName("org.sqlite.JDBC");
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:src/TempStackDoc.db");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO " + TABLE_ADMINS + "(" +
+                    ADMINS_PASSWORD + ", " + ADMINS_SALT + ") VALUES(?, ?)");
+            ps.setString(1, generatedPass);
+            ps.setBytes(2, salt);
+            ps.execute();//insert das password
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    public static void main(String[] args) {
+        insertPass("test");
+        insertPass("randomPass");
+        insertPass("1B2I3G");
     }
 }

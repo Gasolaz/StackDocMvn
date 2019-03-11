@@ -22,27 +22,10 @@ public class AdminController extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
         if (checkIfExists(request.getParameter("pass"))) {
-
-            System.out.println(request.getParameter("pass"));
-            System.out.println("if");
-
             response.setStatus(HttpServletResponse.SC_OK);
-
-
         } else {
-
-            System.out.println(request.getParameter("pass"));
-
-            System.out.println("else");
-
-
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-
         }
-
-
     }
 }
