@@ -14,9 +14,8 @@ public class AdminService {
 
     public static boolean checkIfExists(String pass) {
 
-        try {
+        try (Connection conn = connect()){
             Encoder enc = new Encoder();
-            Connection conn = connect();
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("SELECT * FROM " + TABLE_ADMINS); //select admin table
             while (rs.next()){

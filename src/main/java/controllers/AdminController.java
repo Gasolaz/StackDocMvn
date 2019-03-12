@@ -1,18 +1,13 @@
 package controllers;
 
-import com.google.gson.Gson;
-import models.SubTopic;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 import static services.AdminService.checkIfExists;
-import static services.AdminService.deleteSubTopic;
 
 @WebServlet("/admin")
 public class AdminController extends HttpServlet {

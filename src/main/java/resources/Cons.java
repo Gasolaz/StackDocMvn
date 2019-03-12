@@ -26,17 +26,16 @@ public class Cons {
     public static final String EXAMPLES_BODY_HTML = "body_HTML";
     public static final String EXAMPLES_BODY_MARKDOWN = "body_Markdown";
 
-    public static final String TABLE_DESCRIPTION = "description";
-    public static final String DESCRIPTION_TOPIC_ID = "topic_id";
-    public static final String DESCRIPTION_SUB_TOPIC_ID = "sub_topic_id";
-    public static final String DESCRIPTION_DESCRIPTION = "description";
-    public static final String INSERT_INTO_DESCRIPTION = "INSERT INTO " + TABLE_DESCRIPTION + "(" + DESCRIPTION_TOPIC_ID + ", " +
-        DESCRIPTION_SUB_TOPIC_ID + ", " + DESCRIPTION_DESCRIPTION + ") VALUES(?, ?, ?)";
+//    public static final String TABLE_DESCRIPTION = "description";
+//    public static final String DESCRIPTION_TOPIC_ID = "topic_id";
+//    public static final String DESCRIPTION_SUB_TOPIC_ID = "sub_topic_id";
+//    public static final String DESCRIPTION_DESCRIPTION = "description";
+//    public static final String INSERT_INTO_DESCRIPTION = "INSERT INTO " + TABLE_DESCRIPTION + "(" + DESCRIPTION_TOPIC_ID + ", " +
+//        DESCRIPTION_SUB_TOPIC_ID + ", " + DESCRIPTION_DESCRIPTION + ") VALUES(?, ?, ?)";
 
     // Table: Admins
     public static final String TABLE_ADMINS = "admins";
     // Table Admins -> Columns
-    public static final String ADMINS_ID = "_id";
     public static final String ADMINS_PASSWORD = "hashed_pass";
     public static final String ADMINS_SALT = "salt";
 

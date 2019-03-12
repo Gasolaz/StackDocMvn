@@ -34,7 +34,7 @@ public class Encoder {
     }
 
     //method for password insertion into the database for testing purposes
-    public static void insertPass(String pass) {
+    static void insertPass(String pass) {
         Encoder enc = new Encoder();
         try {
             byte[] salt = enc.getSalt(); //get le salt
