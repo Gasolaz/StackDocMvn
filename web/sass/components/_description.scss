@@ -2,6 +2,7 @@
     background-color: $color-orange;
     header {
         justify-content: space-evenly;
+
         @include mobile {
             justify-content: space-between;
         }

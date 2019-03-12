@@ -505,7 +505,7 @@
 
                 &:before {
                     content: '';
-                    width: 108%;
+                    width: 100%;
                     @include mobile {
 
                     }
@@ -517,7 +517,7 @@
 
                 &:after {
                     content: '';
-                    width: 108%;
+                    width: 100%;
                     @include mobile {
 
                     }
