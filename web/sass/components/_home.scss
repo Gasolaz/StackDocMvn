@@ -367,6 +367,7 @@
             }
             .description_html_textarea {
                 margin-top: 10px;
+                resize: none;
             }
             .create_form_buttons {
 
@@ -383,6 +384,32 @@
                 }
             }
 
+        }
+
+        .update_form_popup {
+            @include popup;
+            padding: 40px;
+            .description_html {
+                color: white;
+                font-size: 20px;
+            }
+            .description_html_textarea {
+                margin-top: 10px;
+                resize: none;
+
+            }
+            .update_form_buttons {
+                .update_subtopic_button {
+                    @include button(1);
+                    width: 50%;
+                    margin-top: 10px;
+                    margin-right: 20px;
+                }
+                .cancel_update_subtopic {
+                    @include button(2);
+                    width: 40%;
+                }
+            }
         }
 
         .search_fields {

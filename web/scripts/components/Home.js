@@ -5,7 +5,7 @@ const Home = {
       "button": {
         "class": "admin_create",
         "text": "CREATE",
-        "onclick": "clickShowCreate()"
+        "onclick": "clickShowCreateForm()"
       },
       "div": [
         {
@@ -95,37 +95,6 @@ const Home = {
           ]
         },
         {
-          "class": "update_popup",
-          "p": "Are you sure?",
-          "button": [
-            {
-              "class": "update_button",
-              "text": "UPDATE"
-            },
-            {
-              "class": "cancel_update",
-              "text": "CANCEL",
-              "onclick": "clickHideUpdate()"
-            }
-          ]
-        },
-        {
-          "class": "create_popup",
-          "p": "Are you sure?",
-          "button": [
-            {
-              "class": "create_button",
-              "text": "CREATE",
-              "onclick": "clickShowCreateForm()"
-            },
-            {
-              "class": "cancel_create",
-              "text": "CANCEL",
-              "onclick": "clickHideCreate()"
-            }
-          ]
-        },
-        {
           "class": "create_form_popup",
           "select": {
             "class": "select",
@@ -161,6 +130,32 @@ const Home = {
                 "class": "cancel_create_subtopic",
                 "text": "CANCEL",
                 "onclick": "clickHideCreateForm()"
+              }
+            ]
+          }
+        },
+        {
+          "class": "update_form_popup",
+          "p": {
+            "class": "description_html",
+            "text": "Description:"
+          },
+          "textarea": {
+            "class": "description_html_textarea",
+            "onkeyup": "changeState(event, 'description_HTML')"
+          },
+          "div": {
+            "class": "update_form_buttons",
+            "button": [
+              {
+                "class": "update_subtopic_button",
+                "text": "UPDATE SUBTOPIC",
+                "onclick": "clickUpdate();clickHideUpdateForm()"
+              },
+              {
+                "class": "cancel_update_subtopic",
+                "text": "CANCEL",
+                "onclick": "clickHideUpdateForm()"
               }
             ]
           }

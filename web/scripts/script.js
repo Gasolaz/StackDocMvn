@@ -10,7 +10,7 @@ const state = {
   pass: "",
   isAdmin: false,
   subtopic_name: "",
-  description_HTML: ""
+  description: ""
 };
 
 const request = async () => {
@@ -228,7 +228,7 @@ const contentGenerator = (requireTopics, isAdmin) => {
       document.querySelectorAll('.fa-times')[i]
           .setAttribute("onclick", `clickShowDelete(${subtopic.id})`);
       document.querySelectorAll('.fa-edit')[i]
-          .setAttribute("onclick", `clickShowUpdate(${subtopic.id})`);
+          .setAttribute("onclick", `clickShowUpdateForm(${subtopic.id})`);
     }
   });
 };
@@ -251,7 +251,6 @@ const clickShowDelete = subtopic_id => {
   document.querySelector('.delete_popup').style.top = "50%";
   document.querySelector('.delete_button').setAttribute("onclick", `clickDelete(${subtopic_id});clickHideDelete()`);
 };
-const clickShowCreate = () => document.querySelector('.create_popup').style.top = "50%";
 const clickShowCreateForm = () => {
   state.topics.forEach(topic => {
     const option = document.createElement("option");
@@ -259,25 +258,34 @@ const clickShowCreateForm = () => {
     option.value = topic.id;
     document.querySelector('.select').appendChild(option);
   });
-  document.querySelector('.create_popup').style.transition = "0s";
-  document.querySelector('.create_popup').style.top = "-50%";
   document.querySelector('.create_form_popup').style.top = "50%";
 };
-const clickShowUpdate = subtopic_id => {
-  document.querySelector('.update_popup').style.top = "50%";
+
+const clickShowUpdateForm = async subtopic_id => {
+  const response = await fetch(`http://localhost:8080/${state.path}/api/subtopics`,
+      {
+        method: "POST",
+        body: `subtopicid=${subtopic_id}&pageNumber=${state.pageNumber}&subtopicsearch=${state.search_keyword}`,
+        headers:
+            {
+              "Content-Type": "application/x-www-form-urlencoded"
+            }
+      });
+
+  const json = await response.json();
+
+  state.description = json.description;
+
+  document.querySelector('.update_form_popup').style.top = "50%";
+  document.querySelector('.description_html_textarea').textContent = state.description;
   document.querySelector('.update_button').setAttribute("onclick", `clickUpdate(${subtopic_id});clickHideUpdate()`);
 };
-const clickShowUpdateForm = () => {
-  // ...
-  document.querySelector('.update_popup').style.transition = ".5s";
-  document.querySelector('.update_popup').style.top = "-50%";
-};
+
 const clickHideLogin = () => document.querySelector('.login_popup').style.top = "-50%";
 const clickHideLogout = () => document.querySelector('.logout_popup').style.top = "-50%";
 const clickHideDelete = () => document.querySelector('.delete_popup').style.top = "-50%";
-const clickHideCreate = () => document.querySelector('.create_popup').style.top = "-50%";
 const clickHideCreateForm = () => document.querySelector('.create_form_popup').style.top = "-50%";
-const clickHideUpdate = () => document.querySelector('.update_popup').style.top = "-50%";
+const clickHideUpdateForm = () => document.querySelector('.update_form_popup').style.top = "-50%";
 
 const clickLogin = async () => {
 
@@ -343,7 +351,7 @@ const clickCreate = async () => {
   const response = await fetch(`http://localhost:8080/${state.path}/admin/create`,
       {
         method: "POST",
-        body: `topics=${state.topic_id}&subtopicname=${state.subtopic_name}&descriptionHTML=${state.description_HTML}`,
+        body: `topics=${state.topic_id}&subtopicname=${state.subtopic_name}&descriptionHTML=${state.description}`,
         headers:
             {
               "Content-Type": "application/x-www-form-urlencoded"
@@ -351,11 +359,11 @@ const clickCreate = async () => {
       });
 };
 
-const clickUpdate = async () => {
+const clickUpdate = async subtopic_id => {
   const response = await fetch(`http://localhost:8080/${state.path}/admin/update`,
       {
         method: "POST",
-        body: `subtopicid=${subtopic_id}`,
+        body: `subtopicid=${subtopic_id}&descriptionHTML=${state.description}`,
         headers:
             {
               "Content-Type": "application/x-www-form-urlencoded"
