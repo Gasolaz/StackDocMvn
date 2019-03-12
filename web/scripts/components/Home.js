@@ -149,8 +149,7 @@ const Home = {
             "button": [
               {
                 "class": "update_subtopic_button",
-                "text": "UPDATE SUBTOPIC",
-                "onclick": "clickUpdate();clickHideUpdateForm()"
+                "text": "UPDATE SUBTOPIC"
               },
               {
                 "class": "cancel_update_subtopic",

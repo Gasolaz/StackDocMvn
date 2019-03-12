@@ -278,7 +278,7 @@ const clickShowUpdateForm = async subtopic_id => {
 
   document.querySelector('.update_form_popup').style.top = "50%";
   document.querySelector('.description_html_textarea').textContent = state.description;
-  document.querySelector('.update_button').setAttribute("onclick", `clickUpdate(${subtopic_id});clickHideUpdate()`);
+  document.querySelector('.update_subtopic_button').setAttribute("onclick", `clickUpdate(${subtopic_id});clickHideUpdateForm()`);
 };
 
 const clickHideLogin = () => document.querySelector('.login_popup').style.top = "-50%";
