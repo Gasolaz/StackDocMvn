@@ -116,7 +116,7 @@ const Home = {
           },
           "textarea": {
             "class": "description_html_textarea",
-            "onkeyup": "changeState(event, 'description_HTML')"
+            "onkeyup": "changeState(event, 'description')"
           },
           "div": {
             "class": "create_form_buttons",
@@ -142,7 +142,7 @@ const Home = {
           },
           "textarea": {
             "class": "description_html_textarea",
-            "onkeyup": "changeState(event, 'description_HTML')"
+            "onkeyup": "changeState(event, 'description')"
           },
           "div": {
             "class": "update_form_buttons",
