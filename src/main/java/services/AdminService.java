@@ -68,7 +68,7 @@ public class AdminService {
         try(Connection conn = connect()){
             PreparedStatement ps = conn.prepareStatement(UPDATE_SUBTOPICS_DESCRIPTION);
             ps.setString(1, descriptionHTML);
-            ps.setLong(1, id);
+            ps.setLong(2, id);
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();

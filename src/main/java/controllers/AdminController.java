@@ -13,7 +13,7 @@ import static services.AdminService.checkIfExists;
 public class AdminController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        response.sendRedirect(request.getContextPath());
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
