@@ -398,6 +398,9 @@
                 resize: none;
 
             }
+            .body_html_textarea {
+                resize: none;
+            }
             .update_form_buttons {
                 .update_subtopic_button {
                     @include button(1);
