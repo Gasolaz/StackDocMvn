@@ -13,7 +13,7 @@ const Home = {
           "i": {
             "class": "fab fa-stack-overflow"
           },
-          "h1": "StackOverflow Documentation Search Engine"
+          "h1": "StackOverflow Documentation Search Engine",
         },
         {
           "class": "admin_buttons",
@@ -37,25 +37,30 @@ const Home = {
       "div": [
         {
           "class": "login_popup",
+          "p": {
+            "class": "pass",
+            "text": "Enter password:"
+          },
           "input": {
             "class": "password_input",
             "type": "password",
-            "placeholder": "Enter password",
             "onkeyup": "changeState(event, 'pass')"
           },
-          "button": [
-            {
-              "class": "login_button",
-              "text": "LOG IN",
-              "onclick": "clickLogin()"
-            },
-            {
-              "class": "cancel_login",
-              "text": "CANCEL",
-              "onclick": "clickHideLogin()"
-            }
-
-          ]
+          "div": {
+            "class": "password_buttons",
+            "button": [
+              {
+                "class": "login_button",
+                "text": "LOG IN",
+                "onclick": "clickLogin()"
+              },
+              {
+                "class": "cancel_login",
+                "text": "CANCEL",
+                "onclick": "clickHideLogin()"
+              }
+            ]
+          }
         },
         {
           "class": "logout_popup",
@@ -80,7 +85,7 @@ const Home = {
           "button": [
             {
               "class": "delete_button",
-              "text": "DELETE",
+              "text": "DELETE"
             },
             {
               "class": "cancel_delete",
@@ -111,7 +116,7 @@ const Home = {
             {
               "class": "create_button",
               "text": "CREATE",
-              "onclick": "clickCreate()"
+              "onclick": "clickShowCreateForm()"
             },
             {
               "class": "cancel_create",
@@ -119,6 +124,46 @@ const Home = {
               "onclick": "clickHideCreate()"
             }
           ]
+        },
+        {
+          "class": "create_form_popup",
+          "select": {
+            "class": "select",
+            "onchange": "changeState(event, 'topic_id')",
+          },
+          "p": [
+            {
+              "class": "subtopic_name",
+              "text": "Subtopic name:"
+            },
+            {
+              "class": "description_html",
+              "text": "Description HTML:"
+            }
+          ],
+          "input": {
+            "class": "subtopic_name_input",
+            "onkeyup": "changeState(event, 'subtopic_name')"
+          },
+          "textarea": {
+            "class": "description_html_textarea",
+            "onkeyup": "changeState(event, 'description_HTML')"
+          },
+          "div": {
+            "class": "create_form_buttons",
+            "button": [
+              {
+                "class": "create_subtopic_button",
+                "text": "CREATE SUBTOPIC",
+                "onclick": "clickCreate();clickHideCreateForm()"
+              },
+              {
+                "class": "cancel_create_subtopic",
+                "text": "CANCEL",
+                "onclick": "clickHideCreateForm()"
+              }
+            ]
+          }
         },
         {
           "class": "search_fields",

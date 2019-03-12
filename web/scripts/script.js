@@ -8,7 +8,9 @@ const state = {
   pages: "",
   path: "com_Saras_Web_exploded",
   pass: "",
-  isAdmin: false
+  isAdmin: false,
+  subtopic_name: "",
+  description_HTML: ""
 };
 
 const request = async () => {
@@ -175,6 +177,7 @@ const clickBack = () => {
 const setAttribute = () => {
   document.querySelector('.search').setAttribute("value", state.search_keyword);
   document.querySelector('.select_topic').setAttribute("value", state.topic_id);
+  document.querySelector('.select').setAttribute("value", state.topic_id);
   document.querySelector('.page_number').textContent = state.pageNumber;
 };
 
@@ -227,7 +230,6 @@ const contentGenerator = (requireTopics, isAdmin) => {
       document.querySelectorAll('.fa-edit')[i]
           .setAttribute("onclick", `clickShowUpdate(${subtopic.id})`);
     }
-
   });
 };
 
@@ -243,53 +245,39 @@ const paginationLogic = order => {
       (state.pageNumber > 1 ? previous.style.visibility = "visible" : previous.style.visibility = "hidden"));
 };
 
-const clickShowLogin = () => {
-  document.querySelector('.login_popup').style.top = "50%";
-
-};
-
-const clickShowLogout = () => {
-  document.querySelector('.logout_popup').style.top = "50%";
-
-};
-
+const clickShowLogin = () => document.querySelector('.login_popup').style.top = "50%";
+const clickShowLogout = () => document.querySelector('.logout_popup').style.top = "50%";
 const clickShowDelete = subtopic_id => {
   document.querySelector('.delete_popup').style.top = "50%";
-  document.querySelector('.delete_button').setAttribute("onclick", `clickDelete(${subtopic_id})`);
+  document.querySelector('.delete_button').setAttribute("onclick", `clickDelete(${subtopic_id});clickHideDelete()`);
 };
-
-const clickShowCreate = () => {
-  document.querySelector('.create_popup').style.top = "50%";
-
+const clickShowCreate = () => document.querySelector('.create_popup').style.top = "50%";
+const clickShowCreateForm = () => {
+  state.topics.forEach(topic => {
+    const option = document.createElement("option");
+    option.textContent = topic.topic;
+    option.value = topic.id;
+    document.querySelector('.select').appendChild(option);
+  });
+  document.querySelector('.create_popup').style.transition = "0s";
+  document.querySelector('.create_popup').style.top = "-50%";
+  document.querySelector('.create_form_popup').style.top = "50%";
 };
-
 const clickShowUpdate = subtopic_id => {
   document.querySelector('.update_popup').style.top = "50%";
-  document.querySelector('.update_button').setAttribute("onclick", `clickUpdate(${subtopic_id})`);
+  document.querySelector('.update_button').setAttribute("onclick", `clickUpdate(${subtopic_id});clickHideUpdate()`);
 };
-
-const clickHideLogin = () => {
-  document.querySelector('.login_popup').style.top = "-50%";
-};
-
-const clickHideLogout = () => {
-  document.querySelector('.logout_popup').style.top = "-50%";
-};
-
-const clickHideDelete = () => {
-  document.querySelector('.delete_popup').style.top = "-50%";
-
-};
-
-const clickHideCreate = () => {
-  document.querySelector('.create_popup').style.top = "-50%";
-
-};
-
-const clickHideUpdate = () => {
+const clickShowUpdateForm = () => {
+  // ...
+  document.querySelector('.update_popup').style.transition = ".5s";
   document.querySelector('.update_popup').style.top = "-50%";
-
 };
+const clickHideLogin = () => document.querySelector('.login_popup').style.top = "-50%";
+const clickHideLogout = () => document.querySelector('.logout_popup').style.top = "-50%";
+const clickHideDelete = () => document.querySelector('.delete_popup').style.top = "-50%";
+const clickHideCreate = () => document.querySelector('.create_popup').style.top = "-50%";
+const clickHideCreateForm = () => document.querySelector('.create_form_popup').style.top = "-50%";
+const clickHideUpdate = () => document.querySelector('.update_popup').style.top = "-50%";
 
 const clickLogin = async () => {
 
@@ -307,24 +295,10 @@ const clickLogin = async () => {
 
     if (response.status === 200) {
       state.isAdmin = true;
-
-
       document.querySelector('.login_popup').style.top = "-50%";
-
-
-      state.isAdmin = true;
-
-
-      document.querySelector('.login_popup').style.top = "-50%";
-
-
       setTimeout(() => {
-        console.log(state.isAdmin);
-
         document.querySelector('.subtopics').innerHTML = "";
-
         contentGenerator(false, state.isAdmin);
-
         document.querySelector('.adminpage_logout').style.display = "inline-block";
         document.querySelector('.admin_create').style.display = "inline-block";
         document.querySelector('.adminpage_login').style.display = "none";
@@ -332,36 +306,22 @@ const clickLogin = async () => {
     } else {
       throw new Error("wtf");
     }
-
-
   } catch (err) {
-
     console.log(err.response.data);
-
   }
-
 };
 
 const clickLogout = async () => {
-
   state.isAdmin = false;
-
   document.querySelector('.logout_popup').style.top = "-50%";
-
-
   setTimeout(() => {
-
     document.querySelector('.subtopics').innerHTML = "";
-
     contentGenerator(false, state.isAdmin);
-
     document.querySelector('.adminpage_logout').style.display = "none";
     document.querySelector('.admin_create').style.display = "none";
     document.querySelector('.adminpage_login').style.display = "inline-block";
-
   }, 500);
 };
-
 
 const clickDelete = async subtopic_id => {
   const response = await fetch(`http://localhost:8080/${state.path}/admin/delete`,
@@ -373,22 +333,17 @@ const clickDelete = async subtopic_id => {
               "Content-Type": "application/x-www-form-urlencoded"
             }
       });
-
   state.subtopics = await response.json();
-
   document.querySelector('.subtopics').innerHTML = "";
-
   contentGenerator(false, state.isAdmin);
-
   document.querySelector('.delete_popup').style.top = "-50%";
-
 };
 
 const clickCreate = async () => {
   const response = await fetch(`http://localhost:8080/${state.path}/admin/create`,
       {
         method: "POST",
-        body: `subtopicid=${subtopic_id}`,
+        body: `topics=${state.topic_id}&subtopicname=${state.subtopic_name}&descriptionHTML=${state.description_HTML}`,
         headers:
             {
               "Content-Type": "application/x-www-form-urlencoded"
