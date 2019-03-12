@@ -1,20 +1,143 @@
 .home {
     text-align: center;
     background-color: $color-orange;
+
+    header {
+        justify-content: space-evenly;
+        align-items: center;
+
+        .admin_create {
+            @include button(0);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-left: 110px;
+        }
+
+        .adminpage_login, .adminpage_logout {
+            @include button(4);
+            z-index: 10;
+        }
+    }
+
     .container {
         background-color: $color-antiquewhite;
+
+
+        .login_popup {
+            @include popup(40px);
+
+            .password_input {
+                width: 82%;
+                margin: 20px auto;
+                padding: 9px 20px;
+            }
+
+            .login_button {
+                width: 40%;
+                @include button(1);
+            }
+
+            .cancel_login {
+                width: 40%;
+                @include button(2);
+                margin-left: 19px;
+            }
+
+        }
+
+        .logout_popup {
+            @include popup(30px);
+
+            p {
+                @include sure;
+            }
+
+            .logout_button {
+                width: 40%;
+                @include button(1);
+            }
+
+            .cancel_logout {
+                width: 40%;
+                @include button(2);
+                margin-left: 19px;
+            }
+        }
+
+        .delete_popup {
+            @include popup(30px);
+
+            p {
+                @include sure;
+            }
+
+            .delete_button {
+                width: 40%;
+                @include button(1);
+            }
+
+            .cancel_delete {
+                width: 40%;
+                @include button(2);
+                margin-left: 19px;
+            }
+        }
+
+        .update_popup {
+            @include popup(30px);
+
+            p {
+                @include sure;
+            }
+
+            .update_button {
+                width: 40%;
+                @include button(1);
+            }
+
+            .cancel_update {
+                width: 40%;
+                @include button(2);
+                margin-left: 19px;
+            }
+        }
+
+        .create_popup {
+            @include popup(30px);
+
+            p {
+                @include sure;
+            }
+
+            .create_button {
+                width: 40%;
+                @include button(1);
+            }
+
+            .cancel_create {
+                width: 40%;
+                @include button(2);
+                margin-left: 19px;
+            }
+        }
+
         .search_fields {
             display: flex;
             justify-content: space-between;
             width: 50%;
             margin: auto;
             padding-top: 200px;
+
             .select_topic {
                 background-color: white;
                 width: 40%;
                 cursor: pointer;
                 outline: none;
             }
+
             .search {
                 width: 40%;
                 padding: 5px;
@@ -24,19 +147,21 @@
                 font-weight: 700;
                 text-align: center;
                 text-transform: uppercase;
+
                 &::placeholder {
                     color: $color-orange;
                     font-weight: 700;
                     text-align: center;
-                    //font-family: 'Architects Daughter', cursive;
                     font-size: 20px;
                     text-transform: none;
                 }
+
                 &:focus::placeholder {
                     color: transparent;
                 }
             }
         }
+
         .header {
             display: flex;
             justify-content: space-around;
@@ -48,14 +173,14 @@
             font-weight: 700;
             font-size: 25px;
         }
+
         .subtopics {
             display: flex;
             flex-wrap: wrap;
+            align-items: center;
+
             .subtopic {
                 display: flex;
-                width: 100%;
-                border-top: 2px solid $color-orange;
-                border-bottom: 2px solid $color-orange;
                 cursor: pointer;
                 user-select: none;
                 font-size: 20px;
@@ -63,15 +188,66 @@
                 padding: 20px;
                 margin-bottom: 10px;
                 transition: .25s;
+                width: 100%;
+                position: relative;
+
                 &:hover {
                     background-color: $color-orange;
                     color: white;
                 }
-                &:active {
-                    transform: scale(.9);
-                }
+
                 .topic_name, .subtopic_name {
                     width: 50%;
+                }
+
+                &:before {
+                    content: '';
+                    width: 108%;
+                    border-bottom: 2px solid $color-orange;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+
+                &:after {
+                    content: '';
+                    width: 108%;
+                    border-bottom: 2px solid $color-orange;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                }
+            }
+
+            .subtopic_delete {
+
+                .fa-times {
+                    font-size: 20px;
+                    cursor: pointer;
+                    transition: .5s;
+
+
+                    &:hover {
+                        color: red;
+                        transform: scale(1.5);
+                    }
+                }
+            }
+
+            .subtopic_update {
+
+                padding-left: 15px;
+
+                .fa-edit {
+                    font-size: 20px;
+                    cursor: pointer;
+                    transition: .5s;
+
+
+                    &:hover {
+                        color: red;
+                        transform: scale(1.5);
+                    }
                 }
             }
         }
@@ -79,6 +255,7 @@
         .pages {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding-top: 50px;
             padding-bottom: 50px;
             width: 90%;
@@ -86,32 +263,17 @@
 
             .previous {
                 @include button(1);
-                &:hover {
-                    background-color: $color-orange;
-                    color: white;
-                }
-
-                &:active {
-                    transform: scale(.9);
-                }
             }
 
             .next {
                 @include button(3);
-                &:hover {
-                    background-color: $color-orange;
-                    color: white;
-                }
-
-                &:active {
-                    transform: scale(.9);
-                }
             }
 
             .page_number {
-                color: $color-orange;
-                font-size: 30px;
+                color: #000;
+                font-size: 25px;
                 order: 2;
+                user-select: none;
             }
         }
     }
