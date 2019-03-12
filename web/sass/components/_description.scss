@@ -1,19 +1,16 @@
 .description {
     background-color: $color-orange;
     header {
+        justify-content: space-evenly;
         @include mobile {
             justify-content: space-between;
         }
 
         .back {
-            color: $color-orange;
-            background-color: white;
-            text-transform: uppercase;
-            font-weight: 700;
-            outline: none;
-            border: none;
-            cursor: pointer;
-            user-select: none;
+            @include button(1);
+            @include tablet-landscape {
+
+            }
             @include tablet-portrait {
                 font-size: 25px;
                 padding: 10px 20px;
@@ -25,22 +22,15 @@
                 margin-left: 10px;
             }
 
-            &:hover {
-                background-color: $color-orange;
-                color: white;
-            }
-            &:active {
-                transform: scale(.9) translate(-155%);
-            }
         }
 
 
         .title_logo {
             display: flex;
             align-items: center;
+            order: 2;
             @include mobile {
                 margin-right: 30px;
-
             }
 
             .fa-stack-overflow {

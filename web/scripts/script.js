@@ -178,7 +178,6 @@ const clickBack = () => {
 const setAttribute = () => {
   document.querySelector('.search').setAttribute("value", state.search_keyword);
   document.querySelector('.select_topic').setAttribute("value", state.topic_id);
-  document.querySelector('.select').setAttribute("value", state.topic_id);
   document.querySelector('.page_number').textContent = state.pageNumber;
 };
 
@@ -259,6 +258,10 @@ const clickShowCreateForm = () => {
     option.value = topic.id;
     document.querySelector('.select').appendChild(option);
   });
+
+  const event = new Event("change");
+
+  document.querySelector('.select').dispatchEvent(event);
   document.querySelector('.create_form_popup').style.top = "50%";
 };
 
