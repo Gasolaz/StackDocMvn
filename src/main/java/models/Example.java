@@ -11,4 +11,16 @@ public class Example {
         this.sub_topic_id = sub_topic_id;
         this.body_html = body_html;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public long getSub_topic_id() {
+        return sub_topic_id;
+    }
+
+    public String getBody_html() {
+        return body_html;
+    }
 }

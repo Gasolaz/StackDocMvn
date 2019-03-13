@@ -319,7 +319,6 @@ const clickShowUpdateForm = async subtopic_id => {
     });
 
     document.querySelectorAll('.description_html_textarea')[1].value = state.description;
-    document.querySelector('.body_html_textarea').value = state.body_html;
 
     document.querySelector('.update_form_popup').style.top = "50%";
     document.querySelector('.update_subtopic_button')
@@ -328,7 +327,7 @@ const clickShowUpdateForm = async subtopic_id => {
 
 const clickHide = type => {
     overlayLogic(false);
-    document.querySelector(type).style.top = "-50%";
+    document.querySelector(type).style.top = "-100%";
 };
 
 const overlayLogic = (active, type) => {
@@ -363,7 +362,7 @@ const clickLogin = async () => {
 
         if (response.status === 200) {
             state.isAdmin = true;
-            document.querySelector('.login_popup').style.top = "-50%";
+            document.querySelector('.login_popup').style.top = "-100%";
             overlayLogic(false);
             setTimeout(() => {
                 document.querySelector('.subtopics').innerHTML = "";
@@ -382,7 +381,7 @@ const clickLogin = async () => {
 
 const clickLogout = async () => {
     state.isAdmin = false;
-    document.querySelector('.logout_popup').style.top = "-50%";
+    document.querySelector('.logout_popup').style.top = "-100%";
     overlayLogic(false);
     setTimeout(() => {
         document.querySelector('.subtopics').innerHTML = "";

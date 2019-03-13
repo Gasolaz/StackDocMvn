@@ -26,4 +26,8 @@ body {
         display: none;
         transition: 1s;
     }
+
+    textarea {
+        resize: none;
+    }
 }
