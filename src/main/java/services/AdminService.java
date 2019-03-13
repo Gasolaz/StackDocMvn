@@ -2,10 +2,13 @@ package services;
 
 import DB.Encoder;
 import com.google.gson.Gson;
+import models.Example;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static DB.DatabaseConnection.connect;
 import static resources.Cons.*;
@@ -73,6 +76,25 @@ public class AdminService {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
 
+    public static List<Example> getExamples(long id) {
+
+        List<Example> examplesList = new ArrayList<>();
+
+        try(Connection conn = connect()){
+            PreparedStatement ps = conn.prepareStatement(SELECT_EXAMAPLE_BY_SUB_TOPIC_ID);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                Example example = new Example(rs.getLong("id"), id, rs.getString("body_html"));
+                examplesList.add(example);
+            }
+            return examplesList;
+
+        } catch (SQLException | ClassNotFoundException e ) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
