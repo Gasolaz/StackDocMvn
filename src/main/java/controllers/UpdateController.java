@@ -1,6 +1,6 @@
 package controllers;
 
-import models.Topic;
+import models.Example;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,11 +21,8 @@ public class UpdateController extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println(request.getParameter("subtopicid"));
-        System.out.println(request.getParameter("descriptionHTML"));
-        System.out.println(request.getParameter("subtopic_name"));
-        System.out.println(request.getParameter("body_html"));
-        updateSubTopicDescription(Long.parseLong(request.getParameter("subtopicid")), request.getParameter("descriptionHTML"));
+        System.out.println(request.getParameter("examplesList"));
+//        updateSubTopicDescription(Long.parseLong(request.getParameter("subtopicid")), request.getParameter("descriptionHTML"));
         response.sendRedirect(request.getContextPath());
     }
 

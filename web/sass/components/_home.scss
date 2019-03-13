@@ -77,10 +77,12 @@
             }
             //z-index: 10;
         }
+
     }
 
     .container {
         background-color: $color-antiquewhite;
+
 
 
         .login_popup {
@@ -493,10 +495,11 @@
                 transition: .25s;
                 width: 100%;
                 position: relative;
+                color: $color-orange;
 
                 &:hover {
                     background-color: $color-orange;
-                    color: white;
+                    color: black;
                 }
 
                 .topic_name, .subtopic_name {
@@ -506,6 +509,7 @@
                 &:before {
                     content: '';
                     width: 100%;
+                    margin: auto;
                     @include mobile {
 
                     }
@@ -518,6 +522,7 @@
                 &:after {
                     content: '';
                     width: 100%;
+                    margin: auto;
                     @include mobile {
 
                     }
