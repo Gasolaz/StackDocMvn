@@ -77,10 +77,12 @@
             }
             //z-index: 10;
         }
+
     }
 
     .container {
         background-color: $color-antiquewhite;
+
 
 
         .login_popup {
@@ -506,6 +508,7 @@
                 &:before {
                     content: '';
                     width: 100%;
+                    margin: auto;
                     @include mobile {
 
                     }
@@ -518,6 +521,7 @@
                 &:after {
                     content: '';
                     width: 100%;
+                    margin: auto;
                     @include mobile {
 
                     }

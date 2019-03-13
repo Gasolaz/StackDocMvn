@@ -245,13 +245,22 @@ const paginationLogic = order => {
       (state.pageNumber > 1 ? previous.style.visibility = "visible" : previous.style.visibility = "hidden"));
 };
 
-const clickShowLogin = () => document.querySelector('.login_popup').style.top = "50%";
-const clickShowLogout = () => document.querySelector('.logout_popup').style.top = "50%";
-const clickShowDelete = subtopic_id => {
-  document.querySelector('.delete_popup').style.top = "50%";
-  document.querySelector('.delete_button').setAttribute("onclick", `clickDelete(${subtopic_id});clickHideDelete()`);
+const clickShowLogin = () => {
+  overlayLogic(true, "clickHide('.login_popup')");
+  document.querySelector('.login_popup').style.top = "50%";
 };
+const clickShowLogout = () => {
+  overlayLogic(true, "clickHide('.logout_popup')");
+  document.querySelector('.logout_popup').style.top = "50%";
+};
+const clickShowDelete = subtopic_id => {
+  overlayLogic(true, "clickHide('.delete_popup')");
+  document.querySelector('.delete_popup').style.top = "50%";
+  document.querySelector('.delete_button').setAttribute("onclick", `clickDelete(${subtopic_id});clickHide('.delete_popup')`);
+};
+
 const clickShowCreateForm = () => {
+  overlayLogic(true, "clickHide('.create_form_popup')");
   state.topics.forEach(topic => {
     const option = document.createElement("option");
     option.textContent = topic.topic;
@@ -266,6 +275,7 @@ const clickShowCreateForm = () => {
 };
 
 const clickShowUpdateForm = async subtopic_id => {
+  overlayLogic(true, "clickHide('.update_form_popup')");
   const response = await fetch(`http://localhost:8080/${state.path}/api/subtopics`,
       {
         method: "POST",
@@ -286,14 +296,29 @@ const clickShowUpdateForm = async subtopic_id => {
 
   document.querySelector('.update_form_popup').style.top = "50%";
   document.querySelector('.update_subtopic_button')
-      .setAttribute("onclick", `clickUpdate(${subtopic_id});clickHideUpdateForm()`);
+      .setAttribute("onclick", `clickUpdate(${subtopic_id});clickHide('.update_form_popup')`);
 };
 
-const clickHideLogin = () => document.querySelector('.login_popup').style.top = "-50%";
-const clickHideLogout = () => document.querySelector('.logout_popup').style.top = "-50%";
-const clickHideDelete = () => document.querySelector('.delete_popup').style.top = "-50%";
-const clickHideCreateForm = () => document.querySelector('.create_form_popup').style.top = "-50%";
-const clickHideUpdateForm = () => document.querySelector('.update_form_popup').style.top = "-50%";
+const clickHide = type => {
+  overlayLogic(false);
+  document.querySelector(type).style.top = "-50%";
+};
+
+const overlayLogic = (active, type) => {
+  active
+      ?
+      ((document.querySelector('.overlay').style.display = "block")
+          &&
+          (document.querySelector('.overlay').style.opacity = "1")
+          &&
+          (document.querySelector('.overlay').setAttribute("onclick", type)
+          )
+      )
+      :
+      ((document.querySelector('.overlay').style.display = "none")
+          &&
+          (document.querySelector('.overlay').style.opacity = "0"))
+};
 
 const clickLogin = async () => {
 
@@ -312,6 +337,7 @@ const clickLogin = async () => {
     if (response.status === 200) {
       state.isAdmin = true;
       document.querySelector('.login_popup').style.top = "-50%";
+      overlayLogic(false);
       setTimeout(() => {
         document.querySelector('.subtopics').innerHTML = "";
         contentGenerator(false, state.isAdmin);
@@ -330,6 +356,7 @@ const clickLogin = async () => {
 const clickLogout = async () => {
   state.isAdmin = false;
   document.querySelector('.logout_popup').style.top = "-50%";
+  overlayLogic(false);
   setTimeout(() => {
     document.querySelector('.subtopics').innerHTML = "";
     contentGenerator(false, state.isAdmin);
@@ -352,7 +379,6 @@ const clickDelete = async subtopic_id => {
   state.subtopics = await response.json();
   document.querySelector('.subtopics').innerHTML = "";
   contentGenerator(false, state.isAdmin);
-  document.querySelector('.delete_popup').style.top = "-50%";
 };
 
 const clickCreate = async () => {
