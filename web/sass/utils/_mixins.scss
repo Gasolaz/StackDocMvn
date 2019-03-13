@@ -1,15 +1,14 @@
 @mixin button($order) {
     background-color: white;
-    border: 1px solid $color-orange;
+    border: none;
     text-transform: uppercase;
     color: $color-orange;
-    height: 50px;
-    width: 100px;
     font-weight: 700;
     cursor: pointer;
     user-select: none;
     outline: none;
     order: $order;
+    padding: 15px 20px;
     &:hover {
         background-color: $color-orange;
         color: white;
@@ -17,4 +16,28 @@
     &:active {
         transform: scale(.9);
     }
+}
+
+@mixin popup {
+    position: fixed;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 1s;
+    background-color: rgba(255, 165, 0, .8);
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 20%;
+}
+
+@mixin sure {
+    color: white;
+    font-size: 26px;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 28px;
+    padding-top: 20px;
+    font-weight: 700;
 }
