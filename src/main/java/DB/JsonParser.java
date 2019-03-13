@@ -5,7 +5,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -16,6 +15,7 @@ import static resources.Cons.INSERT_INTO_EXAMPLE_EXAMPLE;
 
 // Class used to parse data into DB
 public class JsonParser extends DatabaseConnection{
+
     public static void jsonToDb() {
         JSONParser parser = new JSONParser();
         try (Connection conn = connect()) {

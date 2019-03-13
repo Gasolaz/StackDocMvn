@@ -14,20 +14,18 @@ public class TableCreation {
     public static void createTables() throws IOException {
 
         File file = new File(URL_DB_FILE);
+        file.createNewFile();
+        try (Connection conn = connect()) {
 
-        if (file.createNewFile()) {
+            Statement statement = conn.createStatement();
 
-            try (Connection conn = connect()) {
+            statement.executeUpdate(CREATE_TABLE_TOPICS);
+            statement.executeUpdate(CREATE_TABLE_SUB_TOPICS);
+            statement.executeUpdate(CREATE_TABLE_EXAMPLES);
+            statement.executeUpdate(CREATE_TABLE_ADMINS);
 
-                Statement statement = conn.createStatement();
-
-                statement.executeUpdate(CREATE_TABLE_TOPICS);
-                statement.executeUpdate(CREATE_TABLE_SUB_TOPICS);
-                statement.executeUpdate(CREATE_TABLE_EXAMPLES);
-
-            } catch (SQLException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 }
