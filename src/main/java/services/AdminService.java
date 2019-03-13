@@ -84,10 +84,11 @@ public class AdminService {
 
         try(Connection conn = connect()){
             PreparedStatement ps = conn.prepareStatement(SELECT_EXAMAPLE_BY_SUB_TOPIC_ID);
+            ps.setLong(1, id);
             ResultSet rs = ps.executeQuery();
 
             while(rs.next()) {
-                Example example = new Example(rs.getLong("id"), id, rs.getString("body_html"));
+                Example example = new Example(rs.getLong(ID), id, rs.getString(EXAMPLES_BODY_HTML));
                 examplesList.add(example);
             }
             return examplesList;

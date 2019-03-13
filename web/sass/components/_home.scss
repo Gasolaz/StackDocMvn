@@ -1,600 +1,625 @@
 .home {
-    text-align: center;
-    background-color: $color-orange;
+  text-align: center;
+  background-color: $color-orange;
 
-    header {
-        justify-content: space-evenly;
+  header {
+    justify-content: space-evenly;
+    @include mobile {
+      justify-content: space-between;
+    }
+
+    .admin_create {
+      @include button(0);
+      @include tablet-portrait {
+        margin-right: 10px;
+        margin-left: 10px;
+        font-size: 20px;
+
+      }
+      @include mobile {
+        font-size: 9px;
+        padding: 5px 5px;
+        margin-left: 5px;
+      }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+
+      .fa-stack-overflow {
+
+
+        @include tablet-landscape {
+
+        }
+
+        @include tablet-portrait {
+        }
+
         @include mobile {
-            justify-content: space-between;
+          font-size: 15px;
+          margin-left: 5px;
         }
 
-        .admin_create {
-            @include button(0);
-            @include tablet-portrait {
-                margin-right: 10px;
-                margin-left: 10px;
-                font-size: 20px;
+      }
 
-            }
-            @include mobile {
-                font-size: 9px;
-                padding: 5px 5px;
-                margin-left: 5px;
-            }
+      h1 {
+
+        @include tablet-landscape {
+
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
+        @include tablet-portrait {
+          font-size: 30px;
 
-            .fa-stack-overflow {
-
-
-                @include tablet-landscape {
-
-                }
-
-                @include tablet-portrait {
-                }
-
-                @include mobile {
-                    font-size: 15px;
-                    margin-left: 5px;
-                }
-
-            }
-
-            h1 {
-
-                @include tablet-landscape {
-
-                }
-
-                @include tablet-portrait {
-                    font-size: 30px;
-
-                }
-
-                @include mobile {
-                    font-size: 9px;
-                    text-align: left;
-
-                }
-
-            }
         }
 
-        .adminpage_login, .adminpage_logout {
-            @include button(4);
-            @include tablet-portrait {
-                margin-right: 10px;
-                font-size: 20px;
-            }
-            @include mobile {
-                font-size: 9px;
-                padding: 5px 5px;
-                margin-right: 5px;
-            }
-            //z-index: 10;
+        @include mobile {
+          font-size: 9px;
+          text-align: left;
+
         }
+
+      }
+    }
+
+    .adminpage_login, .adminpage_logout {
+      @include button(4);
+      @include tablet-portrait {
+        margin-right: 10px;
+        font-size: 20px;
+      }
+      @include mobile {
+        font-size: 9px;
+        padding: 5px 5px;
+        margin-right: 5px;
+      }
+      //z-index: 10;
+    }
+
+  }
+
+  .container {
+    background-color: $color-antiquewhite;
+
+
+    .login_popup {
+      @include popup;
+      padding: 40px;
+      @include tablet-portrait {
+        width: 70%;
+      }
+      @include mobile {
+        width: 50%;
+      }
+
+      .pass {
+        color: white;
+        @include tablet-portrait {
+          font-size: 40px;
+          width: 100%;
+        }
+        @include mobile {
+          font-size: 30px;
+        }
+        font-weight: 700;
+      }
+
+      .password_input {
+
+        @include tablet-portrait {
+          width: 70%;
+          padding: 15px 25px;
+          font-size: 40px;
+        }
+
+        @include mobile {
+          padding: 5px 15px;
+          font-size: 20px;
+        }
+      }
+
+      .password_buttons {
+        display: flex;
+        align-items: center;
+
+        @include tablet-portrait {
+          width: 82%;
+          margin-top: 25px;
+          justify-content: space-between;
+
+        }
+        @include mobile {
+          display: block;
+
+        }
+
+        .login_button {
+
+          @include button(1);
+          @include tablet-portrait {
+            font-size: 30px;
+          }
+          @include mobile {
+            font-size: 16px;
+          }
+
+
+        }
+
+        .cancel_login {
+
+          margin-top: 10px;
+          @include button(2);
+          @include tablet-portrait {
+            font-size: 30px;
+          }
+          @include mobile {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    .logout_popup {
+      @include popup;
+      padding: 40px;
+
+      @include tablet-portrait {
+        width: 60%;
+
+      }
+
+      @include mobile {
+        width: 50%;
+      }
+
+
+      p {
+        @include sure;
+        @include tablet-portrait {
+          font-size: 40px;
+        }
+        @include mobile {
+          font-size: 25px;
+          width: 100%;
+        }
+      }
+
+      .logout_button {
+        @include tablet-portrait {
+          width: 60%;
+          font-size: 30px;
+        }
+        @include mobile {
+          width: 70%;
+          font-size: 15PX;
+        }
+
+
+        @include button(1);
+      }
+
+      .cancel_logout {
+        @include tablet-portrait {
+          width: 60%;
+          font-size: 30px;
+          margin-top: 10px;
+        }
+        @include mobile {
+          width: 70%;
+          font-size: 15px;
+        }
+
+        @include button(2);
+
+      }
+    }
+
+    .delete_popup {
+      @include popup;
+      padding: 30px;
+      @include tablet-portrait {
+        width: 80%;
+      }
+      @include mobile {
+        width: 50%;
+      }
+
+      p {
+        @include sure;
+        @include tablet-portrait {
+          font-size: 50px;
+        }
+        @include mobile {
+          width: 100%;
+          font-size: 20px;
+        }
+      }
+
+      .delete_button {
+        width: 40%;
+        @include button(1);
+        @include tablet-portrait {
+          font-size: 30px;
+          margin-right: 30px;
+        }
+        @include mobile {
+          width: 80%;
+          font-size: 18px;
+          margin-right: 0;
+        }
+      }
+
+      .cancel_delete {
+        width: 40%;
+        @include button(2);
+        @include tablet-portrait {
+          font-size: 30px;
+        }
+        @include mobile {
+          width: 80%;
+          font-size: 18px;
+          margin-top: 15px;
+        }
+      }
+    }
+
+    .update_popup {
+      @include popup;
+      padding: 30px;
+      @include tablet-portrait {
+        width: 80%;
+      }
+      @include mobile {
+        width: 60%;
+      }
+
+      p {
+        @include sure;
+        @include tablet-portrait {
+
+        }
+        @include mobile {
+          width: 100%;
+        }
+      }
+
+      .update_button {
+        @include button(1);
+      }
+
+      .cancel_update {
+        @include button(2);
+      }
+    }
+
+    .create_popup {
+      @include popup;
+      padding: 30px;
+      @include tablet-portrait {
+        width: 60%;
+      }
+      @include mobile {
+        width: 50%;
+
+      }
+
+
+      p {
+        @include sure;
+        @include tablet-portrait {
+          font-size: 40px;
+        }
+        @include mobile {
+          width: 100%;
+          font-size: 23px;
+        }
+      }
+
+      .create_button {
+        width: 40%;
+        @include tablet-portrait {
+          width: 60%;
+          font-size: 30px;
+        }
+        @include mobile {
+          width: 80%;
+          font-size: 20px;
+        }
+        @include button(1);
+      }
+
+      .cancel_create {
+        width: 40%;
+        @include tablet-portrait {
+          width: 60%;
+          margin-top: 15px;
+          font-size: 30px;
+        }
+        @include mobile {
+          width: 80%;
+          font-size: 20px;
+          margin-top: 10px;
+        }
+        @include button(2);
+      }
+    }
+
+    .create_form_popup {
+      @include popup;
+      padding: 40px;
+
+      .select {
+        width: 90%;
+      }
+
+      .subtopic_name {
+        color: white;
+        font-size: 20px;
+      }
+
+      .description_html {
+        color: white;
+        font-size: 20px;
+      }
+
+      .subtopic_name_input {
+
+      }
+
+      .description_html_textarea {
+        margin-top: 10px;
+        resize: none;
+      }
+
+      .create_form_buttons {
+
+
+        .create_subtopic_button {
+          @include button(1);
+          width: 50%;
+          margin-top: 10px;
+          margin-right: 20px;
+        }
+
+        .cancel_create_subtopic {
+          @include button(2);
+          width: 40%;
+        }
+      }
 
     }
 
-    .container {
-        background-color: $color-antiquewhite;
+    .update_form_popup {
+      @include popup;
+      padding: 40px;
+      position: absolute;
+      top: -100%;
+      transform: translate(-50%, -50%);
+      transition: 1s;
+      background-color: rgba(255, 165, 0, .8);
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      left: 50%;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      .description_html {
+        color: white;
+        font-size: 20px;
 
+      }
 
+      .description_html_textarea {
+        margin-top: 10px;
+        resize: none;
 
-        .login_popup {
-            @include popup;
-            padding: 40px;
-            @include tablet-portrait {
-                width: 70%;
-            }
-            @include mobile {
-                width: 50%;
-            }
+      }
 
-            .pass {
-                color: white;
-                @include tablet-portrait {
-                    font-size: 40px;
-                    width: 100%;
-                }
-                @include mobile {
-                    font-size: 30px;
-                }
-                font-weight: 700;
-            }
-
-            .password_input {
-
-                @include tablet-portrait {
-                    width: 70%;
-                    padding: 15px 25px;
-                    font-size: 40px;
-                }
-
-                @include mobile {
-                    padding: 5px 15px;
-                    font-size: 20px;
-                }
-            }
-
-            .password_buttons {
-                display: flex;
-                align-items: center;
-
-                @include tablet-portrait {
-                    width: 82%;
-                    margin-top: 25px;
-                    justify-content: space-between;
-
-                }
-               @include mobile {
-                   display: block;
-
-               }
-
-                .login_button {
-
-                    @include button(1);
-                    @include tablet-portrait {
-                        font-size: 30px;
-                    }
-                    @include mobile {
-                        font-size: 16px;
-                    }
-
-
-                }
-
-                .cancel_login {
-
-                    margin-top: 10px;
-                    @include button(2);
-                    @include tablet-portrait {
-                        font-size: 30px;
-                    }
-                    @include mobile {
-                        font-size: 16px;
-                    }
-                }
-            }
+      .update_form_buttons {
+        .update_subtopic_button {
+          @include button(1);
+          width: 15%;
+          margin-top: 10px;
+          margin-right: 20px;
+          position: absolute;
+          bottom: 0;
+          margin-left: 100px;
         }
 
-        .logout_popup {
-            @include popup;
-            padding: 40px;
-
-            @include tablet-portrait {
-                width: 60%;
-
-            }
-
-            @include mobile {
-                width: 50%;
-            }
-
-
-            p {
-                @include sure;
-                @include tablet-portrait {
-                    font-size: 40px;
-                }
-                @include mobile {
-                    font-size: 25px;
-                    width: 100%;
-                }
-            }
-
-            .logout_button {
-                @include tablet-portrait {
-                    width: 60%;
-                    font-size: 30px;
-                }
-                @include mobile {
-                    width: 70%;
-                    font-size: 15PX;
-                }
-
-
-
-                @include button(1);
-            }
-
-            .cancel_logout {
-                @include tablet-portrait {
-                    width: 60%;
-                    font-size: 30px;
-                    margin-top: 10px;
-                }
-                @include mobile {
-                    width: 70%;
-                    font-size: 15px;
-                }
-
-                @include button(2);
-
-            }
+        .cancel_update_subtopic {
+          @include button(2);
+          position: absolute;
+          bottom: 0;
+          margin-left: 850px;
+          width: 15%;
         }
-
-        .delete_popup {
-            @include popup;
-            padding: 30px;
-            @include tablet-portrait {
-                width: 80%;
-            }
-            @include mobile {
-                width: 50%;
-            }
-
-            p {
-                @include sure;
-                @include tablet-portrait {
-                    font-size: 50px;
-                }
-                @include mobile {
-                    width: 100%;
-                    font-size: 20px;
-                }
-            }
-
-            .delete_button {
-                width: 40%;
-                @include button(1);
-                @include tablet-portrait {
-                    font-size: 30px;
-                    margin-right: 30px;
-                }
-                @include mobile {
-                    width: 80%;
-                    font-size: 18px;
-                    margin-right: 0;
-                }
-            }
-
-            .cancel_delete {
-                width: 40%;
-                @include button(2);
-                @include tablet-portrait {
-                    font-size: 30px;
-                }
-                @include mobile {
-                    width: 80%;
-                    font-size: 18px;
-                    margin-top: 15px;
-                }
-            }
-        }
-
-        .update_popup {
-            @include popup;
-            padding: 30px;
-            @include tablet-portrait {
-                width: 80%;
-            }
-            @include mobile {
-                width: 60%;
-            }
-
-            p {
-                @include sure;
-                @include tablet-portrait {
-
-                }
-                @include mobile {
-                    width: 100%;
-                }
-            }
-
-            .update_button {
-                @include button(1);
-            }
-
-            .cancel_update {
-                @include button(2);
-            }
-        }
-
-        .create_popup {
-            @include popup;
-            padding: 30px;
-            @include tablet-portrait {
-                width: 60%;
-            }
-            @include mobile {
-                width: 50%;
-
-            }
-
-
-            p {
-                @include sure;
-                @include tablet-portrait {
-                    font-size: 40px;
-                }
-                @include mobile {
-                    width: 100%;
-                    font-size: 23px;
-                }
-            }
-
-            .create_button {
-                width: 40%;
-                @include tablet-portrait {
-                    width: 60%;
-                    font-size: 30px;
-                }
-                @include mobile {
-                    width: 80%;
-                    font-size: 20px;
-                }
-                @include button(1);
-            }
-
-            .cancel_create {
-                width: 40%;
-                @include tablet-portrait {
-                    width: 60%;
-                    margin-top: 15px;
-                    font-size: 30px;
-                }
-                @include mobile {
-                    width: 80%;
-                    font-size: 20px;
-                    margin-top: 10px;
-                }
-                @include button(2);
-            }
-        }
-
-        .create_form_popup {
-            @include popup;
-            padding: 40px;
-            .select {
-                width: 90%;
-            }
-            .subtopic_name {
-                color: white;
-                font-size: 20px;
-            }
-            .description_html {
-                color: white;
-                font-size: 20px;
-            }
-
-            .subtopic_name_input {
-
-            }
-            .description_html_textarea {
-                margin-top: 10px;
-                resize: none;
-            }
-            .create_form_buttons {
-
-
-                .create_subtopic_button {
-                    @include button(1);
-                    width: 50%;
-                    margin-top: 10px;
-                    margin-right: 20px;
-                }
-                .cancel_create_subtopic {
-                    @include button(2);
-                    width: 40%;
-                }
-            }
-
-        }
-
-        .update_form_popup {
-            @include popup;
-            padding: 40px;
-            .description_html {
-                color: white;
-                font-size: 20px;
-            }
-            .description_html_textarea {
-                margin-top: 10px;
-                resize: none;
-
-            }
-            .body_html_textarea {
-                resize: none;
-            }
-            .update_form_buttons {
-                .update_subtopic_button {
-                    @include button(1);
-                    width: 50%;
-                    margin-top: 10px;
-                    margin-right: 20px;
-                }
-                .cancel_update_subtopic {
-                    @include button(2);
-                    width: 40%;
-                }
-            }
-        }
-
-        .search_fields {
-            display: flex;
-            justify-content: space-between;
-            width: 50%;
-            @include mobile {
-                width: 100%;
-            }
-            margin: auto;
-            padding-top: 200px;
-            @include mobile {
-                padding-top: 50px;
-            }
-
-            .select_topic {
-                background-color: white;
-                width: 40%;
-                cursor: pointer;
-                outline: none;
-            }
-
-            .search {
-                width: 40%;
-                @include mobile {
-                    width: 60%;
-                }
-                padding: 5px;
-                outline: none;
-                border: none;
-                color: orange;
-                font-weight: 700;
-                text-align: center;
-                text-transform: uppercase;
-
-                &::placeholder {
-                    color: $color-orange;
-                    font-weight: 700;
-                    text-align: center;
-                    font-size: 20px;
-                    @include mobile {
-
-                    }
-                    text-transform: none;
-                }
-
-                &:focus::placeholder {
-                    color: transparent;
-                }
-            }
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 100px;
-            margin-bottom: 50px;
-            border-top: 2px solid $color-orange;
-            border-bottom: 2px solid $color-orange;
-            color: $color-orange;
-            font-weight: 700;
-            font-size: 25px;
-        }
-
-        .subtopics {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-
-            .subtopic {
-                display: flex;
-                cursor: pointer;
-                user-select: none;
-                font-size: 20px;
-                font-weight: 700;
-                padding: 20px;
-                margin-bottom: 10px;
-                transition: .25s;
-                width: 100%;
-                position: relative;
-
-                &:hover {
-                    background-color: $color-orange;
-                    color: white;
-                }
-
-                .topic_name, .subtopic_name {
-                    width: 50%;
-                }
-
-                &:before {
-                    content: '';
-                    width: 100%;
-                    margin: auto;
-                    @include mobile {
-
-                    }
-                    border-bottom: 2px solid $color-orange;
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                }
-
-                &:after {
-                    content: '';
-                    width: 100%;
-                    margin: auto;
-                    @include mobile {
-
-                    }
-                    border-bottom: 2px solid $color-orange;
-                    position: absolute;
-                    left: 0;
-                    bottom: 0;
-                }
-            }
-
-            .subtopic_delete {
-
-                .fa-times {
-                    font-size: 20px;
-                    cursor: pointer;
-                    transition: .5s;
-
-
-                    &:hover {
-                        color: red;
-                        transform: scale(1.5);
-                    }
-                }
-            }
-
-            .subtopic_update {
-
-                padding-left: 15px;
-                @include tablet-portrait {
-                }
-                @include mobile {
-
-                }
-
-                .fa-edit {
-                    font-size: 20px;
-                    cursor: pointer;
-                    transition: .5s;
-
-
-                    &:hover {
-                        color: red;
-                        transform: scale(1.5);
-                    }
-                }
-            }
-        }
-
-        .pages {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 50px;
-            padding-bottom: 50px;
-            width: 90%;
-            @include mobile {
-            }
-            margin: auto;
-
-            .previous {
-                @include button(1);
-            }
-
-            .next {
-                @include button(3);
-            }
-
-            .page_number {
-                color: #000;
-                font-size: 25px;
-                order: 2;
-                user-select: none;
-            }
-        }
+      }
     }
+
+    .search_fields {
+      display: flex;
+      justify-content: space-between;
+      width: 50%;
+      @include mobile {
+        width: 100%;
+      }
+      margin: auto;
+      padding-top: 200px;
+      @include mobile {
+        padding-top: 50px;
+      }
+
+      .select_topic {
+        background-color: white;
+        width: 40%;
+        cursor: pointer;
+        outline: none;
+      }
+
+      .search {
+        width: 40%;
+        @include mobile {
+          width: 60%;
+        }
+        padding: 5px;
+        outline: none;
+        border: none;
+        color: orange;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+
+        &::placeholder {
+          color: $color-orange;
+          font-weight: 700;
+          text-align: center;
+          font-size: 20px;
+          @include mobile {
+
+          }
+          text-transform: none;
+        }
+
+        &:focus::placeholder {
+          color: transparent;
+        }
+      }
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 100px;
+      margin-bottom: 50px;
+      border-top: 2px solid $color-orange;
+      border-bottom: 2px solid $color-orange;
+      color: $color-orange;
+      font-weight: 700;
+      font-size: 25px;
+    }
+
+    .subtopics {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+
+      .subtopic {
+        display: flex;
+        cursor: pointer;
+        user-select: none;
+        font-size: 20px;
+        font-weight: 700;
+        padding: 20px;
+        margin-bottom: 10px;
+        transition: .25s;
+        width: 100%;
+        position: relative;
+        color: $color-orange;
+
+        &:hover {
+          background-color: $color-orange;
+          color: black;
+        }
+
+        .topic_name, .subtopic_name {
+          width: 50%;
+        }
+
+        &:before {
+          content: '';
+          width: 100%;
+          margin: auto;
+          @include mobile {
+
+          }
+          border-bottom: 2px solid $color-orange;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+
+        &:after {
+          content: '';
+          width: 100%;
+          margin: auto;
+          @include mobile {
+
+          }
+          border-bottom: 2px solid $color-orange;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+      }
+
+      .subtopic_delete {
+
+        .fa-times {
+          font-size: 20px;
+          cursor: pointer;
+          transition: .5s;
+
+
+          &:hover {
+            color: red;
+            transform: scale(1.5);
+          }
+        }
+      }
+
+      .subtopic_update {
+
+        padding-left: 15px;
+        @include tablet-portrait {
+        }
+        @include mobile {
+
+        }
+
+        .fa-edit {
+          font-size: 20px;
+          cursor: pointer;
+          transition: .5s;
+
+
+          &:hover {
+            color: red;
+            transform: scale(1.5);
+          }
+        }
+      }
+    }
+
+    .pages {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      width: 90%;
+      @include mobile {
+      }
+      margin: auto;
+
+      .previous {
+        @include button(1);
+      }
+
+      .next {
+        @include button(3);
+      }
+
+      .page_number {
+        color: #000;
+        font-size: 25px;
+        order: 2;
+        user-select: none;
+      }
+    }
+  }
 }

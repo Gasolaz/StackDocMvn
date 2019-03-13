@@ -3,7 +3,7 @@ body {
 
     .container {
         margin: auto;
-        max-width: 1350px;
+        max-width: 1650px;
         min-height: 100vh;
 
         .image {
@@ -25,5 +25,9 @@ body {
         background-color: rgba(0,0,0,.7);
         display: none;
         transition: 1s;
+    }
+
+    textarea {
+        resize: none;
     }
 }

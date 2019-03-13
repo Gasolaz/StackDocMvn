@@ -145,11 +145,6 @@ const Home = {
               {
                 "class": "description_html_textarea",
                 "onkeyup": "changeState(event, 'description')"
-              },
-              {
-                "class": "body_html_textarea",
-                "onkeyup": "changeState(event, 'body_html')"
-
               }
             ],
             "div": {
