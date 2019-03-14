@@ -18,6 +18,8 @@ const converter = (json, parent) => {
           ||
           key === "header"
           ||
+          key === "list"
+          ||
           key === "nav"
           ||
           key === "a"

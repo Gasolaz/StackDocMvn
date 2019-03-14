@@ -6,12 +6,13 @@ const state = {
     pageNumber: 1,
     searchObject: {},
     pages: "",
-    path: "StackDocMvn_Web_exploded",
+    path: "com_Saras_Web_exploded",
     pass: "",
     isAdmin: false,
     subtopic_name: "",
     description: "",
-    body_html: ""
+    body_html: "",
+    examplesList: []
 };
 
 const request = async () => {
@@ -108,9 +109,9 @@ const onClick = async subtopic_id => {
 
     templateGenerator(true, Description);
 
-    document.querySelector('.subtopic_title').textContent = json.sub_topic;
-    document.querySelector('.content').innerHTML += json.description;
-    document.querySelector('.content').innerHTML += json.body_HTML;
+    document.querySelector('.subtopic_title').textContent = json.description.sub_topic;
+    document.querySelector('.content').innerHTML += json.description.description;
+    document.querySelector('.content').innerHTML += json.description.body_HTML;
     document.querySelectorAll('img').forEach(img => {
         const div = document.createElement("div");
         div.className = "image";
@@ -178,7 +179,6 @@ const clickBack = () => {
 const setAttribute = () => {
     document.querySelector('.search').setAttribute("value", state.search_keyword);
     document.querySelector('.select_topic').setAttribute("value", state.topic_id);
-    document.querySelector('.select').setAttribute("value", state.topic_id);
     document.querySelector('.page_number').textContent = state.pageNumber;
 };
 
@@ -246,23 +246,39 @@ const paginationLogic = order => {
         (state.pageNumber > 1 ? previous.style.visibility = "visible" : previous.style.visibility = "hidden"));
 };
 
-const clickShowLogin = () => document.querySelector('.login_popup').style.top = "50%";
-const clickShowLogout = () => document.querySelector('.logout_popup').style.top = "50%";
-const clickShowDelete = subtopic_id => {
-    document.querySelector('.delete_popup').style.top = "50%";
-    document.querySelector('.delete_button').setAttribute("onclick", `clickDelete(${subtopic_id});clickHideDelete()`);
+const clickShowLogin = () => {
+    overlayLogic(true, "clickHide('.login_popup')");
+    document.querySelector('.login_popup').style.top = "50%";
+    document.querySelector('.login_popup').style.visibility = "visible"
 };
+const clickShowLogout = () => {
+    overlayLogic(true, "clickHide('.logout_popup')");
+    document.querySelector('.logout_popup').style.top = "50%";
+    document.querySelector('.login_popup').style.visibility = "visible";
+};
+const clickShowDelete = subtopic_id => {
+    overlayLogic(true, "clickHide('.delete_popup')");
+    document.querySelector('.delete_popup').style.top = "50%";
+    document.querySelector('.delete_button').setAttribute("onclick", `clickDelete(${subtopic_id});clickHide('.delete_popup')`);
+};
+
 const clickShowCreateForm = () => {
+    overlayLogic(true, "clickHide('.create_form_popup')");
     state.topics.forEach(topic => {
         const option = document.createElement("option");
         option.textContent = topic.topic;
         option.value = topic.id;
         document.querySelector('.select').appendChild(option);
     });
+
+    const event = new Event("change");
+
+    document.querySelector('.select').dispatchEvent(event);
     document.querySelector('.create_form_popup').style.top = "50%";
 };
 
 const clickShowUpdateForm = async subtopic_id => {
+    overlayLogic(true, "clickHide('.update_form_popup')");
     const response = await fetch(`http://localhost:8080/${state.path}/api/subtopics`,
         {
             method: "POST",
@@ -274,25 +290,63 @@ const clickShowUpdateForm = async subtopic_id => {
         });
 
     const json = await response.json();
+    state.description = json.description.description;
+    state.body_html = json.description.body_HTML;
+    state.examplesObject = json.exampleList;
+    if (document.querySelectorAll("textarea").length > 3) {
+        for (let i = document.querySelectorAll("textarea").length - 1; i > 2; i--) {
+            document.querySelectorAll("textarea")[i].parentNode.removeChild(document.querySelectorAll("textarea")[i])
+        }
+    }
 
-    state.description = json.description;
-    console.log(state.description);
-    state.body_html = json.body_HTML;
-    console.log(state.body_html);
-    console.log("random");
+    state.examplesList = [];
 
-    document.querySelector('.description_html_textarea').value = state.description;
-    document.querySelector('.body_html_textarea').value = state.body_html;
+    json.exampleList.forEach((element, i) => {
+        let textarea = document.createElement("textarea");
+        textarea.value = element.body_html;
+        textarea.onkeyup = event => {
+            state.examplesList.forEach(element => {
+                if (element.id === state.examplesList[i].id) {
+                    element.body_html = event.target.value
+                    console.log(element.id)
+                    console.log(element.body_html)
+                }
+            })
+        }
+        state.examplesList.push({
+            id: element.id,
+            body_html: element.body_html
+        });
+        document.querySelector('.update_form_popup').append(textarea);
+    });
+
+    document.querySelectorAll('.description_html_textarea')[1].value = state.description;
 
     document.querySelector('.update_form_popup').style.top = "50%";
-    document.querySelector('.update_subtopic_button').setAttribute("onclick", `clickUpdate(${subtopic_id});clickHideUpdateForm()`);
+    document.querySelector('.update_subtopic_button')
+        .setAttribute("onclick", `clickUpdate(${subtopic_id});clickHide('.update_form_popup')`);
 };
 
-const clickHideLogin = () => document.querySelector('.login_popup').style.top = "-50%";
-const clickHideLogout = () => document.querySelector('.logout_popup').style.top = "-50%";
-const clickHideDelete = () => document.querySelector('.delete_popup').style.top = "-50%";
-const clickHideCreateForm = () => document.querySelector('.create_form_popup').style.top = "-50%";
-const clickHideUpdateForm = () => document.querySelector('.update_form_popup').style.top = "-50%";
+const clickHide = type => {
+    overlayLogic(false);
+    document.querySelector(type).style.top = "-100%";
+};
+
+const overlayLogic = (active, type) => {
+    active
+        ?
+        ((document.querySelector('.overlay').style.display = "block")
+            &&
+            (document.querySelector('.overlay').style.opacity = "1")
+            &&
+            (document.querySelector('.overlay').setAttribute("onclick", type)
+            )
+        )
+        :
+        ((document.querySelector('.overlay').style.display = "none")
+            &&
+            (document.querySelector('.overlay').style.opacity = "0"))
+};
 
 const clickLogin = async () => {
 
@@ -310,7 +364,8 @@ const clickLogin = async () => {
 
         if (response.status === 200) {
             state.isAdmin = true;
-            document.querySelector('.login_popup').style.top = "-50%";
+            document.querySelector('.login_popup').style.top = "-100%";
+            overlayLogic(false);
             setTimeout(() => {
                 document.querySelector('.subtopics').innerHTML = "";
                 contentGenerator(false, state.isAdmin);
@@ -328,7 +383,8 @@ const clickLogin = async () => {
 
 const clickLogout = async () => {
     state.isAdmin = false;
-    document.querySelector('.logout_popup').style.top = "-50%";
+    document.querySelector('.logout_popup').style.top = "-100%";
+    overlayLogic(false);
     setTimeout(() => {
         document.querySelector('.subtopics').innerHTML = "";
         contentGenerator(false, state.isAdmin);
@@ -351,7 +407,6 @@ const clickDelete = async subtopic_id => {
     state.subtopics = await response.json();
     document.querySelector('.subtopics').innerHTML = "";
     contentGenerator(false, state.isAdmin);
-    document.querySelector('.delete_popup').style.top = "-50%";
 };
 
 const clickCreate = async () => {
@@ -367,10 +422,13 @@ const clickCreate = async () => {
 };
 
 const clickUpdate = async subtopic_id => {
+
+    const examplesList = JSON.stringify(state.examplesList);
+
     const response = await fetch(`http://localhost:8080/${state.path}/admin/update`,
         {
             method: "POST",
-            body: `subtopicid=${subtopic_id}&subtopic_name=${state.subtopic_name}&descriptionHTML=${state.description}&body_html=${state.body_html}`,
+            body: `subtopicid=${subtopic_id}&descriptionHTML=${state.description}&examplesList=${examplesList}`,
             headers:
                 {
                     "Content-Type": "application/x-www-form-urlencoded"

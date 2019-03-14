@@ -15,3 +15,15 @@
         @content
     }
 }
+
+@mixin extrasmall {
+    @media (max-width: 411px) {
+        @content
+    }
+}
+
+@mixin extraLarge{
+    @media (max-width:1350px) {
+        @content
+    }
+}

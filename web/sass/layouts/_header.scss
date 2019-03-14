@@ -12,10 +12,25 @@ header {
         color: $color-orange;
         margin-right: 3px;
     }
-    h1 {
+    .headline {
         font-size: 50px;
         font-weight: 700;
         color: $color-orange;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        @include tablet-landscape {
+            font-size: 35px;
+        }
+
+        @include tablet-portrait {
+            font-size:4.3vw;
+
+        }
+
+        @include mobile {
+            font-size:5vw;
+
+        }
     }
 }
 
