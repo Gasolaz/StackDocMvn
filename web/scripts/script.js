@@ -388,15 +388,6 @@ const clickLogin = async () => {
         document.querySelector('.adminpage_login').style.display = "none";
       }, 500);
     } else {
-
-      document.querySelector('.error') !== null
-      &&
-      (document.querySelector('.error').textContent = " ");
-
-      const error = document.createElement("p");
-      error.className = "error";
-      error.textContent = "Wrong password!";
-      document.querySelector('.login_popup').appendChild(error);
       throw new Error("wtf");
     }
   } catch (err) {
@@ -544,11 +535,7 @@ const clickUpdate = async subtopic_id => {
   }
 };
 
-const clearError = () => {
-  document.querySelector('.error')
-  &&
-  (document.querySelector('.error').textContent = " ")
-};
+
 
 
 

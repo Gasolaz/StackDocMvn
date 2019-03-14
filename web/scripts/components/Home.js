@@ -45,7 +45,7 @@ const Home = {
             "input": {
               "class": "password_input",
               "type": "password",
-              "onkeyup": "changeState(event, 'pass');clearError()"
+              "onkeyup": "changeState(event, 'pass')"
             },
             "div": {
               "class": "password_buttons",
