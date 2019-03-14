@@ -4,6 +4,6 @@
     <title>Not Found</title>
 </head>
 <body>
-    <p>Error 404, page not found</p>
+<p>Error 404, page not found</p>
 </body>
 </html>
