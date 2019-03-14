@@ -18,9 +18,9 @@ const state = {
 const request = async () => {
   try {
 
-    const topics = await fetch(`http://localhost:8080/${state.path}/api/topics`);
-    const subtopics = await fetch(`http://localhost:8080/${state.path}/api/subtopics`);
-    const searchObject = await fetch(`http://localhost:8080/${state.path}/api/search`,
+    var topics = await fetch(`http://localhost:8080/${state.path}/api/topics`);
+    var subtopics = await fetch(`http://localhost:8080/${state.path}/api/subtopics`);
+    var searchObject = await fetch(`http://localhost:8080/${state.path}/api/search`,
         {
           method: "POST",
           body: `topics=${state.topic_id}&pageNumber=${state.pageNumber}&subtopicsearch=${state.search_keyword}`,
@@ -54,7 +54,7 @@ const onChange = async () => {
   state.pageNumber = 1;
   try {
 
-    const response = await fetch(`http://localhost:8080/${state.path}/api/topics`,
+    var response = await fetch(`http://localhost:8080/${state.path}/api/topics`,
         {
           method: "POST",
           body: `topics=${state.topic_id}&pageNumber=${state.pageNumber}&subtopicsearch=${state.search_keyword}`,
@@ -63,7 +63,7 @@ const onChange = async () => {
                 "Content-Type": "application/x-www-form-urlencoded"
               }
         });
-    const searchObject = await fetch(`http://localhost:8080/${state.path}/api/search`,
+    var searchObject = await fetch(`http://localhost:8080/${state.path}/api/search`,
         {
           method: "POST",
           body: `topics=${state.topic_id}&pageNumber=${state.pageNumber}&subtopicsearch=${state.search_keyword}`,
@@ -97,7 +97,7 @@ const onChange = async () => {
 
 const onClick = async subtopic_id => {
   try {
-    const response = await fetch(`http://localhost:8080/${state.path}/api/subtopics`,
+    var response = await fetch(`http://localhost:8080/${state.path}/api/subtopics`,
         {
           method: "POST",
           body: `subtopicid=${subtopic_id}&pageNumber=${state.pageNumber}&subtopicsearch=${state.search_keyword}`,
@@ -126,7 +126,7 @@ const onClick = async subtopic_id => {
 const clickPrevious = async () => {
   state.pageNumber--;
   try {
-    const response = await fetch(`http://localhost:8080/${state.path}/api/topics`,
+    var response = await fetch(`http://localhost:8080/${state.path}/api/topics`,
         {
           method: "POST",
           body: `topics=${state.topic_id}&pageNumber=${state.pageNumber}&subtopicsearch=${state.search_keyword}`,
@@ -148,7 +148,7 @@ const clickPrevious = async () => {
 const clickNext = async () => {
   state.pageNumber++;
   try {
-    const response = await fetch(`http://localhost:8080/${state.path}/api/topics`,
+    var response = await fetch(`http://localhost:8080/${state.path}/api/topics`,
         {
           method: "POST",
           body: `topics=${state.topic_id}&pageNumber=${state.pageNumber}&subtopicsearch=${state.search_keyword}`,
@@ -282,27 +282,35 @@ const clickShow = async (type, subtopic_id) => {
         document.querySelector('.select').dispatchEvent(event);
         break;
       case ".update_form_popup":
-        const response = await fetch(`http://localhost:8080/${state.path}/api/subtopics`,
-            {
-              method: "POST",
-              body: `subtopicid=${subtopic_id}&pageNumber=${state.pageNumber}&subtopicsearch=${state.search_keyword}`,
-              headers:
-                  {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                  }
-            });
+        try {
+          var response = await fetch(`http://localhost:8080/${state.path}/api/subtopics`,
+              {
+                method: "POST",
+                body: `subtopicid=${subtopic_id}&pageNumber=${state.pageNumber}&subtopicsearch=${state.search_keyword}`,
+                headers:
+                    {
+                      "Content-Type": "application/x-www-form-urlencoded"
+                    }
+              });
+        } catch (err) {
+          console.log(err.response.data);
+        }
 
         const json = await response.json();
         state.description = json.description.description;
         state.body_html = json.description.body_HTML;
         state.examplesObject = json.exampleList;
-        if (document.querySelectorAll("textarea").length > 3) {
-          for (let i = document.querySelectorAll("textarea").length - 1; i > 2; i--) {
-            document.querySelectorAll("textarea")[i].parentNode.removeChild(document.querySelectorAll("textarea")[i])
-          }
-        }
+
+        document.querySelector(".examples_textarea") !== null
+        &&
+        document.querySelector(type).removeChild(document.querySelector(".examples_textarea"));
 
         state.examplesList = [];
+
+        const div = document.createElement("div");
+        div.className = "examples_textarea";
+
+        document.querySelector(type).appendChild(div);
 
         json.exampleList.forEach((element, i) => {
           let textarea = document.createElement("textarea");
@@ -317,7 +325,8 @@ const clickShow = async (type, subtopic_id) => {
             id: element.id,
             body_html: element.body_html
           });
-          document.querySelector(type).append(textarea);
+
+          document.querySelector(".examples_textarea").append(textarea);
         });
 
         document.querySelectorAll('.description_html_textarea')[1].value = state.description;
@@ -355,6 +364,7 @@ const overlayLogic = (active, type) => {
 
 const clickLogin = async () => {
 
+
   try {
 
     const response = await fetch(`http://localhost:8080/${state.path}/admin`,
@@ -378,6 +388,15 @@ const clickLogin = async () => {
         document.querySelector('.adminpage_login').style.display = "none";
       }, 500);
     } else {
+
+      document.querySelector('.error') !== null
+      &&
+      (document.querySelector('.error').textContent = " ");
+
+      const error = document.createElement("p");
+      error.className = "error";
+      error.textContent = "Wrong password!";
+      document.querySelector('.login_popup').appendChild(error);
       throw new Error("wtf");
     }
   } catch (err) {
@@ -409,7 +428,7 @@ const clickDelete = async subtopic_id => {
                 "Content-Type": "application/x-www-form-urlencoded"
               }
         });
-    const response = await fetch(`http://localhost:8080/${state.path}/api/topics`,
+    var response = await fetch(`http://localhost:8080/${state.path}/api/topics`,
         {
           method: "POST",
           body: `topics=${state.topic_id}&pageNumber=${state.pageNumber}&subtopicsearch=${state.search_keyword}`,
@@ -418,7 +437,7 @@ const clickDelete = async subtopic_id => {
                 "Content-Type": "application/x-www-form-urlencoded"
               }
         });
-    const searchObject = await fetch(`http://localhost:8080/${state.path}/api/search`,
+    var searchObject = await fetch(`http://localhost:8080/${state.path}/api/search`,
         {
           method: "POST",
           body: `topics=${state.topic_id}&pageNumber=${state.pageNumber}&subtopicsearch=${state.search_keyword}`,
@@ -464,7 +483,7 @@ const clickCreate = async () => {
                 "Content-Type": "application/x-www-form-urlencoded"
               }
         });
-    const response = await fetch(`http://localhost:8080/${state.path}/api/topics`,
+    var response = await fetch(`http://localhost:8080/${state.path}/api/topics`,
         {
           method: "POST",
           body: `topics=${state.topic_id}&pageNumber=${state.pageNumber}&subtopicsearch=${state.search_keyword}`,
@@ -473,7 +492,7 @@ const clickCreate = async () => {
                 "Content-Type": "application/x-www-form-urlencoded"
               }
         });
-    const searchObject = await fetch(`http://localhost:8080/${state.path}/api/search`,
+    var searchObject = await fetch(`http://localhost:8080/${state.path}/api/search`,
         {
           method: "POST",
           body: `topics=${state.topic_id}&pageNumber=${state.pageNumber}&subtopicsearch=${state.search_keyword}`,
@@ -523,6 +542,12 @@ const clickUpdate = async subtopic_id => {
   } catch (err) {
     console.log(err.response.data);
   }
+};
+
+const clearError = () => {
+  document.querySelector('.error')
+  &&
+  (document.querySelector('.error').textContent = " ")
 };
 
 

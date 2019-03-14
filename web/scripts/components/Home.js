@@ -2,39 +2,39 @@ const Home = {
   "div": [
     {
       "class": "home",
-      "header": {
-        "button": {
-          "class": "admin_create",
-          "text": "CREATE",
-          "onclick": "clickShow('.create_form_popup')"
-        },
-        "div": [
-          {
-            "class": "logo",
-            "i": {
-              "class": "fab fa-stack-overflow"
-            },
-            "h1": "StackOverflow Documentation Search Engine",
-          },
-          {
-            "class": "admin_buttons",
-            "button": [
-              {
-                "class": "adminpage_login",
-                "text": "ADMIN",
-                "onclick": "clickShow('.login_popup')"
-              },
-              {
-                "class": "adminpage_logout",
-                "text": "LOG OUT",
-                "onclick": "clickShow('.logout_popup')"
-              },
-            ]
-          }
-        ],
-      },
       "div": {
         "class": "container",
+        "header": {
+          "button": {
+            "class": "admin_create",
+            "text": "CREATE",
+            "onclick": "clickShow('.create_form_popup')"
+          },
+          "div": [
+            {
+              "class": "logo",
+              "i": {
+                "class": "fab fa-stack-overflow"
+              },
+              "h1": "StackOverflow Documentation Search Engine",
+            },
+            {
+              "class": "admin_buttons",
+              "button": [
+                {
+                  "class": "adminpage_login",
+                  "text": "LOGIN",
+                  "onclick": "clickShow('.login_popup')"
+                },
+                {
+                  "class": "adminpage_logout",
+                  "text": "LOG OUT",
+                  "onclick": "clickShow('.logout_popup')"
+                },
+              ]
+            }
+          ],
+        },
         "div": [
           {
             "class": "login_popup",
@@ -45,7 +45,7 @@ const Home = {
             "input": {
               "class": "password_input",
               "type": "password",
-              "onkeyup": "changeState(event, 'pass')"
+              "onkeyup": "changeState(event, 'pass');clearError()"
             },
             "div": {
               "class": "password_buttons",

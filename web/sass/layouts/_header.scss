@@ -1,16 +1,15 @@
 header {
-    text-align: center;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0,0,0,.2);
     position: fixed;
     width: 100%;
-    z-index: 10;
+    max-width: 1650px;
+    margin: auto;
+
     .fa-stack-overflow {
         font-size: 50px;
         color: $color-D2D3D5;
-        margin-right: 3px;
+        margin-right: 10px;
     }
     h1 {
         font-size: 50px;
