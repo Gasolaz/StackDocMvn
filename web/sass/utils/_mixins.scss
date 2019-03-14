@@ -10,7 +10,7 @@
     order: $order;
     padding: 15px 20px;
     &:hover {
-        background-color: $color-orange;
+        background-color: $color-D2D3D5;
     }
     &:active {
         transform: scale(.9);
@@ -29,6 +29,7 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 20%;
+    visibility: hidden;
 }
 
 @mixin sure {

@@ -6,7 +6,7 @@ const Home = {
         "button": {
           "class": "admin_create",
           "text": "CREATE",
-          "onclick": "clickShowCreateForm()"
+          "onclick": "clickShow('.create_form_popup')"
         },
         "div": [
           {
@@ -22,12 +22,12 @@ const Home = {
               {
                 "class": "adminpage_login",
                 "text": "ADMIN",
-                "onclick": "clickShowLogin()"
+                "onclick": "clickShow('.login_popup')"
               },
               {
                 "class": "adminpage_logout",
                 "text": "LOG OUT",
-                "onclick": "clickShowLogout()"
+                "onclick": "clickShow('.logout_popup')"
               },
             ]
           }
@@ -70,7 +70,7 @@ const Home = {
               {
                 "class": "logout_button",
                 "text": "LOG OUT",
-                "onclick": "clickLogout()"
+                "onclick": "clickLogout();clickHide('.logout_popup')"
               },
               {
                 "class": "cancel_logout",
@@ -107,8 +107,8 @@ const Home = {
                 "text": "Subtopic name:"
               },
               {
-                "class": "description_html",
-                "text": "Description HTML:"
+                "class": "description",
+                "text": "Description:"
               }
             ],
             "input": {
@@ -137,16 +137,20 @@ const Home = {
           },
           {
             "class": "update_form_popup",
-            "p": {
-              "class": "description_html",
-              "text": "Description:"
-            },
-            "textarea": [
+            "p": [
               {
-                "class": "description_html_textarea",
-                "onkeyup": "changeState(event, 'description')"
+                "class": "description",
+                "text": "Description:"
+              },
+              {
+                "class": "examples",
+                "text": "Examples:"
               }
             ],
+            "textarea": {
+              "class": "description_html_textarea",
+              "onkeyup": "changeState(event, 'description')"
+            },
             "div": {
               "class": "update_form_buttons",
               "button": [
