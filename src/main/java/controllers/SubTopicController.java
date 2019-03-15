@@ -1,5 +1,7 @@
 package controllers;
 
+import models.DescriptionExampleMerge;
+import models.Example;
 import services.SubTopicService;
 import com.google.gson.Gson;
 import models.Description;
@@ -13,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+import static services.AdminService.getExamples;
+import static services.AdminService.objectToJson;
 import static services.DescriptionService.descriptionGetter;
 import static services.SubTopicService.searching;
 
@@ -25,24 +29,13 @@ public class SubTopicController extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-        String json = new Gson().toJson(subTopicThemes);
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-
-        response.getWriter().write(json);
+        objectToJson(response, subTopicThemes);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
         Description description = descriptionGetter(Long.parseLong(request.getParameter("subtopicid")));
-
-        String json = new Gson().toJson(description);
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-
-        response.getWriter().write(json);
+        List<Example> exampleList = getExamples(Long.parseLong(request.getParameter("subtopicid")));
+        DescriptionExampleMerge dem = new DescriptionExampleMerge(description, exampleList);
+        objectToJson(response, dem);
     }
 }

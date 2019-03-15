@@ -1,118 +1,394 @@
 .home {
     text-align: center;
-    background-color: $color-orange;
-    .container {
-        background-color: $color-antiquewhite;
-        .search_fields {
+    background-color: $color-D2D3D5;
+
+    header {
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 1650px;
+        margin: auto;
+        z-index: 1;
+
+        .admin_create {
+            @include button(0);
+            margin-left: 100px;
+        }
+
+        .logo {
             display: flex;
-            justify-content: space-between;
-            width: 50%;
+            align-items: center;
             margin: auto;
-            padding-top: 200px;
-            .select_topic {
-                background-color: white;
-                width: 40%;
-                cursor: pointer;
-                outline: none;
+
+            .fa-stack-overflow {
+
+
             }
-            .search {
+
+            h1 {
+
+
+            }
+        }
+
+        .adminpage_login, .adminpage_logout {
+            @include button(4);
+            margin-right: 100px;
+        }
+    }
+
+    .container {
+        background-color: $color-AE761F;
+
+
+        .login_popup {
+            @include popup;
+
+            .pass {
+                color: white;
+                width: 100%;
+                font-weight: 700;
+                font-size: 25px;
+            }
+
+            .password_input {
+                padding: 10px 15px;
+            }
+
+            .password_buttons {
+                margin-top: 10px;
+            }
+
+            .login_button {
+                @include button(1);
+                margin-right: 10px;
+            }
+
+            .cancel_login {
+                @include button(2);
+            }
+            .error {
+                color: red;
+                font-size: 25px;
+                width: 100%;
+            }
+        }
+    }
+
+    .logout_popup {
+        @include popup;
+
+        p {
+            @include sure;
+        }
+
+        .logout_button {
+            @include button(1);
+            margin-right: 50px;
+        }
+
+        .cancel_logout {
+            @include button(2);
+        }
+    }
+
+    .delete_popup {
+        @include popup;
+
+        p {
+            @include sure;
+        }
+
+        .delete_button {
+            @include button(1);
+            margin-right: 50px;
+        }
+
+        .cancel_delete {
+            @include button(2);
+        }
+    }
+
+    .create_form_popup {
+        @include popup;
+        padding: 60px;
+
+        .select {
+            width: 100%;
+            font-size: 20px;
+            order: 1;
+            padding: 10px;
+        }
+
+        .subtopic_name {
+            color: white;
+            font-size: 30px;
+            width: 100%;
+            order: 2;
+        }
+        .description {
+            width: 100%;
+            order: 4;
+            background-color: orange;
+            color: white;
+            font-size: 30px;
+        }
+
+        .subtopic_name_input {
+            order: 3;
+            padding: 10px 15px;
+        }
+
+        .description_html_textarea {
+            margin-top: 10px;
+            resize: none;
+            order: 5;
+            width: 500px;
+            height: 200px;
+        }
+
+        .create_form_buttons {
+            order: 6;
+            margin-top: 20px;
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            width: 100%;
+
+            .create_subtopic_button {
+                @include button(1);
                 width: 40%;
-                padding: 5px;
-                outline: none;
-                border: none;
-                color: orange;
+                margin-right: 20px;
+            }
+
+            .cancel_create_subtopic {
+                @include button(2);
+                width: 40%;
+
+            }
+        }
+
+    }
+
+    .update_form_popup {
+        @include popup;
+        padding-top: 100px;
+        padding-bottom: 150px;
+        width: 80%;
+
+        .description {
+            color: white;
+            order: 1;
+            width: 100%;
+            background-color: orange;
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        .description_html_textarea {
+            margin-top: 10px;
+            order: 2;
+            width: 50%;
+            height: 50px;
+        }
+
+        .examples {
+            order: 3;
+            color: white;
+            font-size: 30px;
+            font-weight: 700;
+            width: 100%;
+        }
+
+        .examples_textarea {
+            order: 4;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            textarea {
+                width: 10%;
+                margin-right: 10px;
+                margin-bottom: 10px;
+                height: 50px;
+            }
+
+        }
+
+
+
+        .update_form_buttons {
+            margin-top: 50px;
+            order: 5;
+
+            .update_subtopic_button {
+                @include button(1);
+                margin-right: 60px;
+
+            }
+
+            .cancel_update_subtopic {
+                @include button(2);
+
+            }
+        }
+    }
+
+    .search_fields {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+
+        margin: auto;
+        padding-top: 200px;
+
+        .select_topic {
+            background-color: white;
+            width: 40%;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .search {
+            width: 40%;
+            padding: 5px;
+            outline: none;
+            border: none;
+            color: black;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+
+            &::placeholder {
+                color: black;
                 font-weight: 700;
                 text-align: center;
-                text-transform: uppercase;
-                &::placeholder {
-                    color: $color-orange;
-                    font-weight: 700;
-                    text-align: center;
-                    //font-family: 'Architects Daughter', cursive;
-                    font-size: 20px;
-                    text-transform: none;
-                }
-                &:focus::placeholder {
-                    color: transparent;
-                }
-            }
-        }
-        .header {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 100px;
-            margin-bottom: 50px;
-            border-top: 2px solid $color-orange;
-            border-bottom: 2px solid $color-orange;
-            color: $color-orange;
-            font-weight: 700;
-            font-size: 25px;
-        }
-        .subtopics {
-            display: flex;
-            flex-wrap: wrap;
-            .subtopic {
-                display: flex;
-                width: 100%;
-                border-top: 2px solid $color-orange;
-                border-bottom: 2px solid $color-orange;
-                cursor: pointer;
-                user-select: none;
                 font-size: 20px;
-                font-weight: 700;
-                padding: 20px;
-                margin-bottom: 10px;
-                transition: .25s;
+                text-transform: none;
+            }
+
+            &:focus::placeholder {
+                color: transparent;
+            }
+        }
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 100px;
+        margin-bottom: 50px;
+        border-top: 2px solid $color-D2D3D5;
+        border-bottom: 2px solid $color-D2D3D5;
+        color: $color-D2D3D5;
+        font-weight: 700;
+        font-size: 25px;
+    }
+
+    .subtopics {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .subtopic {
+            display: flex;
+            cursor: pointer;
+            user-select: none;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 20px;
+            margin-bottom: 10px;
+            transition: .25s;
+            width: 100%;
+            position: relative;
+            color: $color-D2D3D5;
+
+            &:hover {
+                background-color: $color-D2D3D5;
+                color: black;
+            }
+
+            .topic_name, .subtopic_name {
+                width: 50%;
+            }
+
+            &:before {
+                content: '';
+                width: 100%;
+                margin: auto;
+                border-bottom: 2px solid $color-D2D3D5;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            &:after {
+                content: '';
+                width: 100%;
+                margin: auto;
+                border-bottom: 2px solid $color-D2D3D5;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+            }
+        }
+
+        .subtopic_delete {
+
+            .fa-times {
+                font-size: 20px;
+                cursor: pointer;
+                transition: .5s;
+
+
                 &:hover {
-                    background-color: $color-orange;
-                    color: white;
-                }
-                &:active {
-                    transform: scale(.9);
-                }
-                .topic_name, .subtopic_name {
-                    width: 50%;
+                    color: red;
+                    transform: scale(1.5);
                 }
             }
         }
 
-        .pages {
-            display: flex;
-            justify-content: space-between;
-            padding-top: 50px;
-            padding-bottom: 50px;
-            width: 90%;
-            margin: auto;
+        .subtopic_update {
 
-            .previous {
-                @include button(1);
+            padding-left: 15px;
+
+
+            .fa-edit {
+                font-size: 20px;
+                cursor: pointer;
+                transition: .5s;
+
+
                 &:hover {
-                    background-color: $color-orange;
-                    color: white;
-                }
-
-                &:active {
-                    transform: scale(.9);
+                    color: red;
+                    transform: scale(1.5);
                 }
             }
+        }
+    }
 
-            .next {
-                @include button(3);
-                &:hover {
-                    background-color: $color-orange;
-                    color: white;
-                }
+    .pages {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        width: 90%;
+        margin: auto;
 
-                &:active {
-                    transform: scale(.9);
-                }
-            }
+        .previous {
+            @include button(1);
+        }
 
-            .page_number {
-                color: $color-orange;
-                font-size: 30px;
-                order: 2;
-            }
+        .next {
+            @include button(3);
+        }
+
+        .page_number {
+            color: #fff;
+            font-size: 40px;
+            order: 2;
+            user-select: none;
         }
     }
 }

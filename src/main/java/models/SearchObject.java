@@ -57,20 +57,4 @@ public class SearchObject {
             e.printStackTrace();
         }
     }
-
-    public long getPageNumber() {
-        return pageNumber;
-    }
-
-    public long getTopicId() {
-        return topicId;
-    }
-
-    public String getSearch() {
-        return search;
-    }
-
-    public long getPages() {
-        return pages;
-    }
 }

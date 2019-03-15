@@ -40,7 +40,10 @@ const converter = (json, parent) => {
           ||
           key === "option"
           ||
-          key === "input") {
+          key === "input"
+          ||
+          key === "textarea")
+      {
         var child = document.createElement(key);
         parent.appendChild(child);
       }
